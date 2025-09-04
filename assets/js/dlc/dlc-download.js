@@ -80,10 +80,23 @@
     const s = String(p).replace(/^\.\.\//, '').replace(/^\//,'');
     
     // R2 구조 매핑: 현재 R2에는 data 폴더가 직접 업로드되어 있음
+    // 1) 에셋 이미지(다운로드용): assets/data/asset(s)/* → data/assets/*
+    if(s.startsWith('assets/data/asset/')){
+      return dataUrl('data/assets/' + s.slice('assets/data/asset/'.length));
+    }
+    if(s.startsWith('assets/data/assets/')){
+      return dataUrl('data/assets/' + s.slice('assets/data/assets/'.length));
+    }
+    // 2) 이미 data/assets/* 형태라면 그대로 사용
+    if(s.startsWith('data/assets/')){
+      return dataUrl(s);
+    }
+    // 3) 일반 데이터 파일: assets/data/* → data/*
     if(s.startsWith('assets/data/')){
       // assets/data/dlc/xxx → data/dlc/xxx (R2에서는 data 폴더가 루트에 있음)
       return dataUrl('data/' + s.slice('assets/data/'.length));
     }
+    // 4) 레거시 이미지 경로 지원: assets/images/* → data/image/* (DLC 폴더 제거)
     if(s.startsWith('assets/images/')){
       // assets/images/DLC/xxx 또는 assets/images/dlc/xxx → data/image/xxx (DLC 폴더 제거)
       let imagePath = s.slice('assets/images/'.length);
