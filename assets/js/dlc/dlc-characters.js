@@ -245,6 +245,11 @@
   function resolveImagePath(path){
     if(!path) return path;
     if(/^https?:\/\//i.test(path)) return path; // absolute
+    // 절대 경로(/images/...)는 CDN 베이스로 매핑
+    if(path.startsWith('/images/')){
+      const rel = path.replace(/^\/+/, ''); // remove leading '/'
+      return dataUrl(rel);
+    }
     // R2 구조에 맞게 이미지 경로 매핑
     if(path.startsWith('assets/images/')){
       // assets/images/DLC/xxx 또는 assets/images/dlc/xxx → data/image/xxx (DLC 폴더 제거)
