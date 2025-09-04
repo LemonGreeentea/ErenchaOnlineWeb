@@ -786,6 +786,9 @@
     async function loadFolderTemplate(){
   try{ const r=await fetch(dataUrl('data/lorebooks/charater_folder.json')); if(!r.ok) throw 0; const d=await r.json(); return (d&&d.type==='risu'&&Array.isArray(d.data))?d:null; }catch{ return null; }
     }
+    async function loadModuleImageTemplate(){
+      try{ const r=await fetch(dataUrl('data/lorebooks/module_image.json')); if(!r.ok) throw 0; const d=await r.json(); return (d&&d.type==='risu'&&Array.isArray(d.data))?d:null; }catch{ return null; }
+    }
     async function loadGuildListTemplate(){
       try{ const r=await fetch(dataUrl('data/lorebooks/guild_folder.json')); if(!r.ok) throw 0; const d=await r.json(); return (d&&d.type==='risu'&&Array.isArray(d.data))?d:null; }catch{ return null; }
     }
@@ -799,6 +802,7 @@
   const folderTemplate = await loadFolderTemplate();
   const guildListTemplate = await loadGuildListTemplate();
   const dlcGuildLines = await loadDlcGuildLines();
+  const moduleImageTemplate = await loadModuleImageTemplate();
     const out = base.slice();
     for(const loc of (sel.locations||[])){
       const group = locById[loc.id];
@@ -824,6 +828,108 @@
         if(obj && obj.type==='risu' && Array.isArray(obj.data)) obj.data.forEach(d=> out.push(d));
       }
     }
+
+    // Module Image: Additional Image Command Lists (Characters/Reallife)
+    try{
+      const addChars = [];
+      const addReal = [];
+      const seenChars = new Set();
+      const seenReal = new Set();
+      for(const ch of (sel.characters||[])){
+        const rec = charById[ch.id]; if(!rec) continue;
+        for(const n of (rec.globalNotes||[])){
+          if(typeof n==='string' && n.trim() && !seenChars.has(n)) { seenChars.add(n); addChars.push(n); }
+        }
+        for(const n of (rec.globalNotesRealLife||[])){
+          if(typeof n==='string' && n.trim() && !seenReal.has(n)) { seenReal.add(n); addReal.push(n); }
+        }
+      }
+      // Include selected locations' global notes (group-level and selected subs if definitions carry notes)
+      for(const loc of (sel.locations||[])){
+        const group = locById[loc.id];
+        if(group){
+          for(const n of (group.globalNotes||[])){
+            if(typeof n==='string' && n.trim() && !seenChars.has(n)) { seenChars.add(n); addChars.push(n); }
+          }
+          for(const n of (group.globalNotesRealLife||[])){
+            if(typeof n==='string' && n.trim() && !seenReal.has(n)) { seenReal.add(n); addReal.push(n); }
+          }
+          // subs
+          const subs = Array.isArray(group.sub) ? group.sub : [];
+          const selectedSubs = Array.isArray(loc.sub) ? loc.sub : [];
+          for(const s of selectedSubs){
+            const def = subs.find(x=> x && x.id === s.id);
+            if(def){
+              for(const n of (def.globalNotes||[])){
+                if(typeof n==='string' && n.trim() && !seenChars.has(n)) { seenChars.add(n); addChars.push(n); }
+              }
+              for(const n of (def.globalNotesRealLife||[])){
+                if(typeof n==='string' && n.trim() && !seenReal.has(n)) { seenReal.add(n); addReal.push(n); }
+              }
+            }
+          }
+        }
+      }
+      // Always include module_image template (preserve its content), inject lists into placeholders
+      if(moduleImageTemplate){
+        const modData = JSON.parse(JSON.stringify(moduleImageTemplate));
+        const folderEntry = modData.data.find(e=> e.mode==='folder');
+        const folderId = folderEntry?.key;
+        let target = modData.data.find(e=> e.comment && /이미지 가이드 추가|Module Image|Additional/i.test(e.comment)) || modData.data.find(e=> e.mode !== 'folder');
+        if(target){
+          const raw = String(target.content||'');
+          const listChars = (addChars.length ? `- ${addChars.join(',')}` : '').trim();
+          const listReal  = (addReal.length ? `- ${addReal.join(',')}`  : '').trim();
+
+          const injectAfterHeading = (src, heading, listLine, nextHeadings)=>{
+            const idx = src.indexOf(heading);
+            if(idx < 0) return src; // heading not found, keep as-is
+            const start = idx + heading.length;
+            // find next heading boundary among provided candidates
+            let next = src.length;
+            for(const h of nextHeadings){
+              const p = src.indexOf(h, start);
+              if(p >= 0 && p < next) next = p;
+            }
+            const head = src.slice(0, start);
+            const tail = src.slice(next);
+            const body = (listLine ? `\n${listLine}\n` : '\n');
+            // ensure one extra newline between sections when tail exists and doesn't start with newline
+            const sep = tail && !/^\n/.test(tail) ? '\n' : '';
+            return head + body + sep + tail;
+          };
+
+          let newContent = raw;
+          newContent = injectAfterHeading(
+            newContent,
+            '#### Additional Characters Image Command List',
+            listChars,
+            ['### Additional Reallife Character Image Guidelines','#### Additional Reallife Characters Image Command List']
+          );
+          newContent = injectAfterHeading(
+            newContent,
+            '#### Additional Reallife Characters Image Command List',
+            listReal,
+            []
+          );
+
+          target.content = newContent;
+          if(folderId){ target.folder = target.folder || folderId; }
+          if(folderEntry) out.push(folderEntry);
+          out.push(target);
+        } else {
+          // Fallback: create a lightweight node with only lists
+          const lines = [];
+          lines.push('#### Additional Characters Image Command List');
+          if(addChars.length) lines.push(`- ${addChars.join(',')}`);
+          lines.push('');
+          lines.push('#### Additional Reallife Characters Image Command List');
+          if(addReal.length) lines.push(`- ${addReal.join(',')}`);
+          const node = { key: 'module_image_additional', comment: 'Module Image - Additional Lists', content: lines.join('\n'), mode: 'normal', insertorder: 1 };
+          out.push(node);
+        }
+      }
+    }catch{}
   let finalEntries = out;
   if(folderTemplate && (sel.characters && sel.characters.length > 0)){
       try{
@@ -846,7 +952,7 @@
             listNode.content = head + playerHeader + playerBody + tail;
           }
         }
-        // Only include folder + list, not any base lorebook entries
+  // Only include folder + list, not any base lorebook entries
         const toPrepend = [];
         const folderEntry = folderData.data.find(e=>e.mode==='folder');
         if(folderEntry) toPrepend.push(folderEntry);

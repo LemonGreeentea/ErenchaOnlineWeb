@@ -429,8 +429,8 @@
   "imageGame": "/images/character/DLC_Player/Tacheon-sa.webp",
   "imageReal": "/images/character/DLC_Player/Tacheon-sa_reallife.webp",
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
-  "globalNotes": ["Tacheon☆sa"],
-  "globalNotesRealLife": ["Tacheon☆sa_reallife"],
+  "globalNotes": ["Tacheon-sa"],
+  "globalNotesRealLife": ["Tacheon-sa_reallife"],
   "lastUpdated": "2025. 9. 4.",
   "loreFiles": ["assets/data/lorebooks/player/Tacheon-sa.json"],
   "assetImages": [
