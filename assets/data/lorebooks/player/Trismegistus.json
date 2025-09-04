@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Trismegistus, 트리스메기스투스",
+      "comment": "오컬티스트",
+      "content": "연금술과 저주를 다루는 오컬티스트. 괴상한 포션으로 후방에서 지원한다.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

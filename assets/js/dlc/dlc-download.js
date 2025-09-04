@@ -592,12 +592,30 @@
         return (data && data.type==='risu' && Array.isArray(data.data)) ? data : null;
       }catch(e){ console.error('Failed to load charater_folder.json', e); return null; }
     }
+      async function loadGuildListTemplate(){
+        try{
+          const res = await fetch(dataUrl('data/lorebooks/guild_folder.json'));
+          if(!res.ok) throw new Error('HTTP '+res.status);
+          const data = await res.json();
+          return (data && data.type==='risu' && Array.isArray(data.data)) ? data : null;
+        }catch(e){ console.error('Failed to load guild_folder.json', e); return null; }
+      }
+      async function loadDlcGuildLines(){
+        try{
+          const res = await fetch('../assets/data/dlc/dlcguildlist.json');
+          if(!res.ok) throw new Error('HTTP '+res.status);
+          const data = await res.json();
+          return Array.isArray(data.guilds) ? data.guilds : [];
+        }catch(e){ console.error('Failed to load dlcguildlist.json', e); return []; }
+      }
 
     const locationsData = await loadLocationsData();
     const locById = Object.fromEntries((locationsData||[]).map(g => [g.id, g]));
   const charactersData = await loadCharactersData();
     const charById = Object.fromEntries((charactersData||[]).map(c => [c.id, c]));
   const folderTemplate = await loadFolderTemplate();
+  const guildListTemplate = await loadGuildListTemplate();
+  const dlcGuildLines = await loadDlcGuildLines();
 
     const locs = sel.locations || [];
     for(const loc of locs){
@@ -622,11 +640,22 @@
       }
     }
 
-    // 3) 선택된 캐릭터의 loreFiles
+    // 3) 선택된 캐릭터의 loreFiles + guildLoreFiles(중복 파일 경로는 1회만 포함)
+    const processedGuildPaths = new Set();
     for(const ch of (sel.characters||[])){
       const rec = charById[ch.id];
       if(!rec) continue;
+      // 개별 캐릭터 고유 loreFiles
       for(const p of (rec.loreFiles||[])){
+        const obj = await fetchJSON(p);
+        if(obj && obj.type==='risu' && Array.isArray(obj.data)){
+          obj.data.forEach(d=> entries.push(d));
+        }
+      }
+      // 길드 공용 로어북 파일 (여러 캐릭터가 같은 파일을 가리킬 수 있으므로 경로 중복 방지)
+      for(const p of (rec.guildLoreFiles||[])){
+        if(!p || processedGuildPaths.has(p)) continue;
+        processedGuildPaths.add(p);
         const obj = await fetchJSON(p);
         if(obj && obj.type==='risu' && Array.isArray(obj.data)){
           obj.data.forEach(d=> entries.push(d));
@@ -676,8 +705,56 @@
           if(folderId){ listNode.folder = listNode.folder || folderId; }
           toPrepend.push(listNode);
         }
-        // Prepend minimal character folder/list block
-        finalEntries = toPrepend.concat(finalEntries);
+        // Build Guild List section when selected characters include dlc-guild
+        try{
+          const guildSlugs = new Set();
+          for(const ch of (sel.characters||[])){
+            const rec = charById[ch.id];
+            if(rec && typeof rec['dlc-guild'] === 'string' && rec['dlc-guild'].trim()){
+              guildSlugs.add(rec['dlc-guild'].trim());
+            }
+          }
+          if(guildListTemplate && guildSlugs.size > 0){
+            // Map slugs to lines using simple heuristics (same as dlc-characters mapping)
+            const GUILD_KO = { mudeom:'무덤', changcheon:'창천', 'hunting-research-society':'수렵연구회', masterpiece:'마스터피스' };
+            const GUILD_EN = { mudeom:'Mudeom Guild', changcheon:'Changcheon Guild', 'hunting-research-society':'Hunting Research Society Guild', masterpiece:'Masterpiece Guild' };
+            const pickLine = (slug)=>{
+              const lines = dlcGuildLines || [];
+              const ko = GUILD_KO[slug];
+              if(ko){
+                const hit = lines.find(s=> typeof s==='string' && s.trim().startsWith(`- ${ko} 길드`));
+                if(hit) return hit;
+              }
+              const en = GUILD_EN[slug];
+              if(en){
+                const hit2 = (dlcGuildLines||[]).find(s=> typeof s==='string' && s.includes(`(${en})`));
+                if(hit2) return hit2;
+              }
+              return '';
+            };
+            const uniqueLines = Array.from(guildSlugs).map(pickLine).filter(Boolean);
+            if(uniqueLines.length){
+              const guildData = JSON.parse(JSON.stringify(guildListTemplate));
+              const folderId2 = guildData.data.find(e=>e.mode==='folder')?.key;
+              const listNode2 = guildData.data.find(e=> e.comment && e.comment === 'Guild List');
+              if(listNode2){
+                const head = '# Guild List (길드 리스트)\n\n';
+                listNode2.content = head + uniqueLines.join('\n');
+              }
+              const toPrependGuild = [];
+              const folderEntry2 = guildData.data.find(e=>e.mode==='folder');
+              if(folderEntry2) toPrependGuild.push(folderEntry2);
+              if(listNode2){ if(folderId2){ listNode2.folder = listNode2.folder || folderId2; } toPrependGuild.push(listNode2); }
+              finalEntries = toPrependGuild.concat(toPrepend, finalEntries);
+            } else {
+              // No guild lines matched, just prepend character folder/list
+              finalEntries = toPrepend.concat(finalEntries);
+            }
+          } else {
+            // No guilds selected or template missing
+            finalEntries = toPrepend.concat(finalEntries);
+          }
+        }catch(e){ console.warn('Guild list injection failed', e); finalEntries = toPrepend.concat(finalEntries); }
       }catch(e){ console.warn('Folder injection failed', e); }
     }
 
@@ -709,11 +786,19 @@
     async function loadFolderTemplate(){
   try{ const r=await fetch(dataUrl('data/lorebooks/charater_folder.json')); if(!r.ok) throw 0; const d=await r.json(); return (d&&d.type==='risu'&&Array.isArray(d.data))?d:null; }catch{ return null; }
     }
+    async function loadGuildListTemplate(){
+      try{ const r=await fetch(dataUrl('data/lorebooks/guild_folder.json')); if(!r.ok) throw 0; const d=await r.json(); return (d&&d.type==='risu'&&Array.isArray(d.data))?d:null; }catch{ return null; }
+    }
+    async function loadDlcGuildLines(){
+      try{ const r=await fetch('../assets/data/dlc/dlcguildlist.json'); if(!r.ok) throw 0; const d=await r.json(); return Array.isArray(d.guilds) ? d.guilds : []; }catch{ return []; }
+    }
     const locationsData = await loadLocationsData();
     const locById = Object.fromEntries((locationsData||[]).map(g=>[g.id,g]));
     const charactersData = await loadCharactersData();
     const charById = Object.fromEntries((charactersData||[]).map(c=>[c.id,c]));
-    const folderTemplate = await loadFolderTemplate();
+  const folderTemplate = await loadFolderTemplate();
+  const guildListTemplate = await loadGuildListTemplate();
+  const dlcGuildLines = await loadDlcGuildLines();
     const out = base.slice();
     for(const loc of (sel.locations||[])){
       const group = locById[loc.id];
@@ -724,9 +809,20 @@
         for(const p of (s.loreFiles||[])){ const obj = await fetchJSON(p); if(obj && obj.type==='risu' && Array.isArray(obj.data)) obj.data.forEach(d=> out.push(d)); }
       }
     }
+    // 캐릭터 고유 + 길드 로어북(경로 중복 방지)
+    const processedGuildPaths = new Set();
     for(const ch of (sel.characters||[])){
       const rec = charById[ch.id]; if(!rec) continue;
-      for(const p of (rec.loreFiles||[])){ const obj = await fetchJSON(p); if(obj && obj.type==='risu' && Array.isArray(obj.data)) obj.data.forEach(d=> out.push(d)); }
+      for(const p of (rec.loreFiles||[])){
+        const obj = await fetchJSON(p);
+        if(obj && obj.type==='risu' && Array.isArray(obj.data)) obj.data.forEach(d=> out.push(d));
+      }
+      for(const p of (rec.guildLoreFiles||[])){
+        if(!p || processedGuildPaths.has(p)) continue;
+        processedGuildPaths.add(p);
+        const obj = await fetchJSON(p);
+        if(obj && obj.type==='risu' && Array.isArray(obj.data)) obj.data.forEach(d=> out.push(d));
+      }
     }
   let finalEntries = out;
   if(folderTemplate && (sel.characters && sel.characters.length > 0)){
@@ -758,7 +854,53 @@
           if(folderId){ listNode.folder = listNode.folder || folderId; }
           toPrepend.push(listNode);
         }
-        finalEntries = toPrepend.concat(finalEntries);
+        // Guild List 섹션도 선택된 길드가 있으면 함께 주입
+        try{
+          const guildSlugs = new Set();
+          for(const ch of (sel.characters||[])){
+            const rec = charById[ch.id];
+            if(rec && typeof rec['dlc-guild'] === 'string' && rec['dlc-guild'].trim()){
+              guildSlugs.add(rec['dlc-guild'].trim());
+            }
+          }
+          if(guildListTemplate && guildSlugs.size > 0){
+            const GUILD_KO = { mudeom:'무덤', changcheon:'창천', 'hunting-research-society':'수렵연구회', masterpiece:'마스터피스' };
+            const GUILD_EN = { mudeom:'Mudeom Guild', changcheon:'Changcheon Guild', 'hunting-research-society':'Hunting Research Society Guild', masterpiece:'Masterpiece Guild' };
+            const pickLine = (slug)=>{
+              const lines = dlcGuildLines || [];
+              const ko = GUILD_KO[slug];
+              if(ko){
+                const hit = lines.find(s=> typeof s==='string' && s.trim().startsWith(`- ${ko} 길드`));
+                if(hit) return hit;
+              }
+              const en = GUILD_EN[slug];
+              if(en){
+                const hit2 = (dlcGuildLines||[]).find(s=> typeof s==='string' && s.includes(`(${en})`));
+                if(hit2) return hit2;
+              }
+              return '';
+            };
+            const uniqueLines = Array.from(guildSlugs).map(pickLine).filter(Boolean);
+            if(uniqueLines.length){
+              const guildData = JSON.parse(JSON.stringify(guildListTemplate));
+              const folderId2 = guildData.data.find(e=>e.mode==='folder')?.key;
+              const listNode2 = guildData.data.find(e=> e.comment && e.comment === 'Guild List');
+              if(listNode2){
+                const head = '# Guild List (길드 리스트)\n\n';
+                listNode2.content = head + uniqueLines.join('\n');
+              }
+              const toPrependGuild = [];
+              const folderEntry2 = guildData.data.find(e=>e.mode==='folder');
+              if(folderEntry2) toPrependGuild.push(folderEntry2);
+              if(listNode2){ if(folderId2){ listNode2.folder = listNode2.folder || folderId2; } toPrependGuild.push(listNode2); }
+              finalEntries = toPrependGuild.concat(toPrepend, finalEntries);
+            } else {
+              finalEntries = toPrepend.concat(finalEntries);
+            }
+          } else {
+            finalEntries = toPrepend.concat(finalEntries);
+          }
+        }catch{ finalEntries = toPrepend.concat(finalEntries); }
       }catch{}
     }
     // JSON 로어북과 동일하게 엔트리 스키마를 정규화하여(Risu가 기대하는 필드 기본값 포함) 반환

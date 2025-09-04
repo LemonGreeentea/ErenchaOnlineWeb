@@ -20,6 +20,10 @@
   }
 
   let newCharacters = [];
+  // 길드 설명(문장) 로딩/매핑용
+  let guildLines = null; // 문자열 배열
+  const GUILD_KO = { mudeom:'무덤', changcheon:'창천', 'hunting-research-society':'수렵연구회', masterpiece:'마스터피스' };
+  const GUILD_EN = { mudeom:'Mudeom Guild', changcheon:'Changcheon Guild', 'hunting-research-society':'Hunting Research Society Guild', masterpiece:'Masterpiece Guild' };
 
   // 저장 키
   const STORAGE_KEY = 'dlcSelections';
@@ -40,6 +44,38 @@
 
   function isSelected(sel, id){
     return (sel.characters||[]).some(c=>c.id===id);
+  }
+
+  async function loadGuildList(){
+    if (Array.isArray(guildLines)) return guildLines;
+    try{
+      const r = await fetch('../assets/data/dlc/dlcguildlist.json');
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      const json = await r.json();
+      const arr = Array.isArray(json && json.guilds) ? json.guilds : [];
+      guildLines = arr;
+    }catch(e){
+      console.warn('길드 리스트를 불러오지 못했습니다:', e);
+      guildLines = [];
+    }
+    return guildLines;
+  }
+
+  function getGuildLineBySlug(slug){
+    if(!slug || !Array.isArray(guildLines)) return '';
+    // 1) 한글 길드명으로 매칭
+    const ko = GUILD_KO[slug];
+    if(ko){
+      const hit = guildLines.find(s=> typeof s === 'string' && s.trim().startsWith(`- ${ko} 길드`));
+      if(hit) return hit;
+    }
+    // 2) 영문 괄호명으로 매칭
+    const en = GUILD_EN[slug];
+    if(en){
+      const hit2 = guildLines.find(s=> typeof s === 'string' && s.includes(`(${en})`));
+      if(hit2) return hit2;
+    }
+    return '';
   }
 
   function toggleCharacter(id, payload){
@@ -267,6 +303,8 @@
 
   async function load(){
     try{
+      // 길드 리스트 선로딩
+      await loadGuildList();
       const r = await fetch('../assets/data/dlc/characters.json');
       if(!r.ok) throw new Error('HTTP '+r.status);
       const list = await r.json();
@@ -280,6 +318,12 @@
           imageGame: resolveImagePath(c.imageGame),
           imageReal: resolveImagePath(c.imageReal),
         };
+        // dlc-guild 슬러그를 길드 설명 문장으로 변환하여 guild 필드에 주입
+        const slug = c['dlc-guild'];
+        if(slug){
+          const line = getGuildLineBySlug(slug);
+          if(line) normalized.guild = line;
+        }
         // playerId 연결 시 player-data에서 간단 필드 보완
         if (c.playerId && pdMap.has(c.playerId)) {
           const pd = pdMap.get(c.playerId);

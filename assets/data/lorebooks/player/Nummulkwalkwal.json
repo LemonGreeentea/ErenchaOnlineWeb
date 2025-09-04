@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Nummulkwalkwal, 눈물콸콸",
+      "comment": "러시다운형 몽크",
+      "content": "말보다 주먹으로 말한다. 적의 코앞에서 폭풍 연타로 전장을 밀어붙인다.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

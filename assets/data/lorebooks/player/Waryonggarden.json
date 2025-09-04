@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Waryonggarden, 와룡가든",
+      "comment": "창천 길드 마스터",
+      "content": "정보와 언변으로 전장을 설계하는 전략가. 전투의 흐름을 지휘한다.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

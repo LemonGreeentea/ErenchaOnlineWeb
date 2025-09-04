@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Bbeokkeum-Bbeokkeum-Guseul, 뻐끔뻐끔구슬",
+      "comment": "탱커",
+      "content": "하이텐션으로 광역 도발을 몰아 파티의 중심을 잡는 가디언 나이트.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

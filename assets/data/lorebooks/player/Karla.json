@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Karla, 카르라",
+      "comment": "무덤 길드 핵심 딜러",
+      "content": "악역 컨셉의 유리대포. 폭발적인 화력으로 보스전을 단숨에 정리한다.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

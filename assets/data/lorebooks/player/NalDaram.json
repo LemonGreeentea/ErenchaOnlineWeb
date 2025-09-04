@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "NalDaram, 날다람",
+      "comment": "무덤 길드 마스터",
+      "content": "신중하고 사려 깊은 네크로맨서. 소환으로 아군을 보호하고 지원한다.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

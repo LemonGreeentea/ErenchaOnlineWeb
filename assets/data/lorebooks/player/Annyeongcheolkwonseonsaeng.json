@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Annyeongcheolkwonseonsaeng, 안녕철권선생",
+      "comment": "전열 제어 힐러",
+      "content": "철권 건틀릿으로 적을 밀어내며 아슬아슬한 타이밍에 힐을 넣는 배틀 프리스트.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Mureoddeudneunbyeorak, 물어뜯는벼락",
+      "comment": "유리대포 닌자",
+      "content": "은신과 일격 필살로 적을 지운다. 온화한 겉모습과 달리 암살·기습에 특화.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

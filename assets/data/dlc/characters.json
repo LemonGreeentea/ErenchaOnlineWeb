@@ -121,6 +121,8 @@
     "realName": "김사돌",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "mudeom",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Mudeom.json"],
   "desc": "신중하고 사려 깊은 무덤 길드 마스터. 소환 스킬로 아군을 보호·지원하는 네크로맨서.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/NalDaram.webp",
@@ -129,8 +131,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["NalDaram"],
   "globalNotesRealLife": ["NalDaram_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/NalDaram.json"],
   "assetImages": [
     "assets/data/asset/player/NalDaram.png",
     "assets/data/asset/player/NalDaram_reallife.png"
@@ -144,6 +146,8 @@
     "realName": "임승율",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "mudeom",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Mudeom.json"],
   "desc": "정의감 넘치는 팔라딘, 무덤의 방패. 리얼리티 슬래시를 앞세운 올라운더.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/NalManjeo.webp",
@@ -152,8 +156,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["NalManjeo"],
   "globalNotesRealLife": ["NalManjeo_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/NalManjeo.json"],
   "assetImages": [
     "assets/data/asset/player/NalManjeo.png",
     "assets/data/asset/player/NalManjeo_reallife.png"
@@ -167,6 +171,8 @@
     "realName": "천영화",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "mudeom",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Mudeom.json"],
   "desc": "악역 컨셉의 유리대포 딜러. 압도적 화력으로 보스전을 단숨에 정리하는 무덤 길드의 핵심 딜러.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Karla.webp",
@@ -175,8 +181,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Karla"],
   "globalNotesRealLife": ["Karla_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Karla.json"],
   "assetImages": [
     "assets/data/asset/player/Karla.png",
     "assets/data/asset/player/Karla_reallife.png"
@@ -190,6 +196,8 @@
     "realName": "태수빈",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "mudeom",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Mudeom.json"],
   "desc": "전열에서 적을 밀어내는 괴짜 힐러. 철권 건틀릿으로 제어하며 아슬아슬한 타이밍에 힐을 넣는다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Annyeongcheolkwonseonsaeng.webp",
@@ -198,8 +206,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Annyeongcheolkwonseonsaeng"],
   "globalNotesRealLife": ["Annyeongcheolkwonseonsaeng_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Annyeongcheolkwonseonsaeng.json"],
   "assetImages": [
     "assets/data/asset/player/Annyeongcheolkwonseonsaeng.png",
     "assets/data/asset/player/Annyeongcheolkwonseonsaeng_reallife.png"
@@ -213,6 +221,8 @@
     "realName": "손여란",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "changcheon",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Changcheon.json"],
   "desc": "정보와 언변으로 판을 설계하는 창천 길드 마스터. 전장을 지휘하는 전략가.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Waryonggarden.webp",
@@ -221,8 +231,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Waryonggarden"],
   "globalNotesRealLife": ["Waryonggarden_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Waryonggarden.json"],
   "assetImages": [
     "assets/data/asset/player/Waryonggarden.png",
     "assets/data/asset/player/Waryonggarden_reallife.png"
@@ -236,6 +246,8 @@
     "realName": "류금우",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "changcheon",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Changcheon.json"],
   "desc": "정면승부를 즐기는 대결 특화 전사. 읽기와 결단으로 일격을 꽂는 로스트 사무라이.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/MuinRyuGeumwoo.webp",
@@ -244,8 +256,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["MuinRyuGeumwoo"],
   "globalNotesRealLife": ["MuinRyuGeumwoo_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/MuinRyuGeumwoo.json"],
   "assetImages": [
     "assets/data/asset/player/MuinRyuGeumwoo.png",
     "assets/data/asset/player/MuinRyuGeumwoo_reallife.png"
@@ -259,6 +271,8 @@
     "realName": "이연주",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "changcheon",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Changcheon.json"],
   "desc": "은신과 일격 필살로 적을 지우는 유리대포 닌자. 온화한 겉모습과 달리 암살·기습에 특화.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Mureoddeudneunbyeorak.webp",
@@ -267,8 +281,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Mureoddeudneunbyeorak"],
   "globalNotesRealLife": ["Mureoddeudneunbyeorak_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Mureoddeudneunbyeorak.json"],
   "assetImages": [
     "assets/data/asset/player/Mureoddeudneunbyeorak.png",
     "assets/data/asset/player/Mureoddeudneunbyeorak_reallife.png"
@@ -282,6 +296,8 @@
     "realName": "양미성",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "hunting-research-society",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/HuntingResearchSociety.json"],
   "desc": "하이텐션으로 전장을 휘젓는 탱커. 광역 도발로 어그로를 쓸어 담아 파티의 중심을 잡는다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Bbeokkeum-Bbeokkeum-Guseul.webp",
@@ -290,8 +306,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Bbeokkeum-Bbeokkeum-Guseul"],
   "globalNotesRealLife": ["Bbeokkeum-Bbeokkeum-Guseul_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Bbeokkeum-Bbeokkeum-Guseul.json"],
   "assetImages": [
     "assets/data/asset/player/Bbeokkeum-Bbeokkeum-Guseul.png",
     "assets/data/asset/player/Bbeokkeum-Bbeokkeum-Guseul_reallife.png"
@@ -305,6 +321,8 @@
     "realName": "양교성",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "hunting-research-society",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/HuntingResearchSociety.json"],
   "desc": "최대 사거리 포화의 데드아이. 항상 노필터지만 언니 앞에선 순해진다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Hallelujah.webp",
@@ -313,8 +331,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Hallelujah"],
   "globalNotesRealLife": ["Hallelujah_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Hallelujah.json"],
   "assetImages": [
     "assets/data/asset/player/Hallelujah.png",
     "assets/data/asset/player/Hallelujah_reallife.png"
@@ -328,6 +346,8 @@
     "realName": "한서주",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "hunting-research-society",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/HuntingResearchSociety.json"],
   "desc": "말보다 주먹으로 말하는 러시다운형 몽크. 적의 코앞에서 폭풍 연타로 전장을 밀어붙인다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Nummulkwalkwal.webp",
@@ -336,8 +356,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Nummulkwalkwal"],
   "globalNotesRealLife": ["Nummulkwalkwal_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Nummulkwalkwal.json"],
   "assetImages": [
     "assets/data/asset/player/Nummulkwalkwal.png",
     "assets/data/asset/player/Nummulkwalkwal_reallife.png"
@@ -351,6 +371,8 @@
     "realName": "안유민",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "masterpiece",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Masterpiece.json"],
   "desc": "공손한 장인 위장 뒤에 심연의 로어를 품은 연금술 오컬티스트. 괴상한 포션과 저주로 후방에서 지원.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Trismegistus.webp",
@@ -359,8 +381,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Trismegistus"],
   "globalNotesRealLife": ["Trismegistus_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Trismegistus.json"],
   "assetImages": [
     "assets/data/asset/player/Trismegistus.png",
     "assets/data/asset/player/Trismegistus_reallife.png"
@@ -374,6 +396,8 @@
     "realName": "권안영",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "masterpiece",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Masterpiece.json"],
   "desc": "쾌활한 마스터 대장장이. ‘커스텀 피팅’으로 플레이스타일에 맞춘 장비로 전력을 끌어올린다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Bulgasal-ttungyi.webp",
@@ -382,8 +406,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Bulgasal-ttungyi"],
   "globalNotesRealLife": ["Bulgasal-ttungyi_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Bulgasal-ttungyi.json"],
   "assetImages": [
     "assets/data/asset/player/Bulgasal-ttungyi.png",
     "assets/data/asset/player/Bulgasal-ttungyi_reallife.png"
@@ -397,6 +421,8 @@
     "realName": "한유은",
   "author": "고상래어",
     "dlcTitle": "지고",
+  "dlc-guild": "masterpiece",
+  "guildLoreFiles": ["assets/data/lorebooks/guild/Masterpiece.json"],
   "desc": "혼돈의 골렘 공학자. 예측불가 ‘숨겨진 기능’의 골렘으로 전장을 장난감처럼 뒤흔든다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Tacheon-sa.webp",
@@ -405,8 +431,8 @@
     "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Tacheon☆sa"],
   "globalNotesRealLife": ["Tacheon☆sa_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": [],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Tacheon-sa.json"],
   "assetImages": [
     "assets/data/asset/player/Tacheon-sa.png",
     "assets/data/asset/player/Tacheon-sa_reallife.png"

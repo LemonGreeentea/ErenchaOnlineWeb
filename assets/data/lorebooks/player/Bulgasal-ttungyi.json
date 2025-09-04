@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Bulgasal-ttungyi, 불가살뚱이",
+      "comment": "블랙스미스",
+      "content": "커스텀 피팅으로 플레이스타일에 맞춘 장비를 제작하는 마스터 대장장이.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

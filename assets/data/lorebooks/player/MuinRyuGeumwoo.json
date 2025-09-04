@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "MuinRyuGeumwoo, 무인류금우",
+      "comment": "대결 특화 전사",
+      "content": "읽기와 결단으로 일격을 꽂는 로스트 사무라이. 정면승부를 즐긴다.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

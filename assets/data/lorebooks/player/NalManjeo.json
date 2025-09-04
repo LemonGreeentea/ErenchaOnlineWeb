@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "NalManjeo, 날만져",
+      "comment": "무덤 길드 올라운더",
+      "content": "정의감 넘치는 팔라딘. 리얼리티 슬래시를 앞세워 최전선에서 싸운다.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}

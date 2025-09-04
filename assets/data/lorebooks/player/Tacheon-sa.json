@@ -1,0 +1,13 @@
+{
+  "type": "risu",
+  "ver": 1,
+  "data": [
+    {
+      "key": "Tacheon-sa, 타천☆사",
+      "comment": "골렘 크래프트",
+      "content": "혼돈의 골렘 공학자. 예측불가한 숨겨진 기능으로 전장을 뒤흔든다.",
+      "mode": "normal",
+      "insertorder": 100
+    }
+  ]
+}
