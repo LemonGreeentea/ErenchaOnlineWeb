@@ -245,9 +245,9 @@
   function resolveImagePath(path){
     if(!path) return path;
     if(/^https?:\/\//i.test(path)) return path; // absolute
-    // 절대 경로(/images/...)는 CDN 베이스로 매핑
-    if(path.startsWith('/images/')){
-      const rel = path.replace(/^\/+/, ''); // remove leading '/'
+    // 루트 기준 경로("/images/..." 등)은 CDN 베이스에 붙여 사용
+    if(path.startsWith('/')){
+      const rel = path.replace(/^\/+/, '');
       return dataUrl(rel);
     }
     // R2 구조에 맞게 이미지 경로 매핑
@@ -262,7 +262,7 @@
     if(path.startsWith('assets/')){
       return dataUrl('data/' + path.slice('assets/'.length));
     }
-    return '../' + path; // fallback
+    return path; // 기타 상대 경로는 그대로 사용
   }
 
   async function load(){

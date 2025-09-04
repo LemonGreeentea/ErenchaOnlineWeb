@@ -31,14 +31,25 @@
     if (!p) return '';
     const s = String(p);
     if (s.startsWith('http://') || s.startsWith('https://') || s.startsWith('data:')) return s;
+    // 루트 기준 경로("/images/..." 등)은 CDN 베이스(meta dlc-data-base)에 붙여 사용
+    if (s.startsWith('/')) {
+      const rel = s.replace(/^\/+/, '');
+      return dataUrl(rel);
+    }
+    // images/로 시작하는 경우도 CDN images 아래로 맵핑
+    if (s.startsWith('images/')) {
+      return dataUrl(s);
+    }
     // R2 구조에 맞게 에셋 경로 처리
     if(s.startsWith('assets/images/')){
-      // assets/images/DLC/xxx 또는 assets/images/dlc/xxx → data/image/xxx (DLC 폴더 제거)
+      // assets/images/DLC/xxx 또는 assets/images/dlc/xxx → images/DLC/xxx (CDN 구조)
       let imagePath = s.slice('assets/images/'.length);
-      if(imagePath.startsWith('DLC/') || imagePath.startsWith('dlc/')){
-        imagePath = imagePath.slice(4); // 'DLC/' 또는 'dlc/' 제거
+      if (imagePath.startsWith('DLC/')) {
+        // 그대로 사용
+      } else if (imagePath.startsWith('dlc/')) {
+        imagePath = 'DLC/' + imagePath.slice(4); // DLC 폴더 대소문자 정규화
       }
-      return dataUrl('data/image/' + imagePath);
+      return dataUrl('images/' + imagePath);
     }
     if(s.startsWith('assets/')){
       return dataUrl('data/' + s.slice('assets/'.length));
