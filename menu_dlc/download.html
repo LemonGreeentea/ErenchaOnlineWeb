@@ -17,22 +17,26 @@
         <section class="sub-hero-banner"><h1>DLC 다운로드</h1></section>
         <main>
             <div class="game-info-container dlc-download-container">
-                <h2>선택한 DLC 요약</h2>
+                <h2 class="collapsible-toggle">선택한 DLC 요약 <span id="total-count" class="selection-count">(0개)</span>
+                    <button type="button" class="button secondary small" id="toggle-summary" aria-expanded="true" aria-controls="selection-summary-wrapper">접기</button>
+                </h2>
                 <div class="section-panel">
                 <p class="muted">이벤트, 컨텐츠, 캐릭터 탭에서 선택한 항목이 요약됩니다.</p>
                 <div id="dlc-empty" style="display:none;" class="notice">선택된 DLC가 없습니다. 상단 메뉴의 DLC 탭에서 원하는 항목을 선택해 주세요.</div>
-                <div id="selection-summary">
-                    <div class="selection-group">
-                        <h3>이벤트</h3>
-                        <ul id="list-events" class="bullet-list"></ul>
-                    </div>
-                    <div class="selection-group">
-                        <h3>컨텐츠</h3>
-                        <ul id="list-contents" class="bullet-list"></ul>
-                    </div>
-                    <div class="selection-group">
-                        <h3>캐릭터</h3>
-                        <ul id="list-characters" class="bullet-list"></ul>
+                <div id="selection-summary-wrapper" class="collapsible">
+                    <div id="selection-summary">
+                        <div class="selection-group">
+                            <h3>이벤트 <span id="count-events" class="selection-count">(0개)</span></h3>
+                            <ul id="list-events" class="selection-grid"></ul>
+                        </div>
+                        <div class="selection-group">
+                            <h3>컨텐츠 <span id="count-contents" class="selection-count">(0개)</span></h3>
+                            <ul id="list-contents" class="selection-grid"></ul>
+                        </div>
+                        <div class="selection-group">
+                            <h3>캐릭터 <span id="count-characters" class="selection-count">(0개)</span></h3>
+                            <ul id="list-characters" class="selection-grid"></ul>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -85,7 +89,7 @@
                             </div>
                             <p class="method-description">
                                 로어북 JSON 파일과 에셋을 별도로 다운로드하여 RisuAI에 직접 설치하는 방식입니다. 
-                                글로벌 노트를 수동으로 설정해야 하지만 세부적인 제어가 가능합니다.
+                                수동으로 설정해야 하지만 세부적인 제어가 가능합니다.
                             </p>
                             <ul class="method-features">
                                 <li>로어북 JSON 파일 다운로드</li>
@@ -99,11 +103,12 @@
                         <div class="download-method-card">
                             <div class="method-header">
                                 <h3>모듈 다운로드 (간편설치)</h3>
-                                <span class="method-badge recommended">추천</span>
+                                <span class="method-badge recommended">베타</span>
                             </div>
                             <p class="method-description">
                                 모든 구성 요소가 하나의 .risum 모듈 파일로 패키징되어 한 번에 설치할 수 있는 간편한 방식입니다. 
-                                RisuAI 모듈 시스템을 활용합니다.
+                                RisuAI 모듈 시스템을 활용합니다. 
+                                아직 베타이므로 일부 환경에서 호환성 문제가 있을 수 있습니다.
                             </p>
                             <ul class="method-features">
                                 <li>올인원 .risum 모듈 파일</li>
@@ -149,13 +154,29 @@
 
         function renderSummary(){
             const sel = loadSelections();
-            const hasAny = (sel.events?.length||0) + (sel.contents?.length||0) + (sel.characters?.length||0) + (sel.locations?.length||0) > 0;
+            const eventsCount = sel.events?.length || 0;
+            const contentsCount = (sel.contents?.length || 0) + (sel.locations?.length || 0);
+            const charactersCount = sel.characters?.length || 0;
+            const totalCount = eventsCount + contentsCount + charactersCount;
+            
+            // 개수 업데이트
+            const totalCountEl = document.getElementById('total-count');
+            const eventsCountEl = document.getElementById('count-events');
+            const contentsCountEl = document.getElementById('count-contents');
+            const charactersCountEl = document.getElementById('count-characters');
+            
+            if (totalCountEl) totalCountEl.textContent = `(${totalCount}개)`;
+            if (eventsCountEl) eventsCountEl.textContent = `(${eventsCount}개)`;
+            if (contentsCountEl) contentsCountEl.textContent = `(${contentsCount}개)`;
+            if (charactersCountEl) charactersCountEl.textContent = `(${charactersCount}개)`;
+            
+            const hasAny = totalCount > 0;
             
             const emptyEl = document.getElementById('dlc-empty');
-            const summary = document.getElementById('selection-summary');
+            const summaryWrapper = document.getElementById('selection-summary-wrapper');
             
             if (emptyEl) emptyEl.style.display = hasAny ? 'none' : 'block';
-            if (summary) summary.style.display = hasAny ? 'block' : 'none';
+            if (summaryWrapper) summaryWrapper.style.display = hasAny ? 'block' : 'none';
 
             const ulE = document.getElementById('list-events');
             const ulC = document.getElementById('list-contents');
@@ -430,6 +451,40 @@
                 btnToggle.onclick = ()=>{ 
                     const open = panel.classList.contains('collapsed'); 
                     setState(open); 
+                };
+            }
+
+            // DLC 요약 접기/펼치기 컨트롤 (기본 펼침)
+            const btnToggleSummary = document.getElementById('toggle-summary');
+            const summaryPanel = document.getElementById('selection-summary-wrapper');
+            if(btnToggleSummary && summaryPanel){
+                const SUMMARY_STATE_KEY = 'dlcSummaryOpen';
+                const setSummaryState = (open)=>{
+                    if(open){ 
+                        summaryPanel.classList.remove('collapsed'); 
+                        btnToggleSummary.setAttribute('aria-expanded','true'); 
+                        btnToggleSummary.textContent='접기'; 
+                    } else { 
+                        summaryPanel.classList.add('collapsed'); 
+                        btnToggleSummary.setAttribute('aria-expanded','false'); 
+                        btnToggleSummary.textContent='펼치기'; 
+                    }
+                    try{ 
+                        localStorage.setItem(SUMMARY_STATE_KEY, open ? '1' : '0'); 
+                    }catch{}
+                };
+                
+                // 이전 상태 복원; 기본 펼침
+                let initialSummary = true;
+                try{ 
+                    const saved = localStorage.getItem(SUMMARY_STATE_KEY);
+                    if(saved !== null) initialSummary = saved === '1'; 
+                }catch{}
+                setSummaryState(initialSummary);
+                
+                btnToggleSummary.onclick = ()=>{ 
+                    const open = summaryPanel.classList.contains('collapsed'); 
+                    setSummaryState(open); 
                 };
             }
         });

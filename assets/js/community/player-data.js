@@ -3,12 +3,12 @@ const playerData = [
     id: 1,
     name: "지존재현v",
     realName: "정재현",
-    guild: "세모길드",
+    guild: "세모",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/ZizonJaehyun.webp",
-    gameImage: "../assets/images/chara/player/ZizonJaehyun.webp",
-    realImage: "../assets/images/chara/player/ZizonJaehyun_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/ZizonJaehyun.webp",
+    gameImage: "../assets/images/chara/Player/ZizonJaehyun.webp",
+    realImage: "../assets/images/chara/Player/ZizonJaehyun_reallife.webp",
     description: `
         <p class="player-quote">왜 길을 막고 있어? 죽고 싶나 보네.</p>
         <ul>
@@ -31,9 +31,9 @@ const playerData = [
     guild: "백설",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Naru.webp",
-    gameImage: "../assets/images/chara/player/Naru.webp",
-    realImage: "../assets/images/chara/player/Naru_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Naru.webp",
+    gameImage: "../assets/images/chara/Player/Naru.webp",
+    realImage: "../assets/images/chara/Player/Naru_reallife.webp",
     description: `
         <p class="player-quote">…내 뒤에 서.</p>
         <ul>
@@ -56,9 +56,9 @@ const playerData = [
     guild: "메인",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Cain.webp",
-    gameImage: "../assets/images/chara/player/Cain.webp",
-    realImage: "../assets/images/chara/player/Cain_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Cain.webp",
+    gameImage: "../assets/images/chara/Player/Cain.webp",
+    realImage: "../assets/images/chara/Player/Cain_reallife.webp",
     description: `
         <p class="player-quote">오늘 차 맛이 좋군. 뭔가 좋은 일이 생길 징조인가.</p>
         <ul>
@@ -81,9 +81,9 @@ const playerData = [
     guild: "나비",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Arang.webp",
-    gameImage: "../assets/images/chara/player/Arang.webp",
-    realImage: "../assets/images/chara/player/Arang_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Arang.webp",
+    gameImage: "../assets/images/chara/Player/Arang.webp",
+    realImage: "../assets/images/chara/Player/Arang_reallife.webp",
     description: `
         <p class="player-quote">오늘도 버스킹하러 가는 거죠? 준비됐어요!</p>
         <ul>
@@ -106,9 +106,9 @@ const playerData = [
     guild: "불철주야",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Daehozzang.webp",
-    gameImage: "../assets/images/chara/player/Daehozzang.webp",
-    realImage: "../assets/images/chara/player/Daehozzang_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Daehozzang.webp",
+    gameImage: "../assets/images/chara/Player/Daehozzang.webp",
+    realImage: "../assets/images/chara/Player/Daehozzang_reallife.webp",
     description: `
         <p class="player-quote">좋아, 일 끝났다! 한잔하러 가자고~</p>
         <ul>
@@ -131,9 +131,9 @@ const playerData = [
     guild: "마법소녀",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Maro.webp",
-    gameImage: "../assets/images/chara/player/Maro.webp",
-    realImage: "../assets/images/chara/player/Maro_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Maro.webp",
+    gameImage: "../assets/images/chara/Player/Maro.webp",
+    realImage: "../assets/images/chara/Player/Maro_reallife.webp",
     description: `
         <p class="player-quote">좋아, 마법소녀 출동 시간이다!</p>
         <ul>
@@ -156,9 +156,9 @@ const playerData = [
     guild: "-",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Tokkigongju.webp",
-    gameImage: "../assets/images/chara/player/Tokkigongju.webp",
-    realImage: "../assets/images/chara/player/Tokkigongju_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Tokkigongju.webp",
+    gameImage: "../assets/images/chara/Player/Tokkigongju.webp",
+    realImage: "../assets/images/chara/Player/Tokkigongju_reallife.webp",
     description: `
         <p class="player-quote">너... 한 판 붙을래?</p>
         <ul>
@@ -181,9 +181,9 @@ const playerData = [
     guild: "메르세데스",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Vivian.webp",
-    gameImage: "../assets/images/chara/player/Vivian.webp",
-    realImage: "../assets/images/chara/player/Vivian_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Vivian.webp",
+    gameImage: "../assets/images/chara/Player/Vivian.webp",
+    realImage: "../assets/images/chara/Player/Vivian_reallife.webp",
     description: `
         <p class="player-quote">...언젠가, 저도.</p>
         <ul>
@@ -206,9 +206,9 @@ const playerData = [
     guild: "메르세데스",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Kaiser.webp",
-    gameImage: "../assets/images/chara/player/Kaiser.webp",
-    realImage: "../assets/images/chara/player/Kaiser_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Kaiser.webp",
+    gameImage: "../assets/images/chara/Player/Kaiser.webp",
+    realImage: "../assets/images/chara/Player/Kaiser_reallife.webp",
     description: `
         <p class="player-quote">즉시 이행하겠습니다, 아가씨.</p>
         <ul>
@@ -231,9 +231,9 @@ const playerData = [
     guild: "-",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Aria.webp",
-    gameImage: "../assets/images/chara/player/Aria.webp",
-    realImage: "../assets/images/chara/player/Aria_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Aria.webp",
+    gameImage: "../assets/images/chara/Player/Aria.webp",
+    realImage: "../assets/images/chara/Player/Aria_reallife.webp",
     description: `
         <p class="player-quote">흥미 없어. 너희들과 소꿉놀이할 시간 없으니까.</p>
         <ul>
@@ -256,9 +256,9 @@ const playerData = [
     guild: "세모",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Yura.webp",
-    gameImage: "../assets/images/chara/player/Yura.webp",
-    realImage: "../assets/images/chara/player/Yura_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Yura.webp",
+    gameImage: "../assets/images/chara/Player/Yura.webp",
+    realImage: "../assets/images/chara/Player/Yura_reallife.webp",
     description: `
         <p class="player-quote">제 뒤에 계세요. 길을 열겠습니다.</p>
         <ul>
@@ -281,9 +281,9 @@ const playerData = [
     guild: "감자농장단",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/AegiManyeo.webp",
-    gameImage: "../assets/images/chara/player/AegiManyeo.webp",
-    realImage: "../assets/images/chara/player/AegiManyeo_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/AegiManyeo.webp",
+    gameImage: "../assets/images/chara/Player/AegiManyeo.webp",
+    realImage: "../assets/images/chara/Player/AegiManyeo_reallife.webp",
     description: `
         <p class="player-quote">아, 아니에요! 일부러 빗맞춘 거예요! 이건 경고 차원이었어요!</p>
         <ul>
@@ -306,9 +306,9 @@ const playerData = [
     guild: "-",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/TarakPowerJeonsa.webp",
-    gameImage: "../assets/images/chara/player/TarakPowerJeonsa.webp",
-    realImage: "../assets/images/chara/player/TarakPowerJeonsa_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/TarakPowerJeonsa.webp",
+    gameImage: "../assets/images/chara/Player/TarakPowerJeonsa.webp",
+    realImage: "../assets/images/chara/Player/TarakPowerJeonsa_reallife.webp",
     description: `
         <p class="player-quote">아이고, 아가야. 사냥 그렇게 하는 거 아니다. 이리 와봐, 언니가 알려줄게.</p>
         <ul>
@@ -331,9 +331,9 @@ const playerData = [
     guild: "-",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Gomyammi.webp",
-    gameImage: "../assets/images/chara/player/Gomyammi.webp",
-    realImage: "../assets/images/chara/player/Gomyammi_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Gomyammi.webp",
+    gameImage: "../assets/images/chara/Player/Gomyammi.webp",
+    realImage: "../assets/images/chara/Player/Gomyammi_reallife.webp",
     description: `
         <p class="player-quote">와... 고인물 지리노 ㄷㄷ</p>
         <ul>
@@ -356,9 +356,9 @@ const playerData = [
     guild: "-",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Poganchung.webp",
-    gameImage: "../assets/images/chara/player/Poganchung.webp",
-    realImage: "../assets/images/chara/player/Poganchung_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Poganchung.webp",
+    gameImage: "../assets/images/chara/Player/Poganchung.webp",
+    realImage: "../assets/images/chara/Player/Poganchung_reallife.webp",
     description: `
         <p class="player-quote">내가 너 알아? 왜 친한 척이야?</p>
         <ul>
@@ -381,9 +381,9 @@ const playerData = [
     guild: "감자농장단",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Kkeutkkaji.webp",
-    gameImage: "../assets/images/chara/player/Kkeutkkaji.webp",
-    realImage: "../assets/images/chara/player/Kkeutkkaji_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Kkeutkkaji.webp",
+    gameImage: "../assets/images/chara/Player/Kkeutkkaji.webp",
+    realImage: "../assets/images/chara/Player/Kkeutkkaji_reallife.webp",
     description: `
         <p class="player-quote">자, 에렌샤 빵은 정말 맛있어. 현실에도 있었으면 좋겠다.</p>
         <ul>
@@ -406,9 +406,9 @@ const playerData = [
     guild: "엄마는외계인",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Naneunyasohwansa.webp",
-    gameImage: "../assets/images/chara/player/Naneunyasohwansa.webp",
-    realImage: "../assets/images/chara/player/Naneunyasohwansa_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Naneunyasohwansa.webp",
+    gameImage: "../assets/images/chara/Player/Naneunyasohwansa.webp",
+    realImage: "../assets/images/chara/Player/Naneunyasohwansa_reallife.webp",
     description: `
         <p class="player-quote">자, 얘들아, 놀이 시간이다! 저기 저 오빠 외로워 보이는데, 가서 놀아주자!</p>
         <ul>
@@ -431,9 +431,9 @@ const playerData = [
     guild: "엄마는외계인",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Byeolsatang.webp",
-    gameImage: "../assets/images/chara/player/Byeolsatang.webp",
-    realImage: "../assets/images/chara/player/Byeolsatang_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Byeolsatang.webp",
+    gameImage: "../assets/images/chara/Player/Byeolsatang.webp",
+    realImage: "../assets/images/chara/Player/Byeolsatang_reallife.webp",
     description: `
         <p class="player-quote">자, 새로운 포션이야! 이름은 '춤추는 유성 에이드'! ...아마 팔다리가 더 생기거나 하진 않을 거야.</p>
         <ul>
@@ -456,9 +456,9 @@ const playerData = [
     guild: "나비",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Bbyakbbyak.webp",
-    gameImage: "../assets/images/chara/player/Bbyakbbyak.webp",
-    realImage: "../assets/images/chara/player/Bbyakbbyak_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Bbyakbbyak.webp",
+    gameImage: "../assets/images/chara/Player/Bbyakbbyak.webp",
+    realImage: "../assets/images/chara/Player/Bbyakbbyak_reallife.webp",
     description: `
         <p class="player-quote">말도 안 돼! 저거 밤하늘 염료 드롭이잖아! 완전 대박! 운수 좋은 날!</p>
         <ul>
@@ -481,9 +481,9 @@ const playerData = [
     guild: "엄마는외계인",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Gyeonu.webp",
-    gameImage: "../assets/images/chara/player/Gyeonu.webp",
-    realImage: "../assets/images/chara/player/Gyeonu_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Gyeonu.webp",
+    gameImage: "../assets/images/chara/Player/Gyeonu.webp",
+    realImage: "../assets/images/chara/Player/Gyeonu_reallife.webp",
     description: `
         <p class="player-quote">하... 진짜... 우리 길드는 왜 항상 이 모양일까?</p>
         <ul>
@@ -506,9 +506,9 @@ const playerData = [
     guild: "메인",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Bombi.webp",
-    gameImage: "../assets/images/chara/player/Bombi.webp",
-    realImage: "../assets/images/chara/player/Bombi_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Bombi.webp",
+    gameImage: "../assets/images/chara/Player/Bombi.webp",
+    realImage: "../assets/images/chara/Player/Bombi_reallife.webp",
     description: `
         <p class="player-quote">저 구름 좀 봐. 고양이처럼 생겼어... 귀여워.</p>
         <ul>
@@ -531,9 +531,9 @@ const playerData = [
     guild: "엄마는외계인",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Renaissance.webp",
-    gameImage: "../assets/images/chara/player/Renaissance.webp",
-    realImage: "../assets/images/chara/player/Renaissance_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Renaissance.webp",
+    gameImage: "../assets/images/chara/Player/Renaissance.webp",
+    realImage: "../assets/images/chara/Player/Renaissance_reallife.webp",
     description: `
         <p class="player-quote">내가 총을 들었다는 건... 누군가는 재수 없는 날이라는 뜻이지.</p>
         <ul>
@@ -556,9 +556,9 @@ const playerData = [
     guild: "신 나인즈",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Dreamer.webp",
-    gameImage: "../assets/images/chara/player/Dreamer.webp",
-    realImage: "../assets/images/chara/player/Dreamer_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Dreamer.webp",
+    gameImage: "../assets/images/chara/Player/Dreamer.webp",
+    realImage: "../assets/images/chara/Player/Dreamer_reallife.webp",
     description: `
         <p class="player-quote">꿈은 시끄럽고 화려하게 꾸는 거야.</p>
         <ul>
@@ -581,9 +581,9 @@ const playerData = [
     guild: "신 나인즈",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/BingsuSaranggae.webp",
-    gameImage: "../assets/images/chara/player/BingsuSaranggae.webp",
-    realImage: "../assets/images/chara/player/BingsuSaranggae_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/BingsuSaranggae.webp",
+    gameImage: "../assets/images/chara/Player/BingsuSaranggae.webp",
+    realImage: "../assets/images/chara/Player/BingsuSaranggae_reallife.webp",
     description: `
         <p class="player-quote">크하하! 그게 다야? 더 재밌게 해봐!</p>
         <ul>
@@ -606,9 +606,9 @@ const playerData = [
     guild: "백설",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Scourge.webp",
-    gameImage: "../assets/images/chara/player/Scourge.webp",
-    realImage: "../assets/images/chara/player/Scourge_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Scourge.webp",
+    gameImage: "../assets/images/chara/Player/Scourge.webp",
+    realImage: "../assets/images/chara/Player/Scourge_reallife.webp",
     description: `
         <p class="player-quote">모든 이야기에는 끝이 있는 법이죠. 후후... 우후후후. 어쩌면, 지금일지도.</p>
         <ul>
@@ -631,9 +631,9 @@ const playerData = [
     guild: "-",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Miunori.webp",
-    gameImage: "../assets/images/chara/player/Miunori.webp",
-    realImage: "../assets/images/chara/player/Miunori_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Miunori.webp",
+    gameImage: "../assets/images/chara/Player/Miunori.webp",
+    realImage: "../assets/images/chara/Player/Miunori_reallife.webp",
     description: `
         <p class="player-quote">흥, 이 정도 함정쯤이야 예상 범위 내였어.</p>
         <ul>
@@ -656,9 +656,9 @@ const playerData = [
     guild: "-",
     type: "바닐라",
     gender: "여성",
-    profileImage: "../assets/images/chara/player/profile/Angel-in-us.webp",
-    gameImage: "../assets/images/chara/player/Angel-in-us.webp",
-    realImage: "../assets/images/chara/player/Angel-in-us_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Angel-in-us.webp",
+    gameImage: "../assets/images/chara/Player/Angel-in-us.webp",
+    realImage: "../assets/images/chara/Player/Angel-in-us_reallife.webp",
     description: `
         <p class="player-quote">걱정 마세요! 제가 전부 다 치료해 드릴게요!</p>
         <ul>
@@ -681,9 +681,9 @@ const playerData = [
     guild: "메르세데스",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Jjageuli.webp",
-    gameImage: "../assets/images/chara/player/Jjageuli.webp",
-    realImage: "../assets/images/chara/player/Jjageuli_realife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Jjageuli.webp",
+    gameImage: "../assets/images/chara/Player/Jjageuli.webp",
+    realImage: "../assets/images/chara/Player/Jjageuli_realife.webp",
     description: `
         <p class="player-quote">어머, 저런. 얼마나 힘드셨어요. 이 차는 서비스입니다. 자, 편하게 다 말씀해보세요.</p>
         <ul>
@@ -706,9 +706,9 @@ const playerData = [
     guild: "메인",
     type: "바닐라",
     gender: "남성",
-    profileImage: "../assets/images/chara/player/profile/Hanwool.webp",
-    gameImage: "../assets/images/chara/player/Hanwool.webp",
-    realImage: "../assets/images/chara/player/Hanwool_reallife.webp",
+    profileImage: "../assets/images/chara/Player/profile/Hanwool.webp",
+    gameImage: "../assets/images/chara/Player/Hanwool.webp",
+    realImage: "../assets/images/chara/Player/Hanwool_reallife.webp",
     description: `
         <p class="player-quote">배고픈 채로는 싸울 수 없죠~ 자, 다들 한 그릇씩 받으세요!</p>
         <ul>
@@ -731,9 +731,9 @@ const playerData = [
     guild: "-",
     type: "DLC-불꽃과 얼음",
     gender: "여성",
-    profileImage: "../assets/images/chara/dlc_player/profile/amber.webp",
-    gameImage: "../assets/images/chara/dlc_player/amber.webp",
-    realImage: "../assets/images/chara/dlc_player/amber_reallife.webp",
+    profileImage: "../assets/images/chara/DLC_Player/profile/amber.webp",
+    gameImage: "../assets/images/chara/DLC_Player/amber.webp",
+    realImage: "../assets/images/chara/DLC_Player/amber_reallife.webp",
     description: `
             <p class="player-quote">퀘스트. 곰발바닥. 열 개. 서쪽 숲.</p>
         <ul>
@@ -756,9 +756,9 @@ const playerData = [
     guild: "-",
     type: "DLC-불꽃과 얼음",
     gender: "남성",
-    profileImage: "../assets/images/chara/dlc_player/profile/frost.webp",
-    gameImage: "../assets/images/chara/dlc_player/frost.webp",
-    realImage: "../assets/images/chara/dlc_player/frost_reallife.webp",
+    profileImage: "../assets/images/chara/DLC_Player/profile/frost.webp",
+    gameImage: "../assets/images/chara/DLC_Player/frost.webp",
+    realImage: "../assets/images/chara/DLC_Player/frost_reallife.webp",
     description: `
         <p class="player-quote">자, 얼렸으니 막타 쳐주세요!</p>
         <ul>
@@ -781,9 +781,9 @@ const playerData = [
         guild: "감자농장단",
         type: "DLC",
         gender: "남성",
-        profileImage: "../assets/images/chara/dlc_player/profile/Byeolbitgoyangi.webp",
-        gameImage: "../assets/images/chara/dlc_player/Byeolbitgoyangi.webp",
-        realImage: "../assets/images/chara/dlc_player/Byeolbitgoyangi_reallife.webp",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Byeolbitgoyangi.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Byeolbitgoyangi.webp",
+        realImage: "../assets/images/chara/DLC_Player/Byeolbitgoyangi_reallife.webp",
         description: `
                 <p class="player-quote">굳이 너까지 챙겨줘야 할 이유는 없잖아. ... 같이 가든 말든 알아서 해.</p>
                 <ul>
@@ -792,11 +792,360 @@ const playerData = [
                         <li><strong>성별 :</strong> 남성</li>
                         <li><strong>나이 :</strong> 22세</li>
                         <li><strong>특징 :</strong> 실용적, 침착함, 계산적, 츤데레 성향</li>
-                        <li><strong>주요 능력 :</strong> 뿌리 채찍(액티브), 뿌리 속박(액티브), 야수 길들이기/소환: 쌍꼬리 고양이(액티브), 별빛 섬광(액티브), 자연의 축복(액티브)</li>
+                        <li><strong>주요 능력 :</strong> 뿌리 채찍(액티브), 뿌리 속박(액티브), 야수 길들이기/소환: 듀얼테일캣(액티브), 별빛 섬광(액티브), 자연의 축복(액티브)</li>
                 </ul>
                 <p class="player-narrative-description">
                     밤에 주로 접속해 약초·재료 채집으로 소소한 수익을 올리는 실리형 ‘쌀먹’ 유저다. 편의상 감자농장단에 몸담았지만 필요하면 미련 없이 떠나며, 겉은 까칠해도 속정이 깊은 츤데레다. 드루이드 기술로 안정적인 수익을 쌓고, 덩굴이 감긴 나무 지팡이와 작은 채집 가방을 들고 다닌다.
                 </p>
+        `
+    },
+    {
+        id: 204,
+        name: "스텔라",
+        realName: "유진",
+        guild: "-",
+        type: "DLC-It's a Trap!",
+        gender: "",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Stella.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Stella.webp",
+        realImage: "../assets/images/chara/DLC_Player/Stella_reallife.webp",
+        description: ``
+    },
+    {
+        id: 205,
+        name: "솔레리온",
+        realName: "박소은",
+        guild: "-",
+        type: "DLC-It's a Trap!",
+        gender: "",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Solerion.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Solerion.webp",
+        realImage: "../assets/images/chara/DLC_Player/Solerion_reallife.webp",
+        description: ``
+    },
+    {
+        id: 206,
+        name: "날다람",
+        realName: "김사돌",
+    guild: "무덤",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/NalDaram.webp",
+        gameImage: "../assets/images/chara/DLC_Player/NalDaram.webp",
+        realImage: "../assets/images/chara/DLC_Player/NalDaram_reallife.webp",
+        description: `
+        <p class="player-quote">잠깐—먼저 생각해 보자.</p>
+        <ul>
+            <li><strong>이름 :</strong> 날다람 (김사돌)</li>
+            <li><strong>소속 :</strong> 무덤 (길드마스터)</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 33세</li>
+            <li><strong>특징 :</strong> 신중함, 사려 깊음, 자기 의심, 보호적</li>
+            <li><strong>주요 능력 :</strong> 이터널 레퀴엠(시그니처), 소울 드레인(액티브), 레이스 베일(패시브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 과중한 업무에 지친 영업직 직원. 조심스럽지만 신뢰받는 리더십으로 무덤 길드의 운영을 맡아 동료를 우선한다. 전투에선 소환수로 거리를 유지하며 아군을 지원해 전장을 단단히 붙잡는다. 레벨 106, 클래스 '네크로맨서'다.
+        </p>
+        `
+    },
+    {
+        id: 207,
+        name: "날만져",
+        realName: "임승율",
+        guild: "무덤",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/NalManjeo.webp",
+        gameImage: "../assets/images/chara/DLC_Player/NalManjeo.webp",
+        realImage: "../assets/images/chara/DLC_Player/NalManjeo_reallife.webp",
+        description: `
+        <p class="player-quote">곤경에 빠진 사람을 돕는 건 당연한 일이지!</p>
+        <ul>
+            <li><strong>이름 :</strong> 날만져 (임승율)</li>
+            <li><strong>소속 :</strong> 무덤</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 37세</li>
+            <li><strong>특징 :</strong> 정의감, 열정적, 두뇌 회전 빠름, 보호적</li>
+            <li><strong>주요 능력 :</strong> 리얼리티 슬래시(시그니처), 공격·방어·민첩·신성 마법 전반(올라운더)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 경찰이자 기혼자로, 게임 속에선 정의의 구현체이자 무덤의 든든한 방패다. 길드를 창설해 이끌던 초대 마스터였으나, 자신의 돌진 성향을 자각하고 보다 신중한 날다람에게 자리를 맡겼다. 전장에선 영웅처럼 포즈를 취하며 악명을 쌓은 PK를 집요하게 추적한다. 레벨 164, 히든 클래스 '팔라딘 챔피언'다.
+        </p>
+        `
+    },
+    {
+        id: 208,
+        name: "카르라 알레스테오로스 에블레르",
+        realName: "천영화",
+    guild: "무덤",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Karla.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Karla.webp",
+        realImage: "../assets/images/chara/DLC_Player/Karla_reallife.webp",
+        description: `
+        <p class="player-quote">심연 앞에 무릎 꿇어라. 파괴의 미학을 보여주지.</p>
+        <ul>
+            <li><strong>이름 :</strong> 카르라 알레스테오로스 에블레르 (천영화)</li>
+            <li><strong>소속 :</strong> 무덤</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 20세</li>
+            <li><strong>특징 :</strong> 중2병, 오만함(롤플), 독자적 논리, 유리대포</li>
+            <li><strong>주요 능력 :</strong> 그랜드 캐터스트로피(시그니처)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 조용한 대학생이지만, 게임에선 압도적 화력을 뽐내는 길드의 핵심 딜러다. 악역 콘셉트의 연기로 팔라딘 날만져와 티격태격하지만, 보스전에서는 번개처럼 전장을 정리한다. 레벨 163, 히든 클래스 '디재스터 캐스터'다.
+        </p>
+        `
+    },
+    {
+        id: 209,
+        name: "안녕철권선생",
+        realName: "태수빈",
+    guild: "무덤",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Annyeongcheolkwonseonsaeng.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Annyeongcheolkwonseonsaeng.webp",
+        realImage: "../assets/images/chara/DLC_Player/Annyeongcheolkwonseonsaeng_reallife.webp",
+        description: `
+        <p class="player-quote">계획은 간단! 내가 뛰어들어 큰 놈 한 대 치고 넘긴다!</p>
+        <ul>
+            <li><strong>이름 :</strong> 안녕철권선생 (태수빈)</li>
+            <li><strong>소속 :</strong> 무덤</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 27세</li>
+            <li><strong>특징 :</strong> 무모함, 충동적, 브레인 오프, 위기 시 보호적</li>
+            <li><strong>주요 능력 :</strong> 임팩트 웨이브(시그니처), 그레이터 힐(액티브), 홀리 쉴드(액티브), 정화(액티브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 초등교사지만, 게임에선 최전선에서 적을 밀어내며 동료를 지키는 괴짜 힐러다. 계산 대신 돌입을 선택해 혼란을 만들고, 딱 죽기 직전의 타이밍에 힐을 꽂아넣는다. 레벨 115, 클래스 '배틀 프리스트'다.
+        </p>
+        `
+    },
+    {
+        id: 210,
+        name: "와룡가든",
+        realName: "손여란",
+        guild: "창천 길드 (길드마스터)",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Waryonggarden.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Waryonggarden.webp",
+        realImage: "../assets/images/chara/DLC_Player/Waryonggarden_reallife.webp",
+        description: `
+        <p class="player-quote">전투는 시작 전에 끝나요. 모든 건 정보에 달려 있죠.</p>
+        <ul>
+            <li><strong>이름 :</strong> 와룡가든 (손여란)</li>
+            <li><strong>소속 :</strong> 창천 길드 (길드마스터)</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 27세</li>
+            <li><strong>특징 :</strong> 신중함, 교활함, 통제적, 전략가</li>
+            <li><strong>주요 능력 :</strong> 천리책(시그니처), 정보 봉인(패시브), 지휘 강화(패시브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 번역가이자 하드코어 공략러. 창천 길드의 난폭한 전력을 말 한마디로 통제하며 한 발 앞에서 상황을 설계한다. 앞에 나서기보다 판을 짜는 지휘관형 플레이로 상대의 숨통을 조여 온다. 레벨 77, 클래스 '스트래티지스트 메이지'다.
+        </p>
+        `
+    },
+    {
+        id: 211,
+        name: "무인류금우",
+        realName: "류금우",
+        guild: "창천 길드",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/MuinRyuGeumwoo.webp",
+        gameImage: "../assets/images/chara/DLC_Player/MuinRyuGeumwoo.webp",
+        realImage: "../assets/images/chara/DLC_Player/MuinRyuGeumwoo_reallife.webp",
+        description: `
+        <p class="player-quote">승패야 즐거움의 일부일 뿐!</p>
+        <ul>
+            <li><strong>이름 :</strong> 무인류금우 (류금우)</li>
+            <li><strong>소속 :</strong> 창천 길드</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 24세</li>
+            <li><strong>특징 :</strong> 대담함, 솔직함, 경쟁심, 쾌활함</li>
+            <li><strong>주요 능력 :</strong> 헤븐 스플리팅 슬래시(시그니처), 포워드 러시(액티브), 배틀 스피릿(패시브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            사무라이 사극 마니아로, 정면승부를 즐기는 듀얼 특화 전사다. 읽기와 결단으로 승부를 가르며, 길드 레이드와 이벤트에 빠지지 않는 믿음직한 돌격수. 라이벌 날만져를 쓰러뜨리기 위해 오오타치를 갈고닦는다. 레벨 147, 히든 클래스 '로스트 사무라이'다.
+        </p>
+        `
+    },
+    {
+        id: 212,
+        name: "물어뜯는벼락",
+        realName: "이연주",
+        guild: "창천 길드",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Mureoddeudneunbyeorak.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Mureoddeudneunbyeorak.webp",
+        realImage: "../assets/images/chara/DLC_Player/Mureoddeudneunbyeorak_reallife.webp",
+        description: `
+        <p class="player-quote">한 번의 일격. 한 번의 승부면 충분해.</p>
+        <ul>
+            <li><strong>이름 :</strong> 물어뜯는벼락 (이연주)</li>
+            <li><strong>소속 :</strong> 창천 길드</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 22세</li>
+            <li><strong>특징 :</strong> 온화함, 친절함, 배려심, 스릴 추구</li>
+            <li><strong>주요 능력 :</strong> 썬더 팽 처형(시그니처), 섀도우 베일(액티브), 어쌔신즈 인스팅트(패시브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 온화한 대학생이지만, 게임에선 암살·기습에 특화된 유리대포형 딜러다. 은신과 일격필살 콤보로 적을 지워내 rival 길드에 악명을 떨친다. 레벨 123, 클래스 '닌자(쌍검 스페셜리스트)'다.
+        </p>
+        `
+    },
+    {
+        id: 213,
+        name: "뻐끔뻐끔구슬",
+        realName: "양미성",
+        guild: "수렵연구회",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Bbeokkeum-Bbeokkeum-Guseul.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Bbeokkeum-Bbeokkeum-Guseul.webp",
+        realImage: "../assets/images/chara/DLC_Player/Bbeokkeum-Bbeokkeum-Guseul_reallife.webp",
+        description: `
+        <p class="player-quote">우와아! 저기 큰 몬스터! 방패로 콕—해도 돼?!</p>
+        <ul>
+            <li><strong>이름 :</strong> 뻐끔뻐끔구슬 (양미성)</li>
+            <li><strong>소속 :</strong> 수렵연구회 (길드마스터)</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 26세</li>
+            <li><strong>특징 :</strong> (게임) 하이텐션, 시끄러움, 호기심 과다, 카오틱 굿 / (현실) 냉소적, 프로페셔널, 예리함, 실용적</li>
+            <li><strong>주요 능력 :</strong> 룩 앳 미!★(시그니처), 실드 배쉬, 퍼피 칙스 가드, 스퀴키 해머 봉크</li>
+        </ul>
+        <p class="player-narrative-description">
+            일본에서 활동하는 프로 성우. 게임에선 ‘무대 체질’인 탱커로 전장을 휘젓지만, 현실에선 건조하고 날카로운 본색이 드러난다. 동생(핥렐루야)의 폭주를 제어할 수 있는 유일한 인물. 레벨 101, 클래스 '가디언 나이트'다.
+        </p>
+        `
+    },
+    {
+        id: 214,
+        name: "핥렐루야",
+        realName: "양교성",
+        guild: "수렵연구회",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Hallelujah.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Hallelujah.webp",
+        realImage: "../assets/images/chara/DLC_Player/Hallelujah_reallife.webp",
+        description: `
+        <p class="player-quote">기술은 군사, 다음은 야스, 그리고 의학! 인류의 위대함이야!</p>
+        <ul>
+            <li><strong>이름 :</strong> 핥렐루야 (양교성)</li>
+            <li><strong>소속 :</strong> 수렵연구회</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 26세</li>
+            <li><strong>특징 :</strong> 에로게 마니아, 부끄러움 無, 언니 바라기, 예술·사격 재능</li>
+            <li><strong>주요 능력 :</strong> 선 드로핑(시그니처), 피어싱 샷, 멀티 애로우 배러지, 이글 아이(패시브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            수렵연구회의 주력 원딜이자 유명 일러스트레이터. 전투에선 최대 사거리에서 포화로 전장을 갈아엎지만, 전투가 끝나면 노필터 망언 제조기로 돌아간다. 언니의 한마디 앞에만 작아진다. 레벨 82, 클래스 '데드아이'다.
+        </p>
+        `
+    },
+    {
+        id: 215,
+        name: "눈물콸콸",
+        realName: "한서주",
+        guild: "수렵연구회",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Nummulkwalkwal.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Nummulkwalkwal.webp",
+        realImage: "../assets/images/chara/DLC_Player/Nummulkwalkwal_reallife.webp",
+        description: `
+        <p class="player-quote">...</p>
+        <ul>
+            <li><strong>이름 :</strong> 눈물콸콸 (한서주)</li>
+            <li><strong>소속 :</strong> 수렵연구회</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 30세</li>
+            <li><strong>특징 :</strong> 과묵함, 금욕적, 번아웃, 시한폭탄</li>
+            <li><strong>주요 능력 :</strong> 회사노예의 살의(시그니처), 플러리 오브 블로우즈, 아이언 바디, 사일런트 스텝</li>
+        </ul>
+        <p class="player-narrative-description">
+            말보다 주먹으로 말하는 근접 메인 딜러. 현실에선 혹독한 일을 견디는 프로그래머로, 게임을 스트레스 해소의 무대로 삼는다. 적의 얼굴 앞까지 파고들어 폭풍 연타로 전장을 밀어붙인다. 레벨 78, 클래스 '몽크'다.
+        </p>
+        `
+    },
+    {
+        id: 216,
+        name: "트리스메기스투스",
+        realName: "안유민",
+        guild: "마스터피스 길드 (길드마스터)",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Trismegistus.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Trismegistus.webp",
+        realImage: "../assets/images/chara/DLC_Player/Trismegistus_reallife.webp",
+        description: `
+        <p class="player-quote">어서 오세요. 제대로 찾아오셨습니다.</p>
+        <ul>
+            <li><strong>이름 :</strong> 트리스메기스투스 (안유민)</li>
+            <li><strong>소속 :</strong> 마스터피스 길드 (길드마스터)</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 25세</li>
+            <li><strong>특징 :</strong> 로어 집착, 박식함, 예술적 완벽주의, 모범시민 위장, 러브크래프트 광</li>
+            <li><strong>주요 능력 :</strong> (미지) 금단의 지식 관련 시그니처, 마스터 연금술, 어비스 그라스프(액티브), 엘드리치 놀리지(패시브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            친절하고 공손한 장인처럼 보이나, 일단 작품 이야기가 시작되면 심연의 로어를 끝없이 풀어놓는 괴인. 실전에서는 괴상한 포션과 저주로 후방 지원을 맡되, 워락 마법으로 자구책도 갖췄다. 레벨 113, 클래스 '오컬티스트(알케미스트-워락 하이브리드)'다.
+        </p>
+        `
+    },
+    {
+        id: 217,
+        name: "불가살뚱이",
+        realName: "권안영",
+        guild: "마스터피스 길드",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Bulgasal-ttungyi.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Bulgasal-ttungyi.webp",
+        realImage: "../assets/images/chara/DLC_Player/Bulgasal-ttungyi_reallife.webp",
+        description: `
+        <p class="player-quote">자자~ 방패는 왼쪽이 무거워요. 가볍게 맞춰 드릴게요! 그 전에... 어, 간식 타임!</p>
+        <ul>
+            <li><strong>이름 :</strong> 불가살뚱이 (권안영)</li>
+            <li><strong>소속 :</strong> 마스터피스 길드</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 23세</li>
+            <li><strong>특징 :</strong> 쾌활함, 에너지 넘침, 미식가, 장인정신, 실용주의</li>
+            <li><strong>주요 능력 :</strong> 커스텀 피팅(시그니처), 마스터 제련·단조, 장비 감정</li>
+        </ul>
+        <p class="player-narrative-description">
+            파티의 장비를 완벽히 맞춰 승률을 끌어올리는 마스터 대장장이. 전투보다는 먹을거리에 더 진심이며, 작업 전엔 꼭 붉은 크래미를 물고 망치를 든다. 레벨 80, 클래스 '블랙스미스'다.
+        </p>
+        `
+    },
+    {
+        id: 218,
+        name: "타천☆사",
+        realName: "한유은",
+        guild: "마스터피스 길드",
+        type: "DLC-지고",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Tacheon-sa.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Tacheon-sa.webp",
+        realImage: "../assets/images/chara/DLC_Player/Tacheon-sa_reallife.webp",
+        description: `
+        <p class="player-quote">짜잔! 신작 골렘! 무적! 완벽! ...기분 좋아지면 폭발할 수도? ☆</p>
+        <ul>
+            <li><strong>이름 :</strong> 타천☆사 (한유은)</li>
+            <li><strong>소속 :</strong> 마스터피스 길드</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 22세</li>
+            <li><strong>특징 :</strong> 사고뭉치, 카오틱 뉴트럴, 장난꾸러기 화신, 엉뚱한 천재, 바퀴벌레 애호</li>
+            <li><strong>주요 능력 :</strong> 서프라이즈 피처!(시그니처), 마스터 골렘 크래프팅, 트랩 설치, 폭약 공학</li>
+        </ul>
+        <p class="player-narrative-description">
+            마스터피스의 자타공인 혼돈 요원. 모든 골렘에 황당한 ‘숨겨진 기능’을 넣는 악명으로, 커뮤니티에선 사살해도 용서된다는 불문율까지 생겼다. 길드도 감싸지 않지만, 트리스는 그 미학적 혼돈을 사랑한다. 레벨 67, 클래스 '골렘 크래프트'다.
+        </p>
         `
     }
 ];

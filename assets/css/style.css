@@ -1284,7 +1284,8 @@ table.simple-table th { background: rgba(255,255,255,0.04); color:#e8f1ff; }
     grid-template-columns: 1fr 1fr; /* 자세히, 출처 2개 버튼 */
     gap: 10px;
     align-items: stretch;
-    margin-top: 8px;
+    /* 카드 높이가 더 클 때 버튼이 카드 하단에 붙도록 남는 공간을 흡수 */
+    margin-top: auto;
 }
 .dlc-actions .button { width: 100%; }
 
@@ -1304,9 +1305,73 @@ table.simple-table th { background: rgba(255,255,255,0.04); color:#e8f1ff; }
     .dlc-controls-row { flex-direction: column; align-items: stretch; }
 }
 
-/* Collapsible section for selection management */
-.collapsible-toggle { display: flex; align-items: center; gap: 10px; }
+/* DLC Selection Summary Styles */
+.selection-count {
+    color: var(--accent-sky-blue);
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 8px 12px;
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 20px;
+}
+
+.selection-grid li {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    line-height: 1.3;
+    color: var(--primary-text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+}
+
+.selection-grid li::before {
+    content: '•';
+    color: var(--accent-sky-blue);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.selection-group h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* Responsive adjustments for selection grid */
+@media (max-width: 768px) {
+    .selection-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 6px 8px;
+    }
+    
+    .selection-grid li {
+        padding: 6px 10px;
+        font-size: 12px;
+        min-height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .selection-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+}
 .button.small { padding: 6px 10px; font-size: 12px; }
+.collapsible-toggle { display: flex; align-items: center; gap: 10px; }
 .collapsible { overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease; }
 .collapsible.collapsed { max-height: 0 !important; opacity: 0; margin-top: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; }
 .collapsible:not(.collapsed) { max-height: 1200px; opacity: 1; margin-top: 8px; }

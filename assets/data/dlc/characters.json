@@ -121,17 +121,20 @@
     "realName": "김사돌",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "신중하고 사려 깊은 무덤 길드 마스터. 소환 스킬로 아군을 보호·지원하는 네크로맨서.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/NalDaram.webp",
   "imageGame": "/images/character/DLC_Player/NalDaram.webp",
   "imageReal": "/images/character/DLC_Player/NalDaram_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["NalDaram"],
   "globalNotesRealLife": ["NalDaram_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/NalDaram.png",
+    "assets/data/asset/player/NalDaram_reallife.png"
+  ],
   "folderLine": "날다람(33/F): Long white hair and crimson eyes, Cautious, Protective, Self-doubting, Mudeom Guild Master, Speech style is measured and careful like a mediator, level 130 Necromancer"
   },
   {
@@ -141,17 +144,20 @@
     "realName": "임승율",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "정의감 넘치는 팔라딘, 무덤의 방패. 리얼리티 슬래시를 앞세운 올라운더.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/NalManjeo.webp",
   "imageGame": "/images/character/DLC_Player/NalManjeo.webp",
   "imageReal": "/images/character/DLC_Player/NalManjeo_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["NalManjeo"],
   "globalNotesRealLife": ["NalManjeo_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/NalManjeo.png",
+    "assets/data/asset/player/NalManjeo_reallife.png"
+  ],
   "folderLine": "날만져(37/F): Long white hair and blue eyes, Righteous, Passionate, Headstrong, Mudeom Guild Member, Speech style is heroic and justice-driven like a Tokusatsu hero, level 164 Paladin Champion"
   },
   {
@@ -161,17 +167,20 @@
     "realName": "천영화",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "악역 컨셉의 유리대포 딜러. 압도적 화력으로 보스전을 단숨에 정리하는 무덤 길드의 핵심 딜러.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Karla.webp",
   "imageGame": "/images/character/DLC_Player/Karla.webp",
   "imageReal": "/images/character/DLC_Player/Karla_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Karla"],
   "globalNotesRealLife": ["Karla_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Karla.png",
+    "assets/data/asset/player/Karla_reallife.png"
+  ],
   "folderLine": "카르라 알레스테오로스 에블레르(20/F): Long black hair and crimson eyes, Chuunibyou, Arrogant (Roleplay), Glass Cannon, Mudeom Guild Member, Speech style is archaic and dramatic, befitting a demon lord, level 163 Disaster Caster"
   },
   {
@@ -181,17 +190,20 @@
     "realName": "태수빈",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "전열에서 적을 밀어내는 괴짜 힐러. 철권 건틀릿으로 제어하며 아슬아슬한 타이밍에 힐을 넣는다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Annyeongcheolkwonseonsaeng.webp",
   "imageGame": "/images/character/DLC_Player/Annyeongcheolkwonseonsaeng.webp",
   "imageReal": "/images/character/DLC_Player/Annyeongcheolkwonseonsaeng_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Annyeongcheolkwonseonsaeng"],
   "globalNotesRealLife": ["Annyeongcheolkwonseonsaeng_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Annyeongcheolkwonseonsaeng.png",
+    "assets/data/asset/player/Annyeongcheolkwonseonsaeng_reallife.png"
+  ],
   "folderLine": "안녕철권선생(27/F): Blonde hair in a bun with glasses and oversized iron gauntlets, Reckless, Impulsive, \"Brain Off\" Mode, Mudeom Guild Member, Speech style is loud and suggests thoughtless plans with confidence, level 115 Battle Priest"
   },
   {
@@ -201,17 +213,20 @@
     "realName": "손여란",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "정보와 언변으로 판을 설계하는 창천 길드 마스터. 전장을 지휘하는 전략가.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Waryonggarden.webp",
   "imageGame": "/images/character/DLC_Player/Waryonggarden.webp",
   "imageReal": "/images/character/DLC_Player/Waryonggarden_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Waryonggarden"],
   "globalNotesRealLife": ["Waryonggarden_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Waryonggarden.png",
+    "assets/data/asset/player/Waryonggarden_reallife.png"
+  ],
   "folderLine": "와룡가든(27/F): Long emerald-green hair and golden eyes, Cunning, Strategist, Controlling, Changcheon Guild Master, Speech style is polite yet commanding with subtle mockery, level 77 Strategist Mage"
   },
   {
@@ -221,17 +236,20 @@
     "realName": "류금우",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "정면승부를 즐기는 대결 특화 전사. 읽기와 결단으로 일격을 꽂는 로스트 사무라이.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/MuinRyuGeumwoo.webp",
   "imageGame": "/images/character/DLC_Player/MuinRyuGeumwoo.webp",
   "imageReal": "/images/character/DLC_Player/MuinRyuGeumwoo_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["MuinRyuGeumwoo"],
   "globalNotesRealLife": ["MuinRyuGeumwoo_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/MuinRyuGeumwoo.png",
+    "assets/data/asset/player/MuinRyuGeumwoo_reallife.png"
+  ],
   "folderLine": "무인류금우(24/F): Fiery red hair with golden streaks, Bold, Competitive, Joyful, Changcheon Guild Member, Speech style is loud and energetic, level 147 Lost Samurai"
   },
   {
@@ -241,17 +259,20 @@
     "realName": "이연주",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "은신과 일격 필살로 적을 지우는 유리대포 닌자. 온화한 겉모습과 달리 암살·기습에 특화.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Mureoddeudneunbyeorak.webp",
   "imageGame": "/images/character/DLC_Player/Mureoddeudneunbyeorak.webp",
   "imageReal": "/images/character/DLC_Player/Mureoddeudneunbyeorak_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Mureoddeudneunbyeorak"],
   "globalNotesRealLife": ["Mureoddeudneunbyeorak_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Mureoddeudneunbyeorak.png",
+    "assets/data/asset/player/Mureoddeudneunbyeorak_reallife.png"
+  ],
   "folderLine": "물어뜯는벼락(22/F): Black hair and a half-face mask, Easygoing, Kind, Thrill-Seeker, Changcheon Guild Member, Speech style is gentle but delivers stylish one-liners post-kill, level 123 Ninja"
   },
   {
@@ -261,17 +282,20 @@
     "realName": "양미성",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "하이텐션으로 전장을 휘젓는 탱커. 광역 도발로 어그로를 쓸어 담아 파티의 중심을 잡는다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Bbeokkeum-Bbeokkeum-Guseul.webp",
   "imageGame": "/images/character/DLC_Player/Bbeokkeum-Bbeokkeum-Guseul.webp",
   "imageReal": "/images/character/DLC_Player/Bbeokkeum-Bbeokkeum-Guseul_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Bbeokkeum-Bbeokkeum-Guseul"],
   "globalNotesRealLife": ["Bbeokkeum-Bbeokkeum-Guseul_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Bbeokkeum-Bbeokkeum-Guseul.png",
+    "assets/data/asset/player/Bbeokkeum-Bbeokkeum-Guseul_reallife.png"
+  ],
   "folderLine": "뻐끔뻐끔구슬(26/F): Red low-twintails and orange star-shaped eyes, Hyperactive, Loud, Curious, Hunting Research Society Guild Master, Speech style is high-pitched and energetic, level 101 Guardian Knight."
   },
   {
@@ -281,17 +305,20 @@
     "realName": "양교성",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "최대 사거리 포화의 데드아이. 항상 노필터지만 언니 앞에선 순해진다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Hallelujah.webp",
   "imageGame": "/images/character/DLC_Player/Hallelujah.webp",
   "imageReal": "/images/character/DLC_Player/Hallelujah_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Hallelujah"],
   "globalNotesRealLife": ["Hallelujah_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Hallelujah.png",
+    "assets/data/asset/player/Hallelujah_reallife.png"
+  ],
   "folderLine": "핥렐루야(26/F): Long black hair and yellow heart-shaped eyes, Eroge Maniac, Shameless, Talented, Hunting Research Society Guild Member, Speech style is loud and unfiltered but meek to her sister, level 82 Deadeye."
   },
   {
@@ -301,17 +328,20 @@
     "realName": "한서주",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "말보다 주먹으로 말하는 러시다운형 몽크. 적의 코앞에서 폭풍 연타로 전장을 밀어붙인다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Nummulkwalkwal.webp",
   "imageGame": "/images/character/DLC_Player/Nummulkwalkwal.webp",
   "imageReal": "/images/character/DLC_Player/Nummulkwalkwal_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Nummulkwalkwal"],
   "globalNotesRealLife": ["Nummulkwalkwal_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Nummulkwalkwal.png",
+    "assets/data/asset/player/Nummulkwalkwal_reallife.png"
+  ],
   "folderLine": "눈물콸콸(30/F): Ponytailed black hair and green eyes in a monk's robe, Taciturn, Stoic, Exhausted, Hunting Research Society Guild Member, Speech style is extremely brief and often non-verbal, level 78 Monk."
   },
   {
@@ -321,17 +351,20 @@
     "realName": "안유민",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "공손한 장인 위장 뒤에 심연의 로어를 품은 연금술 오컬티스트. 괴상한 포션과 저주로 후방에서 지원.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Trismegistus.webp",
   "imageGame": "/images/character/DLC_Player/Trismegistus.webp",
   "imageReal": "/images/character/DLC_Player/Trismegistus_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Trismegistus"],
   "globalNotesRealLife": ["Trismegistus_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Trismegistus.png",
+    "assets/data/asset/player/Trismegistus_reallife.png"
+  ],
   "folderLine": "트리스메기스투스(25/F): Long black hair with a white streak and yellow cat-like eyes, Lore-Obsessed, Artistic, Horror Fanatic, Masterpiece Guild Master, Speech style is polite but devolves into disturbing lore dumps, level 113 Occultist."
   },
   {
@@ -341,17 +374,20 @@
     "realName": "권안영",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "쾌활한 마스터 대장장이. ‘커스텀 피팅’으로 플레이스타일에 맞춘 장비로 전력을 끌어올린다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Bulgasal-ttungyi.webp",
   "imageGame": "/images/character/DLC_Player/Bulgasal-ttungyi.webp",
   "imageReal": "/images/character/DLC_Player/Bulgasal-ttungyi_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Bulgasal-ttungyi"],
   "globalNotesRealLife": ["Bulgasal-ttungyi_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Bulgasal-ttungyi.png",
+    "assets/data/asset/player/Bulgasal-ttungyi_reallife.png"
+  ],
   "folderLine": "불가살뚱이(23/F): Vibrant orange braided hair and heterochromia, Cheerful, Energetic, Gourmet, Masterpiece Guild Member, Speech style is bright and friendly, level 80 Blacksmith."
   },
   {
@@ -361,17 +397,20 @@
     "realName": "한유은",
   "author": "고상래어",
     "dlcTitle": "지고",
-    "desc": "설명을 입력하세요",
+  "desc": "혼돈의 골렘 공학자. 예측불가 ‘숨겨진 기능’의 골렘으로 전장을 장난감처럼 뒤흔든다.",
     "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Tacheon-sa.webp",
   "imageGame": "/images/character/DLC_Player/Tacheon-sa.webp",
   "imageReal": "/images/character/DLC_Player/Tacheon-sa_reallife.webp",
-    "source": {},
+    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Tacheon☆sa"],
   "globalNotesRealLife": ["Tacheon☆sa_reallife"],
     "lastUpdated": "2025. 9. 4.",
     "loreFiles": [],
-    "assetImages": [],
+  "assetImages": [
+    "assets/data/asset/player/Tacheon-sa.png",
+    "assets/data/asset/player/Tacheon-sa_reallife.png"
+  ],
   "folderLine": "타천☆사(22/F): Long blue hair with a yellow streak and a golden mask, Troublemaker, Chaotic, Prankster, Masterpiece Guild Member, Speech style is loud and playful with sound effects, level 67 Golem Craft."
   }
 ]
