@@ -1,0 +1,71 @@
+[
+  {
+    "id": "dlc-char-amber",
+    "playerId": 201,
+    "name": "엠버",
+    "realName": "김수아",
+    "author": "파솔라",
+    "dlcTitle": "불꽃과 얼음",
+    "desc": "러시와 화염으로 혼란을 만들고 검을 휘두르는 플레임 블레이더.",
+    "dlcDescription": "불꽃과 얼음 DLC의 캐릭터. 게임에서라도 하고싶은거 다 하는 귀여운 엠버입니다. 프로스트와 같이 사용을 추천합니다.",
+    "image": "assets/images/DLC/character/profile/amber.webp",
+    "imageGame": "assets/images/DLC/character/amber.webp",
+    "imageReal": "assets/images/DLC/character/amber_reallife.webp",
+    "source": { "label": "파솔라", "url": "https://arca.live/b/characterai/146699466" },
+    "globalNotes": ["amber"],
+  "globalNotesRealLife": ["amber_reallife"],
+  "lastUpdated": "2025. 8. 31.",
+    "loreFiles": ["assets/data/lorebooks/player/Amber.json"],
+    "assetImages": [
+        "assets/data/asset/player/Amber.png",
+        "assets/data/asset/player/Amber_reallife.png"
+  ],
+  "folderLine": "엠버(21/F): Long orange hair and red eyes, Subtle Madness, Eccentric, Reckless, Unaffiliated, Speech style is keyword-focused and direct, but speaks normally when serious, Level 52 Flame Blader."
+  },
+  {
+    "id": "dlc-char-frost",
+    "playerId": 202,
+    "name": "프로스트",
+    "realName": "박도윤",
+    "author": "파솔라",
+    "dlcTitle": "불꽃과 얼음",
+    "desc": "적을 얼려 파티원의 마무리를 돕는 서포트형 냉기마법사.",
+    "dlcDescription": "불꽃과 얼음 DLC의 캐릭터. 핵인싸 프로스트 입니다. 엠버와 같이 사용을 추천합니다.",
+    "image": "assets/images/DLC/character/profile/frost.webp",
+    "imageGame": "assets/images/DLC/character/frost.webp",
+    "imageReal": "assets/images/DLC/character/frost_reallife.webp",
+    "source": { "label": "파솔라", "url": "https://arca.live/b/characterai/146699466" },
+    "globalNotes": ["frost"],
+  "globalNotesRealLife": ["frost_reallife"],
+  "lastUpdated": "2025. 8. 31.",
+    "loreFiles": ["assets/data/lorebooks/player/Frost.json"],
+    "assetImages": [
+        "assets/data/asset/player/Frost.png",
+        "assets/data/asset/player/Frost_reallife.png"
+  ],
+  "folderLine": "프로스트(21/M): Sky-blue hair and blue eyes, Popular, Considerate, Sociable, Unaffiliated, Considerate and puts others first; keeps conversations going by asking about various topics and empathizes well, Level 43 Frost Mage."
+  },
+  {
+    "id": "dlc-char-Byeolbitgoyangi",
+    "playerId": 203,
+    "name": "별빛고양이",
+    "realName": "한재민",
+    "author": "Nyan",
+    "dlcTitle": "",
+    "desc": "드루이드 스킬로 채집과 생계 활동에 집중하는 쌀먹 플레이어.",
+    "dlcDescription": "",
+    "image": "assets/images/DLC/character/profile/Byeolbitgoyangi.webp",
+    "imageGame": "assets/images/DLC/character/Byeolbitgoyangi.webp",
+    "imageReal": "assets/images/DLC/character/Byeolbitgoyangi_reallife.webp",
+    "source": { "label": "Nyan", "url": "https://arca.live/b/characterai/146637970" },
+    "globalNotes": ["Byeolbitgoyangi"],
+  "globalNotesRealLife": ["Byeolbitgoyangi_reallife"],
+  "lastUpdated": "2025. 8. 31.",
+    "loreFiles": ["assets/data/lorebooks/player/Byeolbitgoyangi.json"],
+    "assetImages": [
+        "assets/data/asset/player/Byeolbitgoyangi.png",
+        "assets/data/asset/player/Byeolbitgoyangi_reallife.png"
+  ],
+  "folderLine": "별빛고양이(22/M): Practical, Calm, Calculating, Potato Farm Clan member, Uses druid skills for gathering; straightforward and fair in transactions; prefers night play and modest income."
+  }
+]

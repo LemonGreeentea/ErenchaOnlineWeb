@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모듈 다운로드 (간편설치) - DLC</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <meta name="robots" content="noindex">
+    <!-- Netlify Functions 서버리스 집계 엔드포인트 설정 -->
+    <meta name="dlc-analytics-endpoint" content="/dlc-download">
+    <!-- Cloudflare R2 데이터 베이스 URL 설정 -->
+    <meta name="dlc-data-base" content="https://pub-10c833780df54305a8613bdb0a2c0e53.r2.dev/">
+</head>
+<body class="dlc">
+    <div class="site-wrap">
+        <header class="main-header"></header>
+        <section class="sub-hero-banner">
+            <h1>모듈 다운로드 (간편설치)</h1>
+            <p class="sub-title">모든 구성 요소가 하나로 패키징된 .risum 모듈 파일로 간편하게 설치</p>
+        </section>
+        <main>
+            <div class="game-info-container dlc-download-container">
+                <div class="navigation-breadcrumb section-panel">
+                    <a href="download.html" class="button secondary small">← 다운로드 방식 선택으로 돌아가기</a>
+                </div>
+
+                <h2>선택한 DLC 요약</h2>
+                <div class="section-panel">
+                    <p class="muted">이벤트, 컨텐츠, 캐릭터 탭에서 선택한 항목이 요약됩니다.</p>
+                    <div id="dlc-empty" style="display:none;" class="notice">선택된 DLC가 없습니다. 상단 메뉴의 DLC 탭에서 원하는 항목을 선택해 주세요.</div>
+                    <div id="selection-summary">
+                        <div class="selection-group">
+                            <h3>이벤트</h3>
+                            <ul id="list-events" class="bullet-list"></ul>
+                        </div>
+                        <div class="selection-group">
+                            <h3>컨텐츠</h3>
+                            <ul id="list-contents" class="bullet-list"></ul>
+                        </div>
+                        <div class="selection-group">
+                            <h3>캐릭터</h3>
+                            <ul id="list-characters" class="bullet-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2>모듈 생성 및 다운로드</h2>
+                <div class="module-info section-panel">
+                    <div class="info-box">
+                        <h3>🚀 RisuM 모듈이란?</h3>
+                        <p>RisuM(.risum) 모듈은 로어북, 에셋, 설정이 모두 하나의 파일로 패키징된 형태입니다. 
+                           RisuAI의 모듈 시스템을 활용하여 복잡한 설치 과정 없이 한 번에 모든 것을 설치할 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="build-controls section-panel">
+                    <label>모듈 이름
+                        <input id="filename" type="text" value="" aria-label="모듈 이름">
+                    </label>
+                    <p class="muted">생성될 .risum 모듈 파일의 이름을 입력하세요.</p>
+                    <!-- 스크립트에서 RisuM 버튼만 표시됩니다 -->
+                </div>
+
+                <div id="risum-build-result" class="build-result section-panel" style="display:none;">
+                    <h3>모듈 파일</h3>
+                    <div class="row-inline">
+                        <span>크기: <strong id="risum-size">-</strong></span>
+                        <a id="risum-download-link" class="button" href="#" download>RisuM 모듈 다운로드</a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2>간편 설치 방법</h2>
+                <div class="install-guide section-panel">
+                    <div class="install-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>모듈 파일 다운로드</h3>
+                            <p>위의 "RisuM 생성(.risum)" 버튼을 클릭하여 모듈 파일을 다운로드합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>RisuAI에서 모듈 설치</h3>
+                            <p>RisuAI를 열고 다음 단계를 따르세요:</p>
+                            <ul class="sub-steps">
+                                <li>메인 메뉴에서 "모듈" 또는 "Modules" 탭으로 이동</li>
+                                <li>"Import Module" 또는 "모듈 가져오기" 버튼 클릭</li>
+                                <li>다운로드한 .risum 파일을 선택</li>
+                                <li>설치 완료를 확인</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>모듈 활성화</h3>
+                            <p>설치된 모듈을 활성화합니다:</p>
+                            <ul class="sub-steps">
+                                <li>모듈 목록에서 방금 설치한 모듈을 찾기</li>
+                                <li>모듈을 활성화 또는 Enable</li>
+                                <li>필요한 경우 모듈 설정 확인</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>설치 완료 확인</h3>
+                            <p>모든 구성 요소가 정상적으로 설치되었는지 확인:</p>
+                            <ul class="sub-steps">
+                                <li>로어북 탭에서 새로운 엔트리들이 추가되었는지 확인</li>
+                                <li>에셋 탭에서 관련 이미지들이 추가되었는지 확인</li>
+                                <li>간단한 테스트 대화로 정상 작동 여부 확인</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2>모듈 설치의 장점</h2>
+                <div class="advantages-section section-panel">
+                    <div class="advantage-grid">
+                        <div class="advantage-card">
+                            <div class="advantage-icon">⚡</div>
+                            <h3>빠른 설치</h3>
+                            <p>하나의 파일로 모든 구성 요소를 한 번에 설치할 수 있어 시간을 절약합니다.</p>
+                        </div>
+                        
+                        <div class="advantage-card">
+                            <div class="advantage-icon">🔧</div>
+                            <h3>자동 설정</h3>
+                            <p>글로벌 노트, 로어북, 에셋이 자동으로 올바른 위치에 설정됩니다.</p>
+                        </div>
+                        
+                        <div class="advantage-card">
+                            <div class="advantage-icon">📦</div>
+                            <h3>완전한 패키지</h3>
+                            <p>모든 관련 파일이 하나로 묶여 있어 누락이나 버전 불일치 문제가 없습니다.</p>
+                        </div>
+                        
+                        <div class="advantage-card">
+                            <div class="advantage-icon">🔄</div>
+                            <h3>쉬운 관리</h3>
+                            <p>RisuAI의 모듈 시스템을 통해 활성화/비활성화, 업데이트 등을 쉽게 관리할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tips-section section-panel">
+                    <h3>💡 모듈 설치 팁</h3>
+                    <ul class="bullet-list">
+                        <li><strong>RisuAI 버전:</strong> 최신 버전의 RisuAI를 사용하면 모듈 기능을 더 안정적으로 이용할 수 있습니다</li>
+                        <li><strong>백업:</strong> 기존 설정이 중요하다면 모듈 설치 전에 백업해두세요</li>
+                        <li><strong>충돌 확인:</strong> 다른 모듈과 충돌할 수 있으니 설치 후 정상 작동을 확인해보세요</li>
+                        <li><strong>모듈 관리:</strong> 사용하지 않는 모듈은 비활성화하여 성능을 최적화하세요</li>
+                    </ul>
+                </div>
+
+                <div class="troubleshooting section-panel">
+                    <h3>🔧 문제 해결</h3>
+                    <div class="faq-item">
+                        <h4>모듈이 설치되지 않아요</h4>
+                        <p>RisuAI 버전이 모듈을 지원하는지 확인하고, 파일이 손상되지 않았는지 다시 다운로드해보세요.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>모듈은 설치됐는데 작동하지 않아요</h4>
+                        <p>모듈이 활성화되어 있는지 확인하고, 다른 모듈과 충돌하지 않는지 확인해보세요.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>직접 설치 방식으로 바꾸고 싶어요</h4>
+                        <p>상단의 "다운로드 방식 선택으로 돌아가기" 버튼을 눌러 직접 설치 방식을 선택할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="main-footer"></footer>
+    </div>
+
+    <script src="../assets/js/layout.js"></script>
+    <!-- JSZip for client-side zip generation -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="../assets/js/dlc/lorebooks.js"></script>
+    <script src="../assets/js/dlc/dlc-download.js"></script>
+    <script>
+        // 일반 로어북/에셋 버튼 숨기기 (모듈 페이지에서는 불필요)
+        document.addEventListener('DOMContentLoaded', function() {
+            const risuButton = document.getElementById('build-risu-btn');
+            const assetsButton = document.getElementById('build-assets-btn');
+            const buildResult = document.getElementById('build-result');
+            const assetsResult = document.getElementById('assets-build-result');
+            
+            if (risuButton) risuButton.style.display = 'none';
+            if (assetsButton) assetsButton.style.display = 'none';
+            if (buildResult) buildResult.style.display = 'none';
+            if (assetsResult) assetsResult.style.display = 'none';
+
+            // RisuM 버튼 스타일링
+            const risuMButton = document.getElementById('build-risum-btn');
+            if (risuMButton) {
+                risuMButton.className = 'risum-generate-button';
+                risuMButton.textContent = 'RisuM 모듈 생성';
+                
+                // 버튼 클릭 시 펄스 효과 제거
+                risuMButton.addEventListener('click', function() {
+                    this.classList.remove('pulse');
+                    this.textContent = '생성 중...';
+                    this.disabled = true;
+                    
+                    // 생성 완료 후 버튼 복원 (기존 이벤트 리스너에서 처리)
+                    setTimeout(() => {
+                        if (!this.disabled) {
+                            this.textContent = 'RisuM 모듈 생성';
+                        }
+                    }, 1000);
+                });
+
+                // 선택된 DLC가 있으면 펄스 효과 추가
+                const selections = localStorage.getItem('dlcSelections');
+                if (selections) {
+                    const parsed = JSON.parse(selections);
+                    const hasSelections = (parsed.events?.length || 0) + (parsed.contents?.length || 0) + 
+                                        (parsed.characters?.length || 0) + (parsed.locations?.length || 0) > 0;
+                    if (hasSelections) {
+                        risuMButton.classList.add('pulse');
+                    }
+                }
+            }
+        });
+
+        // 모듈 생성 완료 시 버튼 상태 복원을 위한 MutationObserver
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                        const risuMResult = document.getElementById('risum-build-result');
+                        const risuMButton = document.getElementById('build-risum-btn');
+                        
+                        if (risuMResult && risuMResult.style.display === 'block' && risuMButton) {
+                            risuMButton.disabled = false;
+                            risuMButton.textContent = 'RisuM 모듈 생성';
+                            risuMButton.classList.remove('pulse');
+                        }
+                    }
+                });
+            });
+
+            const risuMResult = document.getElementById('risum-build-result');
+            if (risuMResult) {
+                observer.observe(risuMResult, { attributes: true, attributeFilter: ['style'] });
+            }
+        });
+    </script>
+</body>
+</html>

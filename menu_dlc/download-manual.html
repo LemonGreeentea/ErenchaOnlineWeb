@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLC 설치 - DLC</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <meta name="robots" content="noindex">
+    <!-- Netlify Functions 서버리스 집계 엔드포인트 설정 -->
+    <meta name="dlc-analytics-endpoint" content="/dlc-download">
+    <!-- Cloudflare R2 데이터 베이스 URL 설정 -->
+    <meta name="dlc-data-base" content="https://pub-10c833780df54305a8613bdb0a2c0e53.r2.dev/">
+</head>
+<body class="dlc">
+    <div class="site-wrap">
+        <header class="main-header"></header>
+        <section class="sub-hero-banner">
+            <h1>DLC 직접 설치</h1>
+        </section>
+        <main>
+            <div class="game-info-container dlc-download-container">
+                <div class="navigation-breadcrumb section-panel">
+                    <a href="download.html" class="button secondary small">← 다운로드 방식 선택으로 돌아가기</a>
+                </div>
+
+                <h2>선택한 DLC 요약</h2>
+                <div class="section-panel">
+                    <p class="muted">이벤트, 컨텐츠, 캐릭터 탭에서 선택한 항목이 요약됩니다.</p>
+                    <div id="dlc-empty" style="display:none;" class="notice">선택된 DLC가 없습니다. 상단 메뉴의 DLC 탭에서 원하는 항목을 선택해 주세요.</div>
+                    <div id="selection-summary">
+                        <div class="selection-group">
+                            <h3>이벤트</h3>
+                            <ul id="list-events" class="bullet-list"></ul>
+                        </div>
+                        <div class="selection-group">
+                            <h3>컨텐츠</h3>
+                            <ul id="list-contents" class="bullet-list"></ul>
+                        </div>
+                        <div class="selection-group">
+                            <h3>캐릭터</h3>
+                            <ul id="list-characters" class="bullet-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2>파일 생성 및 다운로드</h2>
+                <div class="build-controls section-panel">
+                    <label>파일 이름
+                        <input id="filename" type="text" value="" aria-label="파일 이름">
+                    </label>
+                    <p class="muted">로어북과 에셋 파일에 공통으로 사용될 파일명을 입력하세요.</p>
+                    <!-- 스크립트에서 버튼들이 동적으로 추가됩니다 -->
+                </div>
+
+                <div id="build-result" class="build-result section-panel" style="display:none;">
+                    <h3>로어북 파일</h3>
+                    <div class="row-inline">
+                        <span>크기: <strong id="bundle-size">-</strong></span>
+                        <a id="download-link" class="button" href="#" download>로어북 다운로드</a>
+                    </div>
+                </div>
+
+                <div id="assets-build-result" class="build-result section-panel" style="display:none;">
+                    <h3>에셋 파일</h3>
+                    <div class="row-inline">
+                        <span>에셋 수: <strong id="assets-count">-</strong></span>
+                        <span>용량: <strong id="assets-size">-</strong></span>
+                        <a id="assets-download-link" class="button" href="#" download>에셋 다운로드</a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 class="collapsible-toggle">글로벌 노트 가이드 <span id="global-notes-badge" class="notes-badge" style="display:none;">입력할 데이터 있음</span>
+                    <button type="button" class="button secondary small" id="toggle-global-notes" aria-expanded="false" aria-controls="global-notes-panel">펼치기</button>
+                </h2>
+                <div id="global-notes-panel" class="collapsible collapsed section-panel" style="display:none;">
+                    <p class="muted">선택한 DLC에 글로벌 노트 데이터가 포함되어 있으면, 아래 콘텐츠를 복사해 RisuAI의 글로벌 노트에 붙여넣어 주세요.</p>
+                    <div class="row" style="margin:8px 0 12px; gap:8px; flex-wrap:wrap;">
+                        <button type="button" class="button" id="btn-copy-global-notes">복사</button>
+                        <button type="button" class="button secondary" id="btn-edit-user-notes">사용자 노트 입력</button>
+                        <small class="muted" id="user-notes-hint">글로벌 노트에 입력할 내용이 있으면 입력해주세요!</small>
+                    </div>
+                    <textarea id="global-notes-text" readonly rows="14" style="width:100%; resize:vertical;"></textarea>
+                </div>
+
+                <hr>
+
+                <h2>직접 설치 방법</h2>
+                <div class="install-guide section-panel">
+                    <div class="install-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>로어북 파일 다운로드</h3>
+                            <p>위의 "로어북 JSON 생성" 버튼을 클릭하여 로어북 파일을 다운로드합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>에셋 파일 다운로드 (선택사항)</h3>
+                            <p>이미지나 기타 에셋이 필요한 경우 "에셋 생성" 버튼을 클릭하여 ZIP 파일을 다운로드합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>RisuAI에 로어북 임포트</h3>
+                            <p>RisuAI를 열고 다음 단계를 따르세요:</p>
+                            <ul class="sub-steps">
+                                <li>원하는 캐릭터/챗을 선택합니다</li>
+                                <li>로어북 탭으로 이동합니다</li>
+                                <li>"Import" 버튼을 클릭하여 다운로드한 JSON 파일을 선택합니다</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>글로벌 노트 설정</h3>
+                            <p>위의 "글로벌 노트 가이드" 섹션에서 내용을 복사하여:</p>
+                            <ul class="sub-steps">
+                                <li>RisuAI의 글로벌 노트 탭으로 이동</li>
+                                <li>기존 내용을 삭제 (필요시 백업)</li>
+                                <li>복사한 내용을 붙여넣기</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>에셋 설치 (에셋 다운로드한 경우)</h3>
+                            <p>다운로드한 ZIP 파일을 압축해제하고:</p>
+                            <ul class="sub-steps">
+                                <li>RisuAI의 에셋 탭으로 이동</li>
+                                <li>압축해제한 이미지 파일들을 추가</li>
+                                <li>중복된 파일명이 있는지 확인하고 필요시 이름 변경</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tips-section section-panel">
+                    <h3>💡 설치 팁</h3>
+                    <ul class="bullet-list">
+                        <li><strong>백업:</strong> 기존 로어북이나 글로벌 노트가 있다면 설치 전에 백업해두세요</li>
+                        <li><strong>중복 확인:</strong> 에셋 설치 시 기존 파일과 이름이 겹치지 않는지 확인하세요</li>
+                        <li><strong>테스트:</strong> 설치 후 간단한 대화로 로어북이 정상 작동하는지 테스트해보세요</li>
+                        <li><strong>문제 해결:</strong> 로어북이 작동하지 않으면 insertorder 설정을 확인해보세요</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <footer class="main-footer"></footer>
+    </div>
+
+    <script src="../assets/js/layout.js"></script>
+    <!-- JSZip for client-side zip generation -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="../assets/js/dlc/lorebooks.js"></script>
+    <script src="../assets/js/dlc/dlc-download.js"></script>
+    <script>
+        // 모듈 버튼 숨기기 (직접 설치 페이지에서는 불필요)
+        document.addEventListener('DOMContentLoaded', function() {
+            const risuMButton = document.getElementById('build-risum-btn');
+            if (risuMButton) {
+                risuMButton.style.display = 'none';
+            }
+
+            // 로어북 JSON 생성 버튼 스타일링
+            const risuButton = document.getElementById('build-risu-btn');
+            if (risuButton) {
+                risuButton.style.background = 'linear-gradient(135deg, var(--accent-sky-blue), #2aa0f0)';
+                risuButton.style.border = 'none';
+                risuButton.style.padding = '14px 28px';
+                risuButton.style.fontSize = '16px';
+                risuButton.style.fontWeight = '700';
+                risuButton.style.borderRadius = '10px';
+                risuButton.style.boxShadow = '0 4px 15px rgba(77, 184, 255, 0.3)';
+                risuButton.style.transition = 'all 0.3s ease';
+                
+                risuButton.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 6px 20px rgba(77, 184, 255, 0.4)';
+                });
+                
+                risuButton.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 15px rgba(77, 184, 255, 0.3)';
+                });
+            }
+
+            // 에셋 생성 버튼 스타일링
+            const assetsButton = document.getElementById('build-assets-btn');
+            if (assetsButton) {
+                assetsButton.style.background = 'linear-gradient(135deg, #ff9800, #f57c00)';
+                assetsButton.style.border = 'none';
+                assetsButton.style.padding = '14px 28px';
+                assetsButton.style.fontSize = '16px';
+                assetsButton.style.fontWeight = '700';
+                assetsButton.style.borderRadius = '10px';
+                assetsButton.style.boxShadow = '0 4px 15px rgba(255, 152, 0, 0.3)';
+                assetsButton.style.transition = 'all 0.3s ease';
+                assetsButton.style.color = 'white';
+                
+                assetsButton.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 6px 20px rgba(255, 152, 0, 0.4)';
+                });
+                
+                assetsButton.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 15px rgba(255, 152, 0, 0.3)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

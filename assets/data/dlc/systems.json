@@ -1,0 +1,32 @@
+[
+	{
+		"id": "sys-systemupdate",
+		"name": "시스템 업데이트 DLC 모듈",
+		"author": "Nyan",
+		"description": "각종 현실 및 인게임 설정 보강 및 추가 모듈",
+		"lastUpdated": "2025. 9. 1.",
+		"thumb": "assets/images/dlc/system/systemupdatedlc.webp",
+		"quickInstall": false,
+		"downloadUrl": "https://arca.live/b/characterai/146775076",
+		"details": [
+			"- 현실 유저 설정 및 회복·현실성 시스템 추가",
+			"- 인게임 경험치·경제밸런스, 매직 서클 등 재조정"
+		]
+	},
+    {
+		"id": "sys-ImmersiveInventory",
+		"name": "Immersive Inventory Module 불법 DLC 모듈",
+		"author": "홍삼정에브리타임·Nyan",
+		"description": "아이템을 보관을 시각화 해주는 인벤토리창 시스템 추가",
+		"lastUpdated": "2025. 9. 1.",
+		"thumb": "assets/images/dlc/system/ImmersiveInventory.webp",
+		"quickInstall": false,
+		"downloadUrl": "https://arca.live/b/characterai/146644594",
+		"details": [
+			"- 아이템창을 시각화 하는 시스템창 추가",
+			"- 20칸, 25칸, 30칸의 인벤토리창 제공",
+            "- 1차 제작자 : 홍삼정에브리타임",
+            "- 2차 제작자 : Nyan"
+		]
+	}
+]

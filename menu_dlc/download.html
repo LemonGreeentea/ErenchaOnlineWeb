@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLC 다운로드 - DLC</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <meta name="robots" content="noindex">
+    <!-- Netlify Functions 서버리스 집계 엔드포인트 설정 -->
+    <meta name="dlc-analytics-endpoint" content="/dlc-download">
+    <!-- Cloudflare R2 데이터 베이스 URL 설정 -->
+    <meta name="dlc-data-base" content="https://pub-10c833780df54305a8613bdb0a2c0e53.r2.dev/">
+</head>
+<body class="dlc">
+    <div class="site-wrap">
+        <header class="main-header"></header>
+        <section class="sub-hero-banner"><h1>DLC 다운로드</h1></section>
+        <main>
+            <div class="game-info-container dlc-download-container">
+                <h2>선택한 DLC 요약</h2>
+                <div class="section-panel">
+                <p class="muted">이벤트, 컨텐츠, 캐릭터 탭에서 선택한 항목이 요약됩니다.</p>
+                <div id="dlc-empty" style="display:none;" class="notice">선택된 DLC가 없습니다. 상단 메뉴의 DLC 탭에서 원하는 항목을 선택해 주세요.</div>
+                <div id="selection-summary">
+                    <div class="selection-group">
+                        <h3>이벤트</h3>
+                        <ul id="list-events" class="bullet-list"></ul>
+                    </div>
+                    <div class="selection-group">
+                        <h3>컨텐츠</h3>
+                        <ul id="list-contents" class="bullet-list"></ul>
+                    </div>
+                    <div class="selection-group">
+                        <h3>캐릭터</h3>
+                        <ul id="list-characters" class="bullet-list"></ul>
+                    </div>
+                </div>
+                </div>
+
+                <hr>
+
+                <h2 class="collapsible-toggle">선택 관리
+                    <button type="button" class="button secondary small" id="toggle-controls" aria-expanded="false" aria-controls="dlc-controls-wrapper">펼치기</button>
+                </h2>
+                <div id="dlc-controls-wrapper" class="collapsible collapsed section-panel">
+                <div class="dlc-controls">
+                    <div class="dlc-controls-row">
+                        <button type="button" class="button secondary" id="btn-reset-selections">선택 초기화</button>
+                        <button type="button" class="button secondary" id="btn-export-selections">선택 내보내기</button>
+                        <button type="button" class="button secondary" id="btn-import-selections">선택 불러오기</button>
+                        <input type="file" id="input-import-selections" accept="application/json" style="display:none" />
+                    </div>
+
+                    <div class="dlc-code-share">
+                        <h3 style="margin:16px 0 8px">코드 공유</h3>
+                        <div class="row">
+                            <button type="button" class="button" id="btn-generate-code">코드 생성</button>
+                            <input type="text" id="share-code-output" readonly placeholder="코드가 여기에 생성됩니다" style="flex:1;min-width:220px;">
+                            <button type="button" class="button secondary" id="btn-copy-code">복사</button>
+                        </div>
+                        <div class="row">
+                            <input type="text" id="share-code-input" placeholder="받은 코드를 붙여넣으세요" style="flex:1;min-width:220px;">
+                            <button type="button" class="button" id="btn-apply-code">적용</button>
+                        </div>
+                    </div>
+
+                    <div class="dlc-slots">
+                        <h3 style="margin:16px 0 8px">선택 저장 슬롯 (최대 6개)</h3>
+                        <div id="dlc-selection-slots" class="dlc-slots-grid"></div>
+                    </div>
+                </div>
+                </div>
+
+                <hr>
+
+                <h2>다운로드 방식 선택</h2>
+                <div class="download-method-selection section-panel">
+                    <p class="muted">설치 방법에 따라 적합한 다운로드 방식을 선택하세요.</p>
+                    
+                    <div class="download-methods">
+                        <div class="download-method-card">
+                            <div class="method-header">
+                                <h3>로어북 및 에셋 직접 설치</h3>
+                                <span class="method-badge">기본</span>
+                            </div>
+                            <p class="method-description">
+                                로어북 JSON 파일과 에셋을 별도로 다운로드하여 RisuAI에 직접 설치하는 방식입니다. 
+                                글로벌 노트를 수동으로 설정해야 하지만 세부적인 제어가 가능합니다.
+                            </p>
+                            <ul class="method-features">
+                                <li>로어북 JSON 파일 다운로드</li>
+                                <li>에셋 ZIP 파일 다운로드</li>
+                                <li>글로벌 노트 가이드 제공</li>
+                                <li>단계별 설치 안내</li>
+                            </ul>
+                            <a href="download-manual.html" class="button primary method-button">직접 설치 방식 선택</a>
+                        </div>
+
+                        <div class="download-method-card">
+                            <div class="method-header">
+                                <h3>모듈 다운로드 (간편설치)</h3>
+                                <span class="method-badge recommended">추천</span>
+                            </div>
+                            <p class="method-description">
+                                모든 구성 요소가 하나의 .risum 모듈 파일로 패키징되어 한 번에 설치할 수 있는 간편한 방식입니다. 
+                                RisuAI 모듈 시스템을 활용합니다.
+                            </p>
+                            <ul class="method-features">
+                                <li>올인원 .risum 모듈 파일</li>
+                                <li>자동 로어북 및 에셋 설치</li>
+                                <li>간편한 원클릭 설치</li>
+                                <li>모듈 관리 시스템 활용</li>
+                            </ul>
+                            <a href="download-module.html" class="button primary method-button">모듈 설치 방식 선택</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="main-footer"></footer>
+    </div>
+
+    <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/dlc/lorebooks.js"></script>
+    <script>
+        // 선택 요약만 표시하는 간단한 스크립트
+        function loadSelections(){
+            try{
+                const raw = localStorage.getItem('dlcSelections');
+                return raw ? JSON.parse(raw) : { events: [], contents: [], characters: [], locations: [] };
+            }catch(e){
+                return { events: [], contents: [], characters: [], locations: [] };
+            }
+        }
+
+        function saveSelections(data){
+            try{
+                localStorage.setItem('dlcSelections', JSON.stringify(data));
+            }catch(e){
+                console.error('Failed to save selections:', e);
+            }
+        }
+
+        function createLi(text){
+            const li = document.createElement('li'); 
+            li.textContent = text; 
+            return li;
+        }
+
+        function renderSummary(){
+            const sel = loadSelections();
+            const hasAny = (sel.events?.length||0) + (sel.contents?.length||0) + (sel.characters?.length||0) + (sel.locations?.length||0) > 0;
+            
+            const emptyEl = document.getElementById('dlc-empty');
+            const summary = document.getElementById('selection-summary');
+            
+            if (emptyEl) emptyEl.style.display = hasAny ? 'none' : 'block';
+            if (summary) summary.style.display = hasAny ? 'block' : 'none';
+
+            const ulE = document.getElementById('list-events');
+            const ulC = document.getElementById('list-contents');
+            const ulP = document.getElementById('list-characters');
+            
+            if (ulE) {
+                ulE.innerHTML = '';
+                (sel.events||[]).forEach(x=> ulE.appendChild(createLi(x.name||x.title||String(x.id))));
+            }
+            if (ulC) {
+                ulC.innerHTML = '';
+                (sel.contents||[]).forEach(x=> ulC.appendChild(createLi(x.name||x.title||String(x.id))));
+            }
+            if (ulP) {
+                ulP.innerHTML = '';
+                (sel.characters||[]).forEach(x=> ulP.appendChild(createLi(x.name||x.title||String(x.id))));
+            }
+            
+            // locations는 세부 선택을 괄호로 표시
+            if (ulC) {
+                (sel.locations||[]).forEach(loc=>{
+                    const li = createLi(loc.name || String(loc.id));
+                    const subs = (loc.sub||[]).map(s=> s.name).join(', ');
+                    if(subs){ li.textContent += ` (${subs})`; }
+                    ulC.appendChild(li);
+                });
+            }
+        }
+
+        // 슬롯 관련 함수들
+        function loadSlots(){
+            try{
+                const raw = localStorage.getItem('dlcSelectionSlots');
+                const arr = raw ? JSON.parse(raw) : [];
+                return Array.isArray(arr) ? arr.slice(0,6) : [];
+            }catch{ return []; }
+        }
+
+        function saveSlots(slots){ 
+            localStorage.setItem('dlcSelectionSlots', JSON.stringify(slots.slice(0,6))); 
+        }
+
+        function formatKST(iso){
+            try{
+                const d = new Date(iso);
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                return new Intl.DateTimeFormat('ko-KR', { dateStyle:'medium', timeStyle:'short', timeZone: tz }).format(d);
+            }catch{ return iso; }
+        }
+
+        function renderSlots(){
+            const host = document.getElementById('dlc-selection-slots'); 
+            if(!host) return;
+            host.innerHTML = '';
+            const slots = loadSlots();
+            for(let i=0;i<6;i++){
+                const s = slots[i];
+                const el = document.createElement('div'); 
+                el.className = 'dlc-slot';
+                if(s){
+                    const h = document.createElement('h4'); 
+                    h.textContent = s.name || `슬롯 ${i+1}`;
+                    const t = document.createElement('small'); 
+                    t.textContent = `저장일시: ${formatKST(s.savedAt)}`;
+                    const row = document.createElement('div'); 
+                    row.className = 'row';
+                    
+                    const btnLoad = document.createElement('button'); 
+                    btnLoad.className='button'; 
+                    btnLoad.type='button'; 
+                    btnLoad.textContent='불러오기'; 
+                    btnLoad.onclick=()=>{ saveSelections(s.data); renderSummary(); renderSlots(); };
+                    
+                    const btnOverwrite = document.createElement('button'); 
+                    btnOverwrite.className='button secondary'; 
+                    btnOverwrite.type='button'; 
+                    btnOverwrite.textContent='덮어쓰기'; 
+                    btnOverwrite.onclick=()=> promptSaveToSlot(i);
+                    
+                    const btnClear = document.createElement('button'); 
+                    btnClear.className='button secondary'; 
+                    btnClear.type='button'; 
+                    btnClear.textContent='비우기'; 
+                    btnClear.onclick=()=>{ 
+                        if(confirm('이 슬롯을 비울까요?')){ 
+                            slots[i]=null; 
+                            saveSlots(slots); 
+                            renderSlots(); 
+                        } 
+                    };
+                    
+                    row.append(btnLoad, btnOverwrite, btnClear);
+                    el.append(h,t,row);
+                } else {
+                    const h = document.createElement('h4'); 
+                    h.textContent = `슬롯 ${i+1}`;
+                    const t = document.createElement('small'); 
+                    t.textContent = '비어 있음';
+                    const row = document.createElement('div'); 
+                    row.className = 'row';
+                    
+                    const btnSave = document.createElement('button'); 
+                    btnSave.className='button'; 
+                    btnSave.type='button'; 
+                    btnSave.textContent='저장'; 
+                    btnSave.onclick=()=> promptSaveToSlot(i);
+                    
+                    row.append(btnSave);
+                    el.append(h,t,row);
+                }
+                host.appendChild(el);
+            }
+        }
+
+        function promptSaveToSlot(index){
+            const name = prompt('슬롯 이름을 입력하세요 (예: 레이드 세팅)');
+            if(name===null) return;
+            const slots = loadSlots();
+            const data = loadSelections();
+            slots[index] = { name: name.trim()||`슬롯 ${index+1}`, savedAt: new Date().toISOString(), data };
+            saveSlots(slots);
+            renderSlots();
+        }
+
+        // 공유 코드 함수들
+        function encodeShareCode(sel){
+            const json = JSON.stringify({ v:1, d: sel });
+            const b64 = btoa(unescape(encodeURIComponent(json)))
+                .replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+            return b64;
+        }
+
+        function decodeShareCode(code){
+            try{
+                const b64 = code.replace(/-/g,'+').replace(/_/g,'/');
+                const json = decodeURIComponent(escape(atob(b64)));
+                const obj = JSON.parse(json);
+                if(obj && obj.v===1 && obj.d) return obj.d;
+                return null;
+            }catch{ return null; }
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            renderSummary();
+            renderSlots();
+
+            // 컨트롤 버튼 이벤트 리스너
+            const btnReset = document.getElementById('btn-reset-selections');
+            const btnExport = document.getElementById('btn-export-selections');
+            const btnImport = document.getElementById('btn-import-selections');
+            const inputImport = document.getElementById('input-import-selections');
+            const btnGenCode = document.getElementById('btn-generate-code');
+            const outCode = document.getElementById('share-code-output');
+            const btnCopy = document.getElementById('btn-copy-code');
+            const inCode = document.getElementById('share-code-input');
+            const btnApply = document.getElementById('btn-apply-code');
+
+            if(btnReset){ 
+                btnReset.onclick = ()=>{ 
+                    if(confirm('선택을 모두 초기화할까요?')){ 
+                        localStorage.setItem('dlcSelections', JSON.stringify({events:[],contents:[],characters:[],locations:[]})); 
+                        renderSummary(); 
+                        renderSlots();
+                    } 
+                }; 
+            }
+
+            if(btnExport){ 
+                btnExport.onclick = ()=>{
+                    const data = loadSelections();
+                    const payload = { type: 'dlcSelections', version: 1, exportedAt: new Date().toISOString(), data };
+                    const text = JSON.stringify(payload, null, 2);
+                    const blob = new Blob([text], {type:'application/json'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a'); 
+                    a.href = url; 
+                    a.download = `dlc-selections-${Date.now()}.json`;
+                    document.body.appendChild(a); 
+                    a.click(); 
+                    a.remove(); 
+                    URL.revokeObjectURL(url);
+                }; 
+            }
+
+            if(btnImport && inputImport){
+                btnImport.onclick = ()=> inputImport.click();
+                inputImport.onchange = ()=>{
+                    const f = inputImport.files && inputImport.files[0]; 
+                    if(!f) return;
+                    const reader = new FileReader();
+                    reader.onload = ()=>{
+                        try{
+                            const obj = JSON.parse(String(reader.result||''));
+                            const data = obj && (obj.data || obj);
+                            if(!data || typeof data !== 'object' || !('characters' in data)) 
+                                throw new Error('형식이 올바르지 않습니다.');
+                            localStorage.setItem('dlcSelections', JSON.stringify({ 
+                                events: data.events||[], 
+                                contents: data.contents||[], 
+                                characters: data.characters||[], 
+                                locations: data.locations||[] 
+                            }));
+                            renderSummary();
+                            renderSlots();
+                        }catch(e){ 
+                            alert('불러오기 실패: ' + e.message); 
+                        }
+                    };
+                    reader.readAsText(f);
+                    inputImport.value='';
+                };
+            }
+
+            if(btnGenCode && outCode){ 
+                btnGenCode.onclick = ()=>{ 
+                    outCode.value = encodeShareCode(loadSelections()); 
+                }; 
+            }
+
+            if(btnCopy && outCode){ 
+                btnCopy.onclick = ()=>{ 
+                    outCode.select(); 
+                    document.execCommand('copy'); 
+                }; 
+            }
+
+            if(btnApply && inCode){ 
+                btnApply.onclick = ()=>{
+                    const data = decodeShareCode(inCode.value.trim());
+                    if(!data){ 
+                        alert('코드가 올바르지 않습니다.'); 
+                        return; 
+                    }
+                    localStorage.setItem('dlcSelections', JSON.stringify({ 
+                        events: data.events||[], 
+                        contents: data.contents||[], 
+                        characters: data.characters||[], 
+                        locations: data.locations||[] 
+                    }));
+                    renderSummary();
+                    renderSlots();
+                }; 
+            }
+
+            // 접기/펼치기 컨트롤 (기본 접힘)
+            const btnToggle = document.getElementById('toggle-controls');
+            const panel = document.getElementById('dlc-controls-wrapper');
+            if(btnToggle && panel){
+                const CTRL_STATE_KEY = 'dlcControlsOpen';
+                const setState = (open)=>{
+                    if(open){ 
+                        panel.classList.remove('collapsed'); 
+                        btnToggle.setAttribute('aria-expanded','true'); 
+                        btnToggle.textContent='접기'; 
+                    } else { 
+                        panel.classList.add('collapsed'); 
+                        btnToggle.setAttribute('aria-expanded','false'); 
+                        btnToggle.textContent='펼치기'; 
+                    }
+                    try{ 
+                        localStorage.setItem(CTRL_STATE_KEY, open ? '1' : '0'); 
+                    }catch{}
+                };
+                
+                // 이전 상태 복원; 기본 접힘
+                let initial = false;
+                try{ 
+                    initial = localStorage.getItem(CTRL_STATE_KEY) === '1'; 
+                }catch{}
+                setState(initial);
+                
+                btnToggle.onclick = ()=>{ 
+                    const open = panel.classList.contains('collapsed'); 
+                    setState(open); 
+                };
+            }
+        });
+    </script>
+</body>
+</html>

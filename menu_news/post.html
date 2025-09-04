@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새소식 - 에렌샤 온라인</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="news">
+    <div class="site-wrap">
+        <header class="main-header"></header>
+        <section class="sub-hero-banner"></section>
+        <main>
+            <div class="post-view-container">
+                <div class="post-header">
+                    <h1 id="post-title">게시물을 불러오는 중...</h1>
+                    <div class="post-meta">
+                        <span id="post-author"></span> | <span id="post-date"></span> | 조회 <span id="post-views"></span>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <img id="post-image" src="" alt="게시물 이미지" style="display: none;">
+                    <div id="post-content"></div>
+                </div>
+                <div class="post-footer">
+                    <a href="#" class="list-btn" id="list-btn">목록으로</a>
+                </div>
+            </div>
+        </main>
+        <footer class="main-footer"></footer>
+    </div>
+    <script src="../assets/js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const boardType = params.get('board');
+            const postId = parseInt(params.get('id'));
+
+            if (!boardType || !postId) {
+                document.getElementById('post-title').textContent = "잘못된 접근입니다.";
+                return;
+            }
+
+            // 목록으로 돌아가기 버튼 링크 설정
+            document.getElementById('list-btn').href = `${boardType}.html`;
+
+            // 해당 게시판의 데이터 파일을 동적으로 로드
+            const script = document.createElement('script');
+            script.src = `../assets/js/news/${boardType}-data.js`;
+            document.body.appendChild(script);
+
+            script.onload = function() {
+                // boardData는 동적으로 로드된 스크립트 파일 안에 있습니다.
+                const post = boardData.find(p => p.id === postId);
+
+                if (post) {
+                    document.title = post.title + " - 에렌샤 온라인";
+                    document.getElementById('post-title').textContent = post.title;
+                    document.getElementById('post-author').textContent = post.author;
+                    document.getElementById('post-date').textContent = post.date;
+                    document.getElementById('post-views').textContent = post.views;
+                    document.getElementById('post-content').innerHTML = post.content;
+                    
+                    const imageEl = document.getElementById('post-image');
+                    if (post.imageUrl) {
+                        imageEl.src = post.imageUrl;
+                        imageEl.style.display = 'block';
+                    }
+                } else {
+                    document.getElementById('post-title').textContent = "게시물을 찾을 수 없습니다.";
+                    document.querySelector('.post-body').innerHTML = '<p>요청하신 게시물이 존재하지 않거나 삭제되었습니다.</p>';
+                }
+            };
+
+            script.onerror = function() {
+                document.getElementById('post-title').textContent = "데이터를 불러오는 데 실패했습니다.";
+            };
+        });
+    </script>
+</body>
+</html>

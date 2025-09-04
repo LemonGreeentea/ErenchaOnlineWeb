@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐릭터 DLC - DLC</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Cloudflare R2 데이터 베이스 URL 설정 -->
+    <meta name="dlc-data-base" content="https://pub-10c833780df54305a8613bdb0a2c0e53.r2.dev/">
+</head>
+<body class="dlc">
+    <div class="site-wrap">
+        <header class="main-header">
+            <!-- 헤더 내용이 여기에 동적으로 로드됩니다. -->
+        </header>
+        <section class="sub-hero-banner"><h1>캐릭터 DLC</h1></section>
+        <main>
+            <div class="game-info-container">
+                <h2>추가 캐릭터 소개</h2>
+                <p>비공식 DLC를 통해 추가되는 새로운 캐릭터들의 정보를 이곳에서 확인할 수 있습니다.</p>
+                <p class="muted">선택한 캐릭터는 다운로드 페이지에서 번들로 묶을 수 있습니다.</p>
+
+                <div id="dlc-characters-controls" class="dlc-controls">
+                    <div class="dlc-controls-row">
+                        <button type="button" class="button" id="chars-select-all-top">모두 선택</button>
+                        <button type="button" class="button secondary" id="chars-clear-top">선택 초기화</button>
+                    </div>
+                </div>
+
+                <div id="dlc-characters-grid" class="dlc-characters-grid"></div>
+
+                <div class="dlc-controls" style="margin-top:16px;">
+                    <div class="dlc-controls-row">
+                        <button type="button" class="button" id="chars-select-all-bottom">모두 선택</button>
+                        <button type="button" class="button secondary" id="chars-clear-bottom">선택 초기화</button>
+                    </div>
+                </div>
+
+                
+            </div>
+                        <!-- 상세 모달 -->
+                        <div id="char-modal" class="modal-overlay" aria-hidden="true">
+                            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="char-modal-title">
+                                <div class="modal-header">
+                                    <div id="char-modal-title" class="modal-title">캐릭터 상세</div>
+                                    <button type="button" class="modal-close" id="char-modal-close" aria-label="닫기">닫기</button>
+                                </div>
+                                                <div class="modal-body">
+                                                    <div class="player-images">
+                                                        <div class="image-box">
+                                                            <h4>게임 모습</h4>
+                                                            <img id="char-modal-image-game" alt="게임 이미지" />
+                                                        </div>
+                                                        <div class="image-box" id="char-modal-image-real-box">
+                                                            <h4>현실 모습</h4>
+                                                            <img id="char-modal-image-real" alt="현실 이미지" />
+                                                        </div>
+                                                    </div>
+                                    <div class="meta">
+                                        <h3 id="char-modal-name" style="margin:0 0 6px 0;"></h3>
+                                        <p id="char-modal-role" class="muted" style="margin:0 0 10px 0;"></p>
+                                        <div id="char-modal-desc" class="player-description"></div>
+                                        <p id="char-modal-source"></p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="button secondary" id="char-modal-cancel">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+        </main>
+        <footer class="main-footer">
+            <!-- 푸터 내용이 여기에 동적으로 로드됩니다. -->
+        </footer>
+    </div>
+    <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/community/player-data.js"></script>
+    <script src="../assets/js/dlc/dlc-characters.js"></script>
+</body>
+</html>

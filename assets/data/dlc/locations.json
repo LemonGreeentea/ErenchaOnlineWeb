@@ -1,0 +1,61 @@
+[
+  {
+    "id": "loc-lumina",
+    "name": "루미나 지역 확장",
+    "description": "루미나 도시 및 근교 지역 설정 확장",
+    "author": "파솔라",
+    "thumb": "assets/images/DLC/locations/lumina_extensions_dlc.webp",
+    "source": "https://arca.live/b/characterai/146617547",
+    "lastUpdated": "2025. 8. 30.",
+    "details": "중앙 대륙의 핵심 도시 루미나를 확장합니다. 도시 지구와 주변 지역의 설정, 위치, 활동이 추가됩니다.",
+    "globalNotes": [],
+    "globalNotesRealLife": [],
+    "loreFiles": [
+      "assets/data/lorebooks/location/lumina-dlc_main.json"
+    ],
+    "sub": [
+      {
+        "id": "loc-lumina-city",
+        "name": "도시 확장",
+        "default": true,
+        "loreFiles": [
+          "assets/data/lorebooks/location/lumina-city.json"
+        ]
+      },
+      {
+        "id": "loc-lumina-surroundings",
+        "name": "근교 확장",
+        "default": true,
+        "loreFiles": [
+          "assets/data/lorebooks/location/lumina-surroundings.json"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loc-Phanteon",
+    "name": "천공의 성채, 판테온",
+    "description": "천공의 섬 판테온이 등장합니다. NPC 6명, 신규 레이드 보스 추가.",
+    "author": "지네",
+    "thumb": "assets/images/DLC/locations/Phanteon_dlc.webp",
+    "source": "https://arca.live/b/characterai/146240810",
+    "lastUpdated": "2025. 8. 30.",
+    "details": "중앙 대륙의 핵심 도시 루미나를 확장합니다. 도시 지구와 주변 지역의 설정, 위치, 활동이 추가됩니다.",
+    "globalNotes": ["Iophiel", "Liriel", "Eve", "Cassia", "Uriel", "Raphael", "Memory of the King of Myriad Stars", "Cloud chick"],
+    "globalNotesRealLife": [],
+    "loreFiles": ["assets/data/lorebooks/location/Pantheon.json"],
+    "assetImages": [
+      "assets/data/asset/locations/Pantheon/Cassia.png",
+      "assets/data/asset/locations/Pantheon/Cloud chick.png",
+      "assets/data/asset/locations/Pantheon/Eve.png",
+      "assets/data/asset/locations/Pantheon/Iophiel.png",
+      "assets/data/asset/locations/Pantheon/Liriel.png",
+      "assets/data/asset/locations/Pantheon/Memory of the King of Myriad Stars.png",
+      "assets/data/asset/locations/Pantheon/Raphael.png",
+      "assets/data/asset/locations/Pantheon/Uriel.png"
+    ],
+    "sub": [
+
+    ]
+  }
+]

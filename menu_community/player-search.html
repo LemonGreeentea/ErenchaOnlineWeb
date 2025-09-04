@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플레이어 검색 - 커뮤니티</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Cloudflare R2 데이터 베이스 URL 설정 -->
+    <meta name="dlc-data-base" content="https://pub-10c833780df54305a8613bdb0a2c0e53.r2.dev/">
+</head>
+<body class="community">
+    <div class="site-wrap">
+        <header class="main-header"></header>
+        <section class="sub-hero-banner"><h1>플레이어 검색</h1></section>
+        <main>
+            <div class="player-search-container">
+                <div class="search-filters" id="search-filters">
+                    <div class="filter-group">
+                        <span class="filter-title">타입:</span>
+                        <input type="checkbox" id="type-vanilla" name="type" value="바닐라">
+                        <label for="type-vanilla">바닐라</label>
+                        <input type="checkbox" id="type-dlc" name="type" value="DLC">
+                        <label for="type-dlc">DLC</label>
+                    </div>
+                    <div class="filter-group">
+                        <span class="filter-title">성별:</span>
+                        <input type="checkbox" id="gender-male" name="gender" value="남성">
+                        <label for="gender-male">남성</label>
+                        <input type="checkbox" id="gender-female" name="gender" value="여성">
+                        <label for="gender-female">여성</label>
+                    </div>
+                </div>
+                <div class="search-bar-wrapper">
+                    <input type="text" id="player-search-input" placeholder="플레이어 이름, 본명, 길드 등으로 검색...">
+                </div>
+                <div id="player-list-container">
+                    <!-- 플레이어 목록이 여기에 동적으로 생성됩니다. -->
+                </div>
+            </div>
+        </main>
+        <footer class="main-footer"></footer>
+    </div>
+    <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/community/player-data.js"></script>
+    <script src="../assets/js/community/player-search.js"></script>
+</body>
+</html>

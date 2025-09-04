@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에렌샤 온라인</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="site-wrap">
+        <header class="main-header">
+            <!-- 헤더 내용이 여기에 동적으로 로드됩니다. -->
+        </header>
+
+        <main>
+            <section class="hero-banner">
+                <div class="hero-content">
+                    <h2 id="hero-title"></h2>
+                    <p id="hero-description"></p>
+                    <div class="event-period" id="hero-period"></div>
+                </div>
+            </section>
+
+            <section class="main-content">
+                <div class="content-grid">
+                    <div class="news-box">
+                        <h3>새소식 📢</h3>
+                        <ul class="news-list" id="recent-news-list">
+                            <!-- 최신 게시물이 여기에 동적으로 로드됩니다. -->
+                            <li><a href="#">게시물을 불러오는 중...</a></li>
+                        </ul>
+                    </div>
+                    <div class="promo-boxes">
+                        <div class="promo-item" id="promo-ad">
+                            <h4>💰 운영비 충당 이벤트!</h4>
+                            <p>광고 보고 에렌샤 지키기!</p>
+                        </div>
+                        <div class="promo-item" id="promo-item">
+                            <h4>💎 8월 이달의 아이템!</h4>
+                            <p>드래곤 파워 드링크!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <!-- 푸터 내용이 여기에 동적으로 로드됩니다. -->
+        </footer>
+    </div>
+    
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/content.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- 새소식 데이터 스크립트 (news 하위 폴더) -->
+    <script src="assets/js/news/events-data.js"></script>
+    <script src="assets/js/news/notices-data.js"></script>
+    <script src="assets/js/news/updates-data.js"></script>
+    <script src="assets/js/news/gm-notes-data.js"></script>
+    
+    <!-- 메인 페이지 새소식 로더 -->
+    <script src="assets/js/news/main-page-news.js"></script>
+</body>
+</html>

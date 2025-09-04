@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="community">
+    <div class="site-wrap">
+        <header class="main-header">
+            <!-- 헤더 내용이 여기에 동적으로 로드됩니다. -->
+        </header>
+    <section class="sub-hero-banner"><h1>자유게시판</h1></section>
+    <main>
+            <div class="post-view-container">
+                <div class="post-header">
+                    <h1>게시글 제목이 여기에 표시됩니다.</h1>
+                    <div class="post-meta">
+                        <span class="author"></span>
+                        <span class="date"></span>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <p>게시글 내용을 불러오는 중입니다...</p>
+                </div>
+
+                <!-- 댓글 섹션 시작 -->
+                <div class="comment-section">
+                    <h3>댓글 <span class="comment-count">0</span></h3>
+                    <div class="comment-form">
+                        <div class="comment-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"></path></svg>
+                        </div>
+                        <div class="comment-input-wrapper">
+                            <textarea placeholder="댓글을 입력하세요." readonly></textarea>
+                            <div class="comment-form-footer">
+                                <button type="button">등록</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="comment-list">
+                        <!-- 댓글이 여기에 동적으로 추가됩니다. -->
+                    </ul>
+                </div>
+                <!-- 댓글 섹션 끝 -->
+
+                <div class="post-footer">
+                    <a href="#" class="list-btn">목록</a>
+                </div>
+            </div>
+        </main>
+        <footer class="main-footer">
+            <!-- 푸터 내용이 여기에 동적으로 로드됩니다. -->
+        </footer>
+    </div>
+    <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/content.js"></script>
+</body>
+</html>

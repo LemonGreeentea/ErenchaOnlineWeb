@@ -1,0 +1,18 @@
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/dlc-download"
+  to = "/.netlify/functions/dlc-download"
+  status = 200
+
+[[redirects]]
+  from = "/dlc-summary"
+  to = "/.netlify/functions/summary-db"
+  status = 200
+
+[[redirects]]
+  from = "/env-check"
+  to = "/.netlify/functions/env-check"
+  status = 200

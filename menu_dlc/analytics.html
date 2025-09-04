@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DLC 다운로드 통계</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <meta name="robots" content="noindex">
+</head>
+<body class="dlc">
+  <div class="site-wrap">
+    <header class="main-header"></header>
+    <section class="sub-hero-banner"><h1>DLC 다운로드 통계</h1></section>
+    <main>
+      <div class="game-info-container">
+        <div class="section-panel analytics-toolbar">
+          <div class="toolbar">
+            <input id="search" class="input" type="text" placeholder="제목/제작자/ID 검색" />
+            <label class="label">분류</label>
+            <select id="filter-type" class="select">
+              <option value="all">전체</option>
+              <option value="location-group">지역(그룹)</option>
+              <option value="location-sub">지역(세부)</option>
+              <option value="character">캐릭터</option>
+            </select>
+            <label class="label">정렬</label>
+            <select id="sort-by" class="select">
+              <option value="count-desc">다운로드순</option>
+              <option value="lastAt-desc">최근순</option>
+              <option value="name-asc">제목순</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-panel analytics-stats" id="summary-counters">
+          <div class="stat-cards">
+            <div class="stat-card primary">
+              <div class="stat-label">총 다운로드</div>
+              <div class="stat-value" id="total-count">-</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-panel">
+          <div id="cards" class="analytics-cards"></div>
+          <div id="empty" class="muted" style="display:none; text-align:center; padding:12px;">결과가 없습니다.</div>
+        </div>
+      </div>
+    </main>
+    <footer class="main-footer"></footer>
+  </div>
+
+  <script src="../assets/js/layout.js"></script>
+  <script src="../assets/js/dlc/analytics.js"></script>
+  <script>
+    // 페이지 내 간단 스크립트 초기화
+  </script>
+</body>
+<!-- 데이터 소스: /.netlify/functions/summary-db (리다이렉트: /dlc-summary) -->
+</html>
