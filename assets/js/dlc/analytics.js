@@ -4,22 +4,63 @@ async function fetchJSON(url){
   return r.json()
 }
 
+// --- CDN data base helpers (align with dlc-download mapping) ---
+function ensureSlash(s){ return s && s.endsWith('/') ? s : (String(s||'') + '/'); }
+function getDataBase(){
+  try{ if(typeof window.DLC_DATA_BASE === 'string' && window.DLC_DATA_BASE) return ensureSlash(window.DLC_DATA_BASE) }catch{}
+  const meta = document.querySelector('meta[name="dlc-data-base"]')
+  if(meta && meta.content) return ensureSlash(meta.content.trim())
+  return '/'
+}
+function dataUrl(rel){
+  const base = getDataBase()
+  rel = String(rel||'').replace(/^\/+/, '')
+  return base + rel
+}
+function resolveImage(p){
+  if(!p) return ''
+  const s0 = String(p).trim()
+  if(/^https?:\/\//i.test(s0)) return s0
+  let s = s0.replace(/^\/+/, '') // strip leading '/'
+  // Map assets/images/* -> data/image/* (drop DLC/ prefix if present)
+  if(s.startsWith('assets/images/')){
+    let rest = s.slice('assets/images/'.length)
+    if(rest.startsWith('DLC/') || rest.startsWith('dlc/')) rest = rest.slice(4)
+    return dataUrl('data/image/' + rest)
+  }
+  // Map images/* -> data/image/*
+  if(s.startsWith('images/')){
+    return dataUrl('data/image/' + s.slice('images/'.length))
+  }
+  // Map assets/data/asset(s)/* -> data/assets/* (if thumbs ever use it)
+  if(s.startsWith('assets/data/asset/')){
+    return dataUrl('data/assets/' + s.slice('assets/data/asset/'.length))
+  }
+  if(s.startsWith('assets/data/assets/')){
+    return dataUrl('data/assets/' + s.slice('assets/data/assets/'.length))
+  }
+  // Fallback: try under data root as-is
+  return dataUrl(s)
+}
+
 function indexData(locationsList, charactersList){
   const idx = new Map()
   const meta = new Map()
   // locations
   for(const g of (locationsList||[])){
-    idx.set(g.id, { id: g.id, name: g.name, author: g.author||'', thumb: g.thumb||'', type: 'location-group' })
+  const thumb = resolveImage(g.thumb||'')
+  idx.set(g.id, { id: g.id, name: g.name, author: g.author||'', thumb, type: 'location-group' })
     meta.set(g.id, g)
     if(Array.isArray(g.sub)){
       for(const s of g.sub){
-        idx.set(s.id, { id: s.id, name: s.name, author: g.author||'', thumb: g.thumb||'', type: 'location-sub', parent: g.id })
+    idx.set(s.id, { id: s.id, name: s.name, author: g.author||'', thumb, type: 'location-sub', parent: g.id })
       }
     }
   }
   // characters
   for(const c of (charactersList||[])){
-    idx.set(c.id, { id: c.id, name: c.name, author: c.author||'', thumb: c.image||'', type: 'character' })
+  const thumb = resolveImage(c.image||'')
+  idx.set(c.id, { id: c.id, name: c.name, author: c.author||'', thumb, type: 'character' })
     meta.set(c.id, c)
   }
   return { idx, meta }
@@ -43,9 +84,9 @@ function typeKo(t){
   return t || '-'
 }
 
-function cardHtml(r, map){
+function cardHtml(r, map, hasChildren){
   const m = map.idx.get(r.id) || {}
-  const thumb = m.thumb ? `<img src="/${m.thumb}" alt="" class="dlc-thumb">` : ''
+  const thumb = m.thumb ? `<img src="${m.thumb}" alt="" class="dlc-thumb" loading="lazy" onerror="this.style.display='none'">` : ''
   const author = m.author ? m.author : ''
   return `
     <div class="dlc-card-row">
@@ -56,10 +97,10 @@ function cardHtml(r, map){
       </div>
       <div class="dlc-side">
         <div class="dlc-count">다운로드 <strong>${r.count}</strong></div>
-        ${map.meta.get(r.id)?.sub ? '<button class="button secondary small" data-details="'+r.id+'">세부사항 보기</button>' : ''}
+        ${hasChildren ? '<button class="button secondary small" data-details="'+r.id+'">세부사항 보기</button>' : ''}
       </div>
     </div>
-    ${map.meta.get(r.id)?.sub ? `<div class="dlc-children" data-children-of="${r.id}" style="display:${openGroups.get(r.id)?'block':'none'}"></div>` : ''}
+    ${hasChildren ? `<div class="dlc-children" data-children-of="${r.id}" style="display:${openGroups.get(r.id)?'block':'none'}"></div>` : ''}
   `
 }
 
@@ -105,19 +146,22 @@ function render(rows, map){
     if(emitted.has(r.id)) continue
     const isGroup = r.type==='location-group' && wantGroup.has(r.id)
     if(isGroup){
+      const kids = childrenOf.get(r.id) || []
+      const hasChildren = kids.length > 0
       const card = document.createElement('div')
       card.className = 'analytics-card'
-      card.innerHTML = cardHtml(r, map)
+      card.innerHTML = cardHtml(r, map, hasChildren)
       wrap.appendChild(card)
 
       // fill children
-      const cont = card.querySelector(`[data-children-of="${r.id}"]`)
-      const kids = childrenOf.get(r.id) || []
-      for(const c of kids){
-        const row = document.createElement('div')
-        row.innerHTML = childItemHtml(c, map)
-        cont?.appendChild(row.firstElementChild)
-        emitted.add(c.id)
+      if(hasChildren){
+        const cont = card.querySelector(`[data-children-of="${r.id}"]`)
+        for(const c of kids){
+          const row = document.createElement('div')
+          row.innerHTML = childItemHtml(c, map)
+          cont?.appendChild(row.firstElementChild)
+          emitted.add(c.id)
+        }
       }
       emitted.add(r.id)
     } else if(map.idx.get(r.id)?.parent && wantGroup.has(map.idx.get(r.id).parent)){
@@ -125,7 +169,7 @@ function render(rows, map){
     } else {
       const card = document.createElement('div')
       card.className = 'analytics-card'
-      card.innerHTML = cardHtml(r, map)
+      card.innerHTML = cardHtml(r, map, false)
       wrap.appendChild(card)
       emitted.add(r.id)
     }
