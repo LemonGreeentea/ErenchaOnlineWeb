@@ -16,3 +16,13 @@
   from = "/env-check"
   to = "/.netlify/functions/env-check"
   status = 200
+
+[[redirects]]
+  from = "/menu_dlc/regions.html"
+  to = "/menu_dlc/contents.html"
+  status = 301
+
+[[redirects]]
+  from = "/menu_dlc/events.html"
+  to = "/menu_dlc/contents.html"
+  status = 301

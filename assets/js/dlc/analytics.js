@@ -206,7 +206,7 @@ async function main(){
   try{
     const [sum, loc, chars] = await Promise.all([
       fetchJSON('/dlc-summary'),
-      fetchJSON('/assets/data/dlc/locations.json'),
+  fetchJSON('/assets/data/dlc/contents.json'),
       fetchJSON('/assets/data/dlc/characters.json'),
     ])
     const map = indexData(loc, chars)

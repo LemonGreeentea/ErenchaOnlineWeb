@@ -77,10 +77,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const links = [
                     { href: './manual.html', label: '설명서' },
                     { href: './systems.html', label: '시스템' },
-                    { href: './regions.html', label: '지역' },
-                    { href: './characters.html', label: '캐릭터' },
                     { href: './contents.html', label: '컨텐츠' },
-                    { href: './events.html', label: '이벤트' },
+                    { href: './characters.html', label: '캐릭터' },
                     { href: './download.html', label: '다운로드' },
                 ];
 

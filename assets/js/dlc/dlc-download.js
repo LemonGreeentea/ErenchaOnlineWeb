@@ -197,12 +197,12 @@
     emptyEl.style.display = hasAny ? 'none' : 'block';
     summary.style.display = hasAny ? 'block' : 'none';
 
-    const ulE = $('#list-events'); ulE.innerHTML='';
-    const ulC = $('#list-contents'); ulC.innerHTML='';
-    const ulP = $('#list-characters'); ulP.innerHTML='';
-    (sel.events||[]).forEach(x=> ulE.appendChild(createLi(x.name||x.title||String(x.id))));
-    (sel.contents||[]).forEach(x=> ulC.appendChild(createLi(x.name||x.title||String(x.id))));
-    (sel.characters||[]).forEach(x=> ulP.appendChild(createLi(x.name||x.title||String(x.id))));
+    const ulE = $('#list-events'); if(ulE) ulE.innerHTML='';
+    const ulC = $('#list-contents'); if(ulC) ulC.innerHTML='';
+    const ulP = $('#list-characters'); if(ulP) ulP.innerHTML='';
+    if(ulE){ (sel.events||[]).forEach(x=> ulE.appendChild(createLi(x.name||x.title||String(x.id)))); }
+    if(ulC){ (sel.contents||[]).forEach(x=> ulC.appendChild(createLi(x.name||x.title||String(x.id)))); }
+    if(ulP){ (sel.characters||[]).forEach(x=> ulP.appendChild(createLi(x.name||x.title||String(x.id)))); }
     // locations는 세부 선택을 괄호로 표시
     const locList = document.createElement('div');
     locList.style.marginTop = '10px';
@@ -210,7 +210,7 @@
       const li = createLi(loc.name || String(loc.id));
       const subs = (loc.sub||[]).map(s=> s.name).join(', ');
       if(subs){ li.textContent += ` (${subs})`; }
-      ulC.appendChild(li); // 컨텐츠 섹션 하단에 함께 표시(요약 영역 확장 최소화)
+  if(ulC){ ulC.appendChild(li); } // 컨텐츠 섹션 하단에 함께 표시(요약 영역 확장 최소화)
     });
   }
 
@@ -318,14 +318,14 @@
   // ---- Global Notes builder ----
   // Returns { text: string, hasDLCData: boolean }
   async function buildGlobalNotesText(sel){
-  // Load locations.json to access globalNotes fields
+  // Load contents.json to access globalNotes fields
     async function loadLocations(){
       try{
-  const res = await fetch('../assets/data/dlc/locations.json');
+  const res = await fetch('../assets/data/dlc/contents.json');
         if(!res.ok) throw new Error('HTTP '+res.status);
         const data = await res.json();
         return Array.isArray(data) ? data : [];
-      }catch(e){ console.error('Failed to load locations.json', e); return []; }
+      }catch(e){ console.error('Failed to load contents.json', e); return []; }
     }
     async function loadBaseline(){
       try{
@@ -619,14 +619,14 @@
       }catch(e){ console.error('Failed to load lore file', path, e); return null; }
     }
 
-  // locations.json / characters.json 로드 (그룹/캐릭터 기본 loreFiles 지원)
+  // contents.json / characters.json 로드 (그룹/캐릭터 기본 loreFiles 지원)
     async function loadLocationsData(){
       try{
-        const res = await fetch('../assets/data/dlc/locations.json');
+        const res = await fetch('../assets/data/dlc/contents.json');
         if(!res.ok) throw new Error('HTTP '+res.status);
         const data = await res.json();
         return Array.isArray(data) ? data : [];
-      }catch(e){ console.error('Failed to load locations.json', e); return []; }
+      }catch(e){ console.error('Failed to load contents.json', e); return []; }
     }
     async function loadCharactersData(){
       try{
@@ -830,7 +830,7 @@
       }catch(e){ console.error('Failed to load lore file', path, e); return null; }
     }
     async function loadLocationsData(){
-  try{ const r=await fetch('../assets/data/dlc/locations.json'); if(!r.ok) throw 0; const d=await r.json(); return Array.isArray(d)?d:[]; }catch{ return []; }
+  try{ const r=await fetch('../assets/data/dlc/contents.json'); if(!r.ok) throw 0; const d=await r.json(); return Array.isArray(d)?d:[]; }catch{ return []; }
     }
     async function loadCharactersData(){
   try{ const r=await fetch('../assets/data/dlc/characters.json'); if(!r.ok) throw 0; const d=await r.json(); return Array.isArray(d)?d:[]; }catch{ return []; }
@@ -1152,9 +1152,9 @@
   }
 
   async function gatherAssetFiles(sel){
-    // locations + sub
+  // contents + sub
     let groups = [];
-    try{ const res = await fetch('../assets/data/dlc/locations.json'); if(res.ok) groups = await res.json(); }catch{}
+  try{ const res = await fetch('../assets/data/dlc/contents.json'); if(res.ok) groups = await res.json(); }catch{}
     const byId = Object.fromEntries((groups||[]).map(g=>[g.id,g]));
     const set = new Set();
     const locs = sel.locations || [];
@@ -1233,7 +1233,8 @@
     // 파일명 기본값
     const today = new Date();
     const pad = n=> String(n).padStart(2,'0');
-    $('#filename').value = `dlc-bundle_${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+  const fnEl = $('#filename');
+  if(fnEl){ fnEl.value = `dlc-bundle_${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`; }
 
     renderAll();
 
@@ -1277,7 +1278,7 @@
         // Load locations data
         let groups = [];
         try{
-          const res0 = await fetch('../assets/data/dlc/locations.json');
+          const res0 = await fetch('../assets/data/dlc/contents.json');
           if(res0.ok){ groups = await res0.json(); }
         }catch{}
         const byId = Object.fromEntries((groups||[]).map(g=>[g.id,g]));

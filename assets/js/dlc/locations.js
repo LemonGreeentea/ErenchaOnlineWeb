@@ -58,12 +58,12 @@
   };
   async function loadLocations(){
     try {
-      const res = await fetch('../assets/data/dlc/locations.json');
-      if (!res.ok) throw new Error('Failed to load locations.json');
+      const res = await fetch('../assets/data/dlc/contents.json');
+      if (!res.ok) throw new Error('Failed to load contents.json');
       const data = await res.json();
       if (Array.isArray(data)) LOCATIONS = data; else LOCATIONS = [];
     } catch (e) {
-      console.error('locations.json 로드 실패:', e);
+      console.error('contents.json 로드 실패:', e);
       LOCATIONS = [];
     }
   }
@@ -170,6 +170,36 @@
       titleStrong.style.fontSize = isMobile ? '16px' : '18px';
       titleStrong.textContent = group.name || 'DLC';
       titleEl.appendChild(titleStrong);
+      // 태그 배지 (콘텐츠 종류별 색상)
+      if (Array.isArray(group.tags) && group.tags.length) {
+        const tagsWrap = document.createElement('span');
+        tagsWrap.style.marginLeft = '8px';
+        tagsWrap.style.display = 'inline-flex';
+        tagsWrap.style.gap = '6px';
+        group.tags.forEach(t => {
+          const badge = document.createElement('span');
+          badge.textContent = String(t);
+          badge.style.fontSize = '11px';
+          badge.style.padding = '2px 6px';
+          badge.style.borderRadius = '999px';
+          // 색상 매핑
+          const raw = String(t).trim();
+          const key = raw.toLowerCase();
+          let bg = '#607d8b', border = '#546e7a', color = '#ffffff'; // default (slate)
+          if (raw === '지역') { // Region
+            bg = '#1976d2'; border = '#1565c0'; color = '#ffffff';
+          } else if (key === 'npc') { // NPC
+            bg = '#2e7d32'; border = '#1b5e20'; color = '#ffffff';
+          } else if (raw === '이벤트' || key === 'event' || key === 'events') { // Event
+            bg = '#ef6c00'; border = '#e65100'; color = '#ffffff';
+          }
+          badge.style.background = bg;
+          badge.style.border = '1px solid ' + border;
+          badge.style.color = color;
+          tagsWrap.appendChild(badge);
+        });
+        titleEl.appendChild(tagsWrap);
+      }
 
       // 제작자(작은 글씨)
       const authorEl = document.createElement('div');

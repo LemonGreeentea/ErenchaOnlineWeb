@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>컨텐츠 DLC - DLC</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Cloudflare R2 데이터 베이스 URL 설정 -->
+    <meta name="dlc-data-base" content="https://pub-10c833780df54305a8613bdb0a2c0e53.r2.dev/">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="비공식 에렌샤 컨텐츠 DLC(지역) 선택 페이지">
+    <meta name="dlc-analytics-endpoint" content="/dlc-download">
+    <meta name="dlc-data-base" content="https://pub-10c833780df54305a8613bdb0a2c0e53.r2.dev/">
+    
 </head>
 <body class="dlc">
     <div class="site-wrap">
-        <header class="main-header">
-            <!-- 헤더 내용이 여기에 동적으로 로드됩니다. -->
-        </header>
+        <header class="main-header"></header>
         <section class="sub-hero-banner"><h1>컨텐츠 DLC</h1></section>
         <main>
             <div class="game-info-container">
-                <h2>추가 컨텐츠 소개</h2>
-                <p>비공식 DLC로 추가되는 새로운 퀘스트, 지역, 아이템 등의 정보를 소개합니다.</p>
+                <h2>컨텐츠 DLC 선택</h2>
+                <p class="muted">원하는 컨텐츠(지역) DLC를 여러 개 선택할 수 있습니다. 세부 선택이 있는 경우 기본으로 모두 선택되며, 개별 해제가 가능합니다.</p>
+
+                <div class="row" style="margin:8px 0 12px; gap:8px;">
+                    <button type="button" class="button" id="locations-select-all-top">모두 선택</button>
+                    <button type="button" class="button secondary" id="locations-clear-top">선택 초기화</button>
+                </div>
+
+                <div id="locations-select-list" class="dlc-list" style="display:flex; flex-direction:column; gap:12px; margin-top:16px;"></div>
+
+                <div class="row" style="margin-top:12px; gap:8px;">
+                    <button type="button" class="button" id="locations-select-all-bottom">모두 선택</button>
+                    <button type="button" class="button secondary" id="locations-clear-bottom">선택 초기화</button>
+                </div>
+
+                <p class="muted" style="margin-top:10px;">저장된 선택은 DLC > 다운로드 페이지에서 번들/로어북 생성에 사용됩니다.</p>
             </div>
         </main>
-        <footer class="main-footer">
-            <!-- 푸터 내용이 여기에 동적으로 로드됩니다. -->
-        </footer>
+        <footer class="main-footer"></footer>
     </div>
     <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/dlc/locations.js"></script>
 </body>
 </html>

@@ -1,18 +1,5 @@
 const freeBoardData = [
   {
-    id: 6,
-    category: "잡담",
-    title: "아직 공사중입니다.",
-    author: "홈페이지 관리자",
-    date: "2025.08.28",
-    views: 112,
-    content: "아직 커뮤니티 탭은 제작중입니다. 참고하세요 :D",
-    comments: [
-      { author: "쫑쫑이", date: "2025.08.28", text: "네" },
-      { author: "에렌샤지킴이", date: "2025.08.28", text: "헐.." }
-    ]
-  },
-  {
     id: 5,
     category: "잡담",
     title: "이 게임 너무 재밌네요 ㅋㅋ",
