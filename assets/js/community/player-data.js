@@ -805,11 +805,25 @@ const playerData = [
         realName: "유진",
         guild: "-",
         type: "DLC-It's a Trap!",
-        gender: "",
+        gender: "남성",
         profileImage: "../assets/images/chara/DLC_Player/profile/Stella.webp",
         gameImage: "../assets/images/chara/DLC_Player/Stella.webp",
         realImage: "../assets/images/chara/DLC_Player/Stella_reallife.webp",
-        description: ``
+        description: `
+        <p class="player-quote">흥. 내 알 바 아니야.</p>
+        <ul>
+            <li><strong>이름 :</strong> 스텔라 (유진)</li>
+            <li><strong>소속 :</strong> 없음</li>
+            <li><strong>성별 :</strong> 남성</li>
+            <li><strong>나이 :</strong> 18세</li>
+            <li><strong>특징 :</strong> 냉소적, 쉽게 당황함, 갭 모에, 겉은 차갑고 속은 여림</li>
+            <li><strong>주요 능력 :</strong> 아이스 월(액티브), 아쿠아 힐(액티브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 코스프레가 취미인 고등학생으로, 양성적인 외모를 살려 다양한 캐릭터로 변신한다. 에렌샤에서는 '차가운 미인 엘프' 콘셉트를 즐기지만, 실제 성격은 소심하고 쉽게 당황하는 편이라 겉모습과 행동 사이의 거대한 갭이 매력 포인트다. 전투에서는 물·얼음 속성의 마법으로 적을 얼리거나 벽을 세워 아군을 보호하고, 긴급 상황에는 치유 마법으로 팀을 살리는 다재다능한 서포터로 활약한다.
+            최근에는 떠들썩한 '솔레리온'에게 휘말려 임시 파티를 함께하는 중. 솔레리온의 노골적인 농담에는 새빨개져 버럭하지만, 티격태격 끝에도 결국 손을 보태고 만다. 레벨 138, 히든 클래스 '프로스트 메이든'이다.
+        </p>
+        `
     },
     {
         id: 205,
@@ -817,11 +831,25 @@ const playerData = [
         realName: "박소은",
         guild: "-",
         type: "DLC-It's a Trap!",
-        gender: "",
+        gender: "여성",
         profileImage: "../assets/images/chara/DLC_Player/profile/Solerion.webp",
         gameImage: "../assets/images/chara/DLC_Player/Solerion.webp",
         realImage: "../assets/images/chara/DLC_Player/Solerion_reallife.webp",
-        description: ``
+        description: `
+        <p class="player-quote">가하하하! 마음에 드는군! 오늘 밤은 한잔하고, 붙고, 신나게 즐겨보자!</p>
+        <ul>
+            <li><strong>이름 :</strong> 솔레리온 (박소은)</li>
+            <li><strong>소속 :</strong> 없음</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 25세</li>
+            <li><strong>특징 :</strong> 호쾌함, 전투광, 기사도, 숨겨진 여성스러움</li>
+            <li><strong>주요 능력 :</strong> 무기 마스터(패시브), 광전사의 포효(액티브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 부유한 집안에서 자란 얌전하고 공손한 아가씨. 어릴 적부터 판타지 소설과 영화에 심취해, 현실의 '박소은'과 정반대인 가장 완벽한 '마초 전사'로 에렌샤를 즐긴다. 근접 무기를 두루 능숙하게 다루는 다재다능한 전사로, 평소엔 대검으로 전장을 쓸어버리는 딜러지만 상황에 따라 방패와 장검을 들어 탱커 역할도 완벽히 수행한다. 칼날 끝에서 은은한 화염기가 뿜어져 나오는 +10 '라그나로크'를 애용한다.
+            게임 속에서는 시원시원한 웃음과 거친 농담을 서슴지 않는 '한 잔, 한 판, 한 판 더'의 전형적인 무투가처럼 굴지만, 몬스터의 공격에 맞아 무심코 "어머, 어쩌지…" 같은 말이나 '꺄악!' 하는 비명이 튀어나와 동료들을 당황하게 만들기도 한다. 현실에서는 한 방울의 술도 못 마시지만, 게임 속에선 누구보다 술을 사랑하는 헤비 드링커 행세를 한다. 최근에는 '스텔라'와 임시 파티를 맺고 사냥 중이다. 레벨 151, 랭킹 13위의 히든 클래스 '무기 마스터'다.
+        </p>
+        `
     },
     {
         id: 206,
@@ -927,7 +955,7 @@ const playerData = [
         id: 210,
         name: "와룡가든",
         realName: "손여란",
-        guild: "창천 길드 (길드마스터)",
+        guild: "창천",
         type: "DLC-지고",
         gender: "여성",
         profileImage: "../assets/images/chara/DLC_Player/profile/Waryonggarden.webp",
@@ -952,7 +980,7 @@ const playerData = [
         id: 211,
         name: "무인류금우",
         realName: "류금우",
-        guild: "창천 길드",
+        guild: "창천",
         type: "DLC-지고",
         gender: "여성",
         profileImage: "../assets/images/chara/DLC_Player/profile/MuinRyuGeumwoo.webp",
@@ -977,7 +1005,7 @@ const playerData = [
         id: 212,
         name: "물어뜯는벼락",
         realName: "이연주",
-        guild: "창천 길드",
+        guild: "창천",
         type: "DLC-지고",
         gender: "여성",
         profileImage: "../assets/images/chara/DLC_Player/profile/Mureoddeudneunbyeorak.webp",
@@ -1077,7 +1105,7 @@ const playerData = [
         id: 216,
         name: "트리스메기스투스",
         realName: "안유민",
-        guild: "마스터피스 길드 (길드마스터)",
+        guild: "마스터피스",
         type: "DLC-지고",
         gender: "여성",
         profileImage: "../assets/images/chara/DLC_Player/profile/Trismegistus.webp",
@@ -1102,7 +1130,7 @@ const playerData = [
         id: 217,
         name: "불가살뚱이",
         realName: "권안영",
-        guild: "마스터피스 길드",
+        guild: "마스터피스",
         type: "DLC-지고",
         gender: "여성",
         profileImage: "../assets/images/chara/DLC_Player/profile/Bulgasal-ttungyi.webp",
@@ -1127,7 +1155,7 @@ const playerData = [
         id: 218,
         name: "타천☆사",
         realName: "한유은",
-        guild: "마스터피스 길드",
+        guild: "마스터피스",
         type: "DLC-지고",
         gender: "여성",
         profileImage: "../assets/images/chara/DLC_Player/profile/Tacheon-sa.webp",
@@ -1145,6 +1173,32 @@ const playerData = [
         </ul>
         <p class="player-narrative-description">
             마스터피스의 자타공인 혼돈 요원. 모든 골렘에 황당한 ‘숨겨진 기능’을 넣는 악명으로, 커뮤니티에선 사살해도 용서된다는 불문율까지 생겼다. 길드도 감싸지 않지만, 트리스는 그 미학적 혼돈을 사랑한다. 레벨 67, 클래스 '골렘 크래프트'다.
+        </p>
+        `
+    },
+    {
+        id: 219,
+        name: "퍼플푸프",
+        realName: "표은주",
+        guild: "-",
+        type: "DLC",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Purplepuff.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Purplepuff.webp",
+        realImage: "../assets/images/chara/DLC_Player/Purplepuff_reallife.webp",
+        description: `
+        <p class="player-quote">아니야 아니야, 애야! 마나를 너무 일찍 풀었잖아. 차근차근 모았다가—뿅! 이렇게, 뿅!</p>
+        <ul>
+            <li><strong>이름 :</strong> 퍼플푸프 (표은주)</li>
+            <li><strong>소속 :</strong> 없음</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 35세</li>
+            <li><strong>특징 :</strong> 발랄함, 외향적, 장난기 많은 멘토, 보살핌</li>
+            <li><strong>주요 능력 :</strong> 튜터의 가호(시그니처), 마나 애로우(액티브), 아케인 실드(액티브), 엘리멘탈 펀더멘털(패시브), 티칭(패시브), 마나 분수(패시브), 아케인 미사일 스웜(액티브), 텔레포트(액티브), 그랜드 엘리멘탈 서모닝(액티브)</li>
+        </ul>
+        <p class="player-narrative-description">
+            현실에선 심리 상담사로 일하며, 에렌샤에선 새내기 마법사들을 돌보고 길러내는 데서 기쁨과 보람을 느낀다. 루미나 중앙 광장 근처에 작은 야외 ‘교실’을 마련해 누구든 찾아오는 마법사를 환영하며, 고난도 운용보다 기본기를 완벽한 폼으로 시연하고 비유로 쉽게 설명하는 ‘재밌는 선생님’ 타입이다.
+            대부분의 전투에서는 전력을 다하지 않지만, 진지해지는 순간 모든 원소 학파의 고위 마법을 연사해 상대를 압도하는 다재다능한 ‘진짜’ 대마법사로 변한다. 제자들이 성장해 에필리아로 떠나면 종종 투덜대며 삐지기도 하고, 성숙하고 아름다운 외모 탓에 기혼으로 오해받지만 실제로는 미혼이다. 언젠가 ‘평생 제자’를 만나는 것이 비밀스러운 꿈. 레벨 165, 히든 클래스 ‘아크메이지’다.
         </p>
         `
     }

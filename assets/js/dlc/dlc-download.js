@@ -342,9 +342,18 @@
         return Array.isArray(data) ? data : [];
       }catch(e){ console.error('Failed to load characters.json', e); return []; }
     }
+    async function loadCharaEmotion(){
+      try{
+        const res = await fetch('../assets/data/dlc/chara_emotion.json');
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        const data = await res.json();
+        return (data && typeof data.data === 'string') ? data.data : '';
+      }catch(e){ console.error('Failed to load chara_emotion.json', e); return ''; }
+    }
     const groups = await loadLocations();
     const charsData = await loadCharacters();
     const baseline = await loadBaseline();
+    const charaEmotionDoc = await loadCharaEmotion();
     const byId = Object.fromEntries(groups.map(g=>[g.id, g]));
     const charById = Object.fromEntries((charsData||[]).map(c=>[c.id,c]));
 
@@ -424,6 +433,49 @@
     lines.push('### Extra Character Image Guidelines');
     lines.push('');
     lines.push(' If the character is not listed in the Character Image Command List, consider them an Extra Character. only use the "Male" and "Female" Image command without Emotion Command. Example: `<img src="Female">`.');
+
+    // ---- Special Character Emotion Guidelines & List (only when selected characters support emotions) ----
+    try{
+      const selected = sel.characters || [];
+      const cap = (s)=> (s||'').charAt(0).toUpperCase() + (s||'').slice(1).toLowerCase();
+      const emotionTokens = [];
+      const nameSet = new Set();
+      for(const ch of selected){
+        const rec = charById[ch.id];
+        if(!rec || !Array.isArray(rec.emotions) || rec.emotions.length===0) continue;
+        // Base token: prefer first globalNotes token; fallback to name without spaces
+        let base = (Array.isArray(rec.globalNotes) && rec.globalNotes[0]) || (rec.name||'').replace(/\s+/g,'');
+        if(!base) continue;
+        nameSet.add(base);
+        for(const emo of rec.emotions){
+          const token = `${base}_${cap(String(emo))}`;
+          emotionTokens.push(token);
+        }
+      }
+      if(emotionTokens.length>0){
+        lines.push('');
+        if(charaEmotionDoc && charaEmotionDoc.trim()){
+          const names = Array.from(nameSet);
+          const joinWithAnd = (arr)=>{
+            if(arr.length<=1) return arr[0]||'';
+            if(arr.length===2) return `${arr[0]} and ${arr[1]}`;
+            return arr.slice(0,-1).join(', ') + ', and ' + arr[arr.length-1];
+          };
+          const namesText = joinWithAnd(names);
+          // Replace placeholders or previous fixed text with dynamic names
+          let guideline = charaEmotionDoc.trim();
+          guideline = guideline.replace(/<적용되는 캐릭터 이름 들>/g, namesText)
+                               .replace(/<적용되는 캐릭터 이름들>/g, namesText)
+                               .replace(/Stella and Solerion/g, namesText);
+          lines.push(guideline);
+          lines.push('');
+        }
+        lines.push('#### Special Character Emotion Image List');
+        lines.push('');
+        lines.push('- ' + emotionTokens.join(','));
+        lines.push('');
+      }
+    }catch{}
 
   // user notes are now inlined under their respective lists above
 
@@ -789,6 +841,9 @@
     async function loadModuleImageTemplate(){
       try{ const r=await fetch(dataUrl('data/lorebooks/module_image.json')); if(!r.ok) throw 0; const d=await r.json(); return (d&&d.type==='risu'&&Array.isArray(d.data))?d:null; }catch{ return null; }
     }
+    async function loadCharaEmotionDoc(){
+      try{ const r=await fetch('../assets/data/dlc/chara_emotion.json'); if(!r.ok) throw 0; const d=await r.json(); return (d && typeof d.data === 'string') ? d.data : ''; }catch{ return ''; }
+    }
     async function loadGuildListTemplate(){
       try{ const r=await fetch(dataUrl('data/lorebooks/guild_folder.json')); if(!r.ok) throw 0; const d=await r.json(); return (d&&d.type==='risu'&&Array.isArray(d.data))?d:null; }catch{ return null; }
     }
@@ -880,6 +935,18 @@
           const raw = String(target.content||'');
           const listChars = (addChars.length ? `- ${addChars.join(',')}` : '').trim();
           const listReal  = (addReal.length ? `- ${addReal.join(',')}`  : '').trim();
+          // Build emotion token list from selected characters
+          const cap = (s)=> (s||'').charAt(0).toUpperCase() + (s||'').slice(1).toLowerCase();
+          const emotionTokens = [];
+          for(const ch of (sel.characters||[])){
+            const rec = charById[ch.id]; if(!rec) continue;
+            if(Array.isArray(rec.emotions) && rec.emotions.length>0){
+              let base = (Array.isArray(rec.globalNotes) && rec.globalNotes[0]) || (rec.name||'').replace(/\s+/g,'');
+              if(!base) continue;
+              for(const emo of rec.emotions){ emotionTokens.push(`${base}_${cap(String(emo))}`); }
+            }
+          }
+          const charaEmotionDoc = await loadCharaEmotionDoc();
 
           const injectAfterHeading = (src, heading, listLine, nextHeadings)=>{
             const idx = src.indexOf(heading);
@@ -913,6 +980,37 @@
             []
           );
 
+          // Append Special Character Emotion Guidelines + List at the end if applicable
+          if(emotionTokens.length>0){
+            const parts = [];
+            if(charaEmotionDoc && charaEmotionDoc.trim()){
+              const names = Array.from(new Set((sel.characters||[]).map(c=>{
+                const rec = charById[c.id];
+                if(!rec || !Array.isArray(rec.emotions) || rec.emotions.length===0) return null;
+                return (Array.isArray(rec.globalNotes) && rec.globalNotes[0]) || (rec.name||'').replace(/\s+/g,'');
+              }).filter(Boolean)));
+              const joinWithAnd = (arr)=>{
+                if(arr.length<=1) return arr[0]||'';
+                if(arr.length===2) return `${arr[0]} and ${arr[1]}`;
+                return arr.slice(0,-1).join(', ') + ', and ' + arr[arr.length-1];
+              };
+              const namesText = joinWithAnd(names);
+              let guideline = charaEmotionDoc.trim();
+              guideline = guideline.replace(/<적용되는 캐릭터 이름 들>/g, namesText)
+                                   .replace(/<적용되는 캐릭터 이름들>/g, namesText)
+                                   .replace(/Stella and Solerion/g, namesText);
+              parts.push(guideline);
+            }
+            parts.push('');
+            parts.push('#### Special Character Emotion Image List');
+            parts.push('');
+            parts.push('- ' + emotionTokens.join(','));
+            const appendix = parts.join('\n');
+            // ensure separation
+            if(!/\n$/.test(newContent)) newContent += '\n';
+            newContent += '\n' + appendix + '\n';
+          }
+
           target.content = newContent;
           if(folderId){ target.folder = target.folder || folderId; }
           if(folderEntry) out.push(folderEntry);
@@ -925,6 +1023,28 @@
           lines.push('');
           lines.push('#### Additional Reallife Characters Image Command List');
           if(addReal.length) lines.push(`- ${addReal.join(',')}`);
+          // Emotion fallback
+          try{
+            const cap = (s)=> (s||'').charAt(0).toUpperCase() + (s||'').slice(1).toLowerCase();
+            const emotionTokens = [];
+            for(const ch of (sel.characters||[])){
+              const rec = charById[ch.id]; if(!rec) continue;
+              if(Array.isArray(rec.emotions) && rec.emotions.length>0){
+                let base = (Array.isArray(rec.globalNotes) && rec.globalNotes[0]) || (rec.name||'').replace(/\s+/g,'');
+                if(!base) continue;
+                for(const emo of rec.emotions){ emotionTokens.push(`${base}_${cap(String(emo))}`); }
+              }
+            }
+            const charaEmotionDoc = await loadCharaEmotionDoc();
+            if(emotionTokens.length>0){
+              lines.push('');
+              if(charaEmotionDoc && charaEmotionDoc.trim()) lines.push(charaEmotionDoc.trim());
+              lines.push('');
+              lines.push('#### Special Character Emotion Image List');
+              lines.push('');
+              lines.push('- ' + emotionTokens.join(','));
+            }
+          }catch{}
           const node = { key: 'module_image_additional', comment: 'Module Image - Additional Lists', content: lines.join('\n'), mode: 'normal', insertorder: 1 };
           out.push(node);
         }

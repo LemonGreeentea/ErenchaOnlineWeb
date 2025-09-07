@@ -69,26 +69,36 @@
   "folderLine": "별빛고양이(22/M): Practical, Calm, Calculating, Potato Farm Clan member, Uses druid skills for gathering; straightforward and fair in transactions; prefers night play and modest income."
   },
 {
-    "id": "dlc-char-Stella",
-    "playerId": 204,
-    "name": "스텔라",
-    "realName": "유진",
-    "author": "윈터홀드",
-    "dlcTitle": "It's a Trap!",
-    "desc": "설명을 입력하세요",
-    "dlcDescription": "DLC 설명을 입력하세요",
+  "id": "dlc-char-Stella",
+  "playerId": 204,
+  "name": "스텔라",
+  "realName": "유진",
+  "author": "윈터홀드",
+  "dlcTitle": "It's a Trap!",
+  "desc": "현실은 남성, 게임에선 여성인 넷카마 엘프. 냉기·수 마법으로 아군을 지키는 서포터.",
+  "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Stella.webp",
   "imageGame": "/images/character/DLC_Player/Stella.webp",
   "imageReal": "/images/character/DLC_Player/Stella_reallife.webp",
-    "source": { "label": "윈터홀드", "url": "https://arca.live/b/characterai/146875973" },
-    "globalNotes": ["Stella"],
-    "globalNotesRealLife": ["Stella_reallife"],
-    "lastUpdated": "2025. 9. 4.",
-    "loreFiles": ["assets/data/lorebooks/player/Stella.json"],
-    "assetImages": [
+  "source": { "label": "윈터홀드", "url": "https://arca.live/b/characterai/146875973" },
+  "globalNotes": ["Stella"],
+  "globalNotesRealLife": ["Stella_reallife"],
+  "lastUpdated": "2025. 9. 4.",
+  "loreFiles": ["assets/data/lorebooks/player/Stella.json"],
+  "assetImages": [
         "assets/data/asset/player/Stella.png",
-        "assets/data/asset/player/Stella_reallife.png"
+        "assets/data/asset/player/Stella_reallife.png",
+        "assets/data/asset/player/Stella_angry.png",
+        "assets/data/asset/player/Stella_drunk.png",
+        "assets/data/asset/player/Stella_flustered.png",
+        "assets/data/asset/player/Stella_happy.png",
+        "assets/data/asset/player/Stella_joy.png",
+        "assets/data/asset/player/Stella_sad.png",
+        "assets/data/asset/player/Stella_scared.png",
+        "assets/data/asset/player/Stella_surprised.png",
+        "assets/data/asset/player/Stella_worried.png"
   ],
+  "emotions": ["angry","drunk","flustered","happy","joy","sad","scared","surprised","worried"],
   "folderLine": "Stella(스텔라)(18/M): A slender female elf (in-game gender) with long dark-blue hair, Cynical, Easily Flustered, Gap Moe, Unaffiliated, Speaks coldly but gets flustered easily, level 138 Frost Maiden."
   },
   {
@@ -98,7 +108,7 @@
     "realName": "박소은",
     "author": "윈터홀드",
     "dlcTitle": "It's a Trap!",
-    "desc": "캐릭터 설명.",
+  "desc": "현실은 여성, 게임에선 남성 전사. 대검 딜 중심이지만 상황에 따라 탱 전환이 가능한 ‘무기 마스터’.",
     "dlcDescription": "자세한 DLC 설명",
   "image": "/images/character/DLC_Player/profile/Solerion.webp",
   "imageGame": "/images/character/DLC_Player/Solerion.webp",
@@ -110,8 +120,19 @@
     "loreFiles": ["assets/data/lorebooks/player/Solerion.json"],
     "assetImages": [
         "assets/data/asset/player/Solerion.png",
-        "assets/data/asset/player/Solerion_reallife.png"
+        "assets/data/asset/player/Solerion_reallife.png",
+        "assets/data/asset/player/Solerion_angry.png",
+        "assets/data/asset/player/Solerion_drunk.png",
+        "assets/data/asset/player/Solerion_flustered.png",
+        "assets/data/asset/player/Solerion_happy.png",
+        "assets/data/asset/player/Solerion_joy.png",
+        "assets/data/asset/player/Solerion_sad.png",
+        "assets/data/asset/player/Solerion_scared.png",
+        "assets/data/asset/player/Solerion_sleepy.png",
+        "assets/data/asset/player/Solerion_surprised.png",
+        "assets/data/asset/player/Solerion_worried.png"
   ],
+  "emotions": ["angry","drunk","flustered","happy","joy","sad","scared","sleepy","surprised","worried"],
   "folderLine": "Solerion(솔레리온)(25/F): A male human (in-game gender) with a bushy red beard and blood-red eyes, Hearty, Combat Maniac, Chivalrous, Unaffiliated, Speaks like a hearty old man but sometimes shows a girlish side, level 151 Weapon Master."
   },
   {
@@ -165,20 +186,20 @@
   "folderLine": "날만져(37/F): Long white hair and blue eyes, Righteous, Passionate, Headstrong, Mudeom Guild Member, Speech style is heroic and justice-driven like a Tokusatsu hero, level 164 Paladin Champion"
   },
   {
-    "id": "dlc-char-karla",
-    "playerId": 208,
+  "id": "dlc-char-karla",
+  "playerId": 208,
   "name": "카르라 알레스테오로스 에블레르",
-    "realName": "천영화",
+  "realName": "천영화",
   "author": "고상래어",
-    "dlcTitle": "지고",
+  "dlcTitle": "지고",
   "dlc-guild": "mudeom",
   "guildLoreFiles": ["assets/data/lorebooks/guild/Mudeom.json"],
   "desc": "악역 컨셉의 유리대포 딜러. 압도적 화력으로 보스전을 단숨에 정리하는 무덤 길드의 핵심 딜러.",
-    "dlcDescription": "DLC 설명을 입력하세요",
+  "dlcDescription": "DLC 설명을 입력하세요",
   "image": "/images/character/DLC_Player/profile/Karla.webp",
   "imageGame": "/images/character/DLC_Player/Karla.webp",
   "imageReal": "/images/character/DLC_Player/Karla_reallife.webp",
-    "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
+  "source": { "label": "고상래어", "url": "https://arca.live/b/characterai/146943962" },
   "globalNotes": ["Karla"],
   "globalNotesRealLife": ["Karla_reallife"],
   "lastUpdated": "2025. 9. 4.",
@@ -438,5 +459,28 @@
     "assets/data/asset/player/Tacheon-sa_reallife.png"
   ],
   "folderLine": "타천☆사(22/F): Long blue hair with a yellow streak and a golden mask, Troublemaker, Chaotic, Prankster, Masterpiece Guild Member, Speech style is loud and playful with sound effects, level 67 Golem Craft."
+  },
+  {
+    "id": "dlc-char-Purplepuff",
+    "playerId": 219,
+    "name": "퍼플푸프",
+    "realName": "표은주",
+    "author": "지네",
+    "dlcTitle": "",
+    "desc": "루미나 광장 야외 교실에서 뉴비에게 마법을 가르치는 발랄한 멘토형 대마법사. 진지해지면 다원소 고위 마법으로 상대를 압도한다.",
+    "dlcDescription": "현실에선 심리 상담사로 일하며, 에렌샤에서는 루미나 중앙 광장 근처에 작은 야외 ‘교실’을 열어 누구든 찾아오는 마법사를 반갑게 맞이한다. 기본기를 완벽한 폼으로 시연하고 쉬운 비유로 설명하는 ‘재밌는 선생님’ 타입으로 유명하다. 평소엔 고급 전투를 자제하지만, 진지해질 때는 모든 원소 학파의 고위 마법을 연사해 전장을 제압한다.",
+    "image": "/images/character/DLC_Player/profile/Purplepuff.webp",
+    "imageGame": "/images/character/DLC_Player/Purplepuff.webp",
+    "imageReal": "/images/character/DLC_Player/Purplepuff_reallife.webp",
+    "source": { "label": "지네", "url": "https://arca.live/b/characterai/147219672" },
+    "globalNotes": ["Purplepuff"],
+    "globalNotesRealLife": ["Purplepuff_reallife"],
+    "lastUpdated": "2025. 9. 7.",
+    "loreFiles": ["assets/data/lorebooks/player/Purplepuff.json"],
+    "assetImages": [
+      "assets/data/asset/player/Purplepuff.png",
+      "assets/data/asset/player/Purplepuff_reallife.png"
+    ],
+    "folderLine": " 퍼플푸프(35/F): Light orange short bob hair and purple eyes, Bubbly, Playful Mentor, Nurturing, Unaffiliated, Speech style is energetic and teasing, famous for teaching magic to newbies in Lumina, level 165 Archmage "
   }
 ]
