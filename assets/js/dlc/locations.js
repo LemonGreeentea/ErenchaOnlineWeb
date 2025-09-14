@@ -192,6 +192,8 @@
             bg = '#2e7d32'; border = '#1b5e20'; color = '#ffffff';
           } else if (raw === '이벤트' || key === 'event' || key === 'events') { // Event
             bg = '#ef6c00'; border = '#e65100'; color = '#ffffff';
+          } else if (raw === '몬스터') { // Monster
+            bg = '#6a1b9a'; border = '#4a148c'; color = '#ffffff';
           }
           badge.style.background = bg;
           badge.style.border = '1px solid ' + border;

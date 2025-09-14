@@ -482,5 +482,28 @@
       "assets/data/asset/player/Purplepuff_reallife.png"
     ],
     "folderLine": " 퍼플푸프(35/F): Light orange short bob hair and purple eyes, Bubbly, Playful Mentor, Nurturing, Unaffiliated, Speech style is energetic and teasing, famous for teaching magic to newbies in Lumina, level 165 Archmage "
+  },
+  {
+    "id": "dlc-char-hanbangjwa",
+    "playerId": 220,
+    "name": "지상최강의총잡이",
+    "realName": "한가람",
+    "author": "anchor",
+    "dlcTitle": "",
+    "desc": "별명 한방좌. 화려한 공중기동과 '종언의 세례'라는 독보적인 시그니처 스킬을 활용해 압도적인 한 방 데미지를 꽂아넣는 저격수.",
+    "dlcDescription": "음울한 본모습을 어린아이 같은 닉네임 뒤에 숨기고 있는 에렌샤 최고의 저격수. 스킬만으로는 부족하다는 것을 깨닫고 인정받기 위해 게임을 하지만, 어색하게 유행어를 따라하며 소통하려 애쓴다. 호전적인 플레이스타일과 다소 유치한 닉네임 때문에 많은 유저들에게 쾌활한 남성 유저로 오해받고 있지만, 실제로는 타인의 인정에 목마른 내향적인 성격의 여성 유저다.",
+    "image": "/images/character/DLC_Player/profile/Hanbangjwa.webp",
+    "imageGame": "/images/character/DLC_Player/Hanbangjwa.webp",
+    "imageReal": "/images/character/DLC_Player/Hanbangjwa_reallife.webp",
+    "source": { "label": "anchor", "url": "https://arca.live/b/characterai/147664890" },
+    "globalNotes": ["Hanbangjwa"],
+    "globalNotesRealLife": ["Hanbangjwa_reallife"],
+    "lastUpdated": "2025. 9. 14.",
+    "loreFiles": ["assets/data/lorebooks/player/Hanbangjwa.json"],
+    "assetImages": [
+      "assets/data/asset/player/Hanbangjwa.png",
+      "assets/data/asset/player/Hanbangjwa_reallife.png"
+    ],
+    "folderLine": "지상최강의총잡이(20/F): Messy pink ponytail with a bunny ear shaped ribbon, Gloomy, Validation-Seeking, Genius, Unaffiliated, Speech style is awkward, mixing slang with curt replies, level 136 Arcane Gunslinger"
   }
 ]

@@ -41,7 +41,7 @@
     "thumb": "assets/images/DLC/contents/Phanteon_dlc.webp",
     "source": "https://arca.live/b/characterai/146240810",
     "lastUpdated": "2025. 8. 30.",
-    "details": "중앙 대륙의 핵심 도시 루미나를 확장합니다. 도시 지구와 주변 지역의 설정, 위치, 활동이 추가됩니다.",
+    "details": "천공의 섬 판테온이 추가됩니다. 그리고 NPC 6명과 신규 레이드 보스가 등장합니다.",
   "tags": ["지역", "npc"],
     "globalNotes": ["Iophiel", "Liriel", "Eve", "Cassia", "Uriel", "Raphael", "Memory of the King of Myriad Stars", "Cloud chick"],
     "globalNotesRealLife": [],
@@ -81,6 +81,25 @@
         "assets/data/asset/contents/newrelationship/Sati.png",
         "assets/data/asset/contents/newrelationship/YeonMihwa.png",
         "assets/data/asset/contents/newrelationship/YeonMihwa_Phase_2.png"
+    ],
+    "sub": []
+  },
+  {
+    "id": "contents-dualtailcat",
+    "name": "듀얼테일캣 몬스터 정보",
+    "description": "듀얼테일캣의 외형 등의 설정을 추가합니다.",
+    "author": "Nyan",
+    "thumb": "assets/images/DLC/contents/Dualtailcat.webp",
+    "source": "https://arca.live/b/characterai/147570792",
+    "lastUpdated": "2025. 9. 14.",
+    "details": "듀얼테일캣의 외형 등의 설정을 추가합니다.",
+    "tags": ["몬스터"],
+    "globalNotes": [],
+    "globalNotesRealLife": [],
+    "loreFiles": [
+      "assets/data/lorebooks/mob/Dualtailcat.json"
+    ],
+    "assetImages": [
     ],
     "sub": []
   }

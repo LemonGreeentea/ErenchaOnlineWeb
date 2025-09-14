@@ -66,6 +66,34 @@ function indexData(locationsList, charactersList){
   return { idx, meta }
 }
 
+// Normalize legacy IDs (loc-*) to new contents-* when possible
+function buildIdNormalizer(locationsList){
+  const map = new Map()
+  // Simple heuristic: if id starts with 'contents-' and we previously used 'loc-' prefix for the same slug
+  // create mapping from oldId -> newId. We'll derive slug by stripping the prefix.
+  const have = new Set((locationsList||[]).map(x=>x.id))
+  // Build reverse index by slug
+  const bySlug = new Map()
+  for(const id of have){
+    const m = String(id).match(/^(?:contents|loc)-(.*)$/)
+    if(m){
+      const slug = m[1]
+      if(!bySlug.has(slug)) bySlug.set(slug, [])
+      bySlug.get(slug).push(id)
+    }
+  }
+  // For any slug that has both forms, map loc-* -> contents-* as canonical
+  for(const [slug, ids] of bySlug.entries()){
+    const newId = ids.find(x=> x.startsWith('contents-'))
+    const oldId = ids.find(x=> x.startsWith('loc-'))
+    if(oldId && newId){ map.set(oldId, newId) }
+  }
+  // Also hardcode commonly renamed pairs just in case
+  map.set('loc-luminaextensions','contents-luminaextensions')
+  map.set('loc-Phanteon','contents-Phanteon')
+  return (id)=> map.get(id) || id
+}
+
 function fmtTime(ms){
   if(!ms) return '-'
   const d = new Date(Number(ms))
@@ -210,12 +238,32 @@ async function main(){
       fetchJSON('/assets/data/dlc/characters.json'),
     ])
     const map = indexData(loc, chars)
+    const normalizeId = buildIdNormalizer(loc)
     // ensure perArtifact/lastAt normalization (if older function)
-    const base = (sum.rows||[]).map(r=> ({
+    const baseRaw = (sum.rows||[]).map(r=> ({
       ...r,
+      id: normalizeId(r.id), // remap legacy ids to new contents-*
       perArtifact: r.perArtifact || r.perartifact || {},
       lastAt: typeof r.lastAt === 'string' ? Number(r.lastAt) : (r.lastAt ?? r.lastat ?? 0)
     }))
+    // Aggregate rows by normalized id (sum counts, merge perArtifact, keep max lastAt)
+    const agg = new Map()
+    for(const r of baseRaw){
+      const key = r.id
+      if(!agg.has(key)){
+        agg.set(key, { ...r })
+      } else {
+        const cur = agg.get(key)
+        cur.count = (cur.count||0) + (r.count||0)
+        cur.lastAt = Math.max(cur.lastAt||0, r.lastAt||0)
+        const pa = { ...(cur.perArtifact||{}) }
+        for(const k in (r.perArtifact||{})){
+          pa[k] = (pa[k]||0) + (r.perArtifact[k]||0)
+        }
+        cur.perArtifact = pa
+      }
+    }
+    const base = Array.from(agg.values())
   ALL_ROWS = base.slice()
 
   const update = ()=> render(applyFilters(base), map)

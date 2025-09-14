@@ -1201,6 +1201,36 @@ const playerData = [
             대부분의 전투에서는 전력을 다하지 않지만, 진지해지는 순간 모든 원소 학파의 고위 마법을 연사해 상대를 압도하는 다재다능한 ‘진짜’ 대마법사로 변한다. 제자들이 성장해 에필리아로 떠나면 종종 투덜대며 삐지기도 하고, 성숙하고 아름다운 외모 탓에 기혼으로 오해받지만 실제로는 미혼이다. 언젠가 ‘평생 제자’를 만나는 것이 비밀스러운 꿈. 레벨 165, 히든 클래스 ‘아크메이지’다.
         </p>
         `
+    },
+    {
+        id: 220,
+        name: "지상최강의총잡이",
+        realName: "한가람",
+        guild: "-",
+        type: "DLC",
+        gender: "여성",
+        profileImage: "../assets/images/chara/DLC_Player/profile/Hanbangjwa.webp",
+        gameImage: "../assets/images/chara/DLC_Player/Hanbangjwa.webp",
+        realImage: "../assets/images/chara/DLC_Player/Hanbangjwa_reallife.webp",
+        description: `
+        <p class="player-quote">"다음 타겟. 저기… 갑니다."</p>
+        <ul>
+            <li><strong>이름 :</strong> 지상최강의총잡이 (한가람)</li>
+            <li><strong>커뮤니티 닉네임 :</strong> 한방좌</li>
+            <li><strong>소속 :</strong> 없음</li>
+            <li><strong>성별 :</strong> 여성</li>
+            <li><strong>나이 :</strong> 20세</li>
+            <li><strong>특징 :</strong> 음울함, 어색한 사교성, 인정받고 싶어함, 허약한 멘탈, 천재</li>
+            <li><strong>클래스 :</strong> 아케인 건슬링어(히든클래스)</li>
+            <li><strong>주요 능력 :</strong> 역추진탄(액티브), 작렬탄(액티브), 종언의 세례(시그니처)</li>
+        </ul>
+        <p class="player-narrative-description">
+            에렌샤 최고의 저격수. 음울한 본모습을 어린아이 같은 닉네임 뒤에 숨기고 있다. 스킬만으로는 부족하다는 것을 깨닫고, 인정받고 사랑받기 위해 게임을 하지만, 어색하게 유행어를 따라하며 다른 이들과 소통하려 애쓴다.
+            인정받고 싶다는 욕구로 라이플, 공중기동, 마나 컨트롤의 독특한 숙련도 조합을 터득했고, 이로 인해 히든 퀘스트를 발동시켜 유니크 보스 '팬텀 스펙터'를 물리치고 서버 최초 '아케인 건슬링어'가 되었다.
+            겉으로는 조용하고 음울하지만, 내면으로는 인정받고 좋아받고 싶어하는 마음이 간절하다. 감정 상태가 극도로 불안정하며 타인의 칭찬에 전적으로 의존한다. 파티 플레이 후에는 자신의 사회적 수행을 끊임없이 반추한다.
+            관중들에게 깊은 인상을 주기 위해 순전히 화려함을 위해 설계된 어려운 곡예 기동을 구사하며, 예상치 못한 각도에서 높은 정확도로 공격한다. 레벨 136, 히든 클래스 '아케인 건슬링어'다.
+        </p>
+        `
     }
 ];
 
