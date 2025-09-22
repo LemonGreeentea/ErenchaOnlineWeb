@@ -1147,7 +1147,26 @@ table.simple-table th { background: rgba(255,255,255,0.04); color:#e8f1ff; }
     box-shadow: 0 0 0 3px rgba(77, 184, 255, 0.2);
 }
 
-#player-list-container {
+/* NPC search input — match player-search style */
+#npc-search-input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    background-color: var(--content-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--primary-text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#npc-search-input:focus {
+    border-color: var(--accent-sky-blue);
+    box-shadow: 0 0 0 3px rgba(77, 184, 255, 0.2);
+}
+
+#player-list-container,
+#npc-list-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -1475,6 +1494,21 @@ table.simple-table th { background: rgba(255,255,255,0.04); color:#e8f1ff; }
     border-radius: 8px;
 }
 
+/* NPC 페이지(게임소개) 이미지 최대 높이 제한으로 과도한 확대 방지 */
+body.game-info .player-images img {
+    height: 540px;          /* 고정 높이 박스 안에서 (1.5배) */
+    max-height: 540px;      /* 안전망 */
+        width: 100%;
+        object-fit: contain;    /* 전체 이미지가 보이도록 */
+}
+
+@media (max-width: 640px) {
+    body.game-info .player-images img {
+        height: 280px;
+        max-height: 280px;
+    }
+}
+
 /* DLC 상세 모달 전용 레이아웃 오버라이드 */
 .modal-body .player-images {
         display: grid;
@@ -1646,7 +1680,8 @@ table.simple-table th { background: rgba(255,255,255,0.04); color:#e8f1ff; }
 }
 
 @media (max-width: 768px) {
-    #player-list-container {
+    #player-list-container,
+    #npc-list-container {
         grid-template-columns: 1fr;
     }
     /* 모바일에서는 한 줄 1열이므로 active 카드의 colspan을 1로 고정 */
