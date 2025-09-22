@@ -362,7 +362,8 @@ body.news .sub-hero-banner {
         url('../images/banner/banner_news.webp');
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
+    /* keep gradient centered; nudge image further above center */
+    background-position: center, center 40%;
 }
 
 @media (max-width: 1024px) {
@@ -388,6 +389,19 @@ body.game-info .sub-hero-banner {
         height: 280px;
     background-position: center, center;
     }
+}
+/* My Page (Persona Maker) banner */
+body.my-page .sub-hero-banner {
+    height: 300px;
+    background-image:
+        linear-gradient(rgba(26, 34, 43, 0.5), rgba(26, 34, 43, 0.9)),
+        url('../images/banner/banner_mypage.webp');
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+}
+@media (max-width: 1024px) {
+    body.my-page .sub-hero-banner { height: 240px; }
 }
 .game-info-container { max-width: 900px; margin: 40px auto; padding: 20px 40px; background-color: var(--content-bg); border: 1px solid var(--border-color); border-radius: 10px; color: var(--primary-text); line-height: 1.8; }
 .game-info-container h2 { font-size: 28px; color: var(--accent-sky-blue); margin-top: 50px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
@@ -2378,4 +2392,152 @@ body.game-info .player-images img {
 
 .risum-generate-button.pulse {
     animation: risum-pulse 2s infinite;
+}
+
+/* === Persona Maker (My Page) Styles === */
+.persona-maker-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px 20px;
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr; /* form : preview */
+    gap: 24px;
+    align-items: start;
+}
+
+.persona-maker-container .person-help {
+    grid-column: 1 / -1;
+    margin: 0 0 6px;
+    color: var(--secondary-text);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px 14px;
+}
+
+.persona-form { display: grid; gap: 14px; }
+.persona-form fieldset {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px 14px 12px;
+}
+.persona-form legend { padding: 0 6px; font-weight: 900; color: var(--accent-sky-blue); }
+.persona-form .form-row { margin-top: 10px; display: grid; gap: 8px; }
+.persona-form .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.persona-form label { font-weight: 700; color: var(--primary-text); font-size: 14px; }
+
+.persona-form input[type="text"],
+.persona-form input[type="url"],
+.persona-form select,
+.persona-form textarea {
+    width: 100%;
+    background: #2c3a4a;
+    border: 1px solid var(--border-color);
+    color: var(--primary-text);
+    border-radius: 8px;
+    padding: 10px 12px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+.persona-form textarea { resize: vertical; }
+.persona-form input::placeholder,
+.persona-form textarea::placeholder { color: var(--secondary-text); }
+.persona-form input:focus,
+.persona-form textarea:focus,
+.persona-form select:focus,
+.persona-form input:hover,
+.persona-form textarea:hover,
+.persona-form select:hover {
+    border-color: var(--accent-sky-blue);
+    box-shadow: 0 0 0 3px rgba(77,184,255,0.18);
+}
+
+.persona-form .form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+/* Buttons (alias) */
+.btn {
+    display: inline-block;
+    padding: 10px 14px;
+    background: var(--accent-sky-blue);
+    color: #fff;
+    border: 1px solid var(--accent-sky-blue);
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color .2s, border-color .2s;
+}
+.btn:hover { background: var(--accent-sky-blue-hover); border-color: var(--accent-sky-blue-hover); }
+.btn.secondary { background: transparent; color: var(--primary-text); border-color: var(--border-color); }
+.btn.secondary:hover { border-color: var(--accent-sky-blue); }
+
+.persona-preview {
+    position: sticky;
+    top: 16px;
+    background: var(--content-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+}
+.persona-preview > h2 { font-size: 18px; font-weight: 900; color: var(--accent-sky-blue); margin-bottom: 10px; }
+
+/* Preview header with actions */
+.persona-preview .preview-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.persona-preview .preview-actions { display: flex; gap: 8px; align-items: center; }
+.btn.small { padding: 6px 10px; font-size: 12px; border-radius: 6px; }
+.btn.copied { background: #3bb273; border-color: #3bb273; }
+
+/* Preview card header */
+#preview-card .player-header { display: flex; align-items: center; justify-content: center; }
+#preview-card .player-profile { display: grid; place-items: center; gap: 8px; text-align: center; }
+#preview-card .player-profile img {
+    width: 140px; height: 140px; object-fit: cover;
+    border-radius: 12px; border: 1px solid var(--border-color);
+    background: #0f151c;
+}
+#preview-card .player-profile h3 { font-size: 20px; font-weight: 900; }
+#preview-card .player-profile .player-meta { color: var(--secondary-text); font-size: 14px; }
+
+/* Preview main image */
+#preview-card .player-images { margin-top: 12px; }
+#preview-card #preview-game-image {
+    width: 100%; max-height: 360px; object-fit: contain;
+    border: 1px solid var(--border-color); border-radius: 8px; background: #0f151c;
+}
+
+/* Preview description & traits */
+#preview-card .player-description { margin-top: 12px; }
+.persona-preview .player-quote { margin: 10px 0; }
+.persona-preview #preview-bio { color: var(--primary-text); }
+.persona-preview #preview-traits { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.persona-preview #preview-traits li {
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    font-size: 12px; color: var(--secondary-text);
+}
+
+/* Structured preview */
+.persona-structured { margin-top: 14px; display: grid; gap: 10px; }
+.persona-structured section {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px 14px;
+}
+.persona-structured h3 { font-size: 15px; color: var(--accent-gold); margin-bottom: 8px; }
+.persona-structured ul { list-style: none; padding-left: 0; display: grid; gap: 6px; }
+.persona-structured li strong { color: var(--secondary-text); margin-right: 6px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .persona-maker-container { grid-template-columns: 1fr; gap: 16px; }
+    .persona-preview { position: static; }
+    .persona-form .two-col { grid-template-columns: 1fr; }
 }

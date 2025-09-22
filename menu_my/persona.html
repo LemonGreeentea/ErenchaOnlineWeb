@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마이페이지 - 페르소나 메이커</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body class="my-page">
+  <div class="site-wrap">
+    <header class="main-header"></header>
+    <section class="sub-hero-banner"><h1>페르소나 메이커</h1></section>
+    <main>
+      <div class="persona-maker-container">
+        <p class="person-help">아래 항목을 채우면 당신의 캐릭터 페르소나를 자동으로 생성합니다. 완료 후 미리보기에서 즉시 확인하세요.</p>
+        <form id="persona-form" class="persona-form">
+          <fieldset>
+            <legend>에렌샤 닉네임</legend>
+            <div class="form-row">
+              <label for="nickname">Erencha Nickname</label>
+              <input type="text" id="nickname" name="nickname" placeholder="예: Luna, 지존재현v" required />
+            </div>
+            <div class="form-row two-col">
+              <div>
+                <label for="realName">Real Name</label>
+                <input type="text" id="realName" name="realName" placeholder="예: 김에렌" />
+              </div>
+              <div>
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex">
+                  <option value="">선택</option>
+                  <option value="여성">여성</option>
+                  <option value="남성">남성</option>
+                  <option value="기타">기타/비공개</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="age">Age</label>
+              <input type="text" id="age" name="age" placeholder="예: 21" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Real Appearance</legend>
+            <div class="form-row">
+              <label for="realBody">Body</label>
+              <textarea id="realBody" name="realBody" rows="2" placeholder="현실의 체형/외모"></textarea>
+            </div>
+            <div class="form-row">
+              <label for="realAura">Aura</label>
+              <textarea id="realAura" name="realAura" rows="2" placeholder="현실의 분위기/오라"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Avatar Appearance</legend>
+            <div class="form-row">
+              <label for="avatarBody">Body</label>
+              <textarea id="avatarBody" name="avatarBody" rows="2" placeholder="아바타의 체형/외모"></textarea>
+            </div>
+            <div class="form-row">
+              <label for="avatarOutfit">Outfit</label>
+              <textarea id="avatarOutfit" name="avatarOutfit" rows="2" placeholder="의상"></textarea>
+            </div>
+            <div class="form-row">
+              <label for="avatarAura">Aura</label>
+              <textarea id="avatarAura" name="avatarAura" rows="2" placeholder="아바타의 분위기/오라"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Personality Keywords</legend>
+            <div class="form-row two-col">
+              <input type="text" id="pers1" placeholder="키워드 1" />
+              <input type="text" id="pers2" placeholder="키워드 2" />
+            </div>
+            <div class="form-row two-col">
+              <input type="text" id="pers3" placeholder="키워드 3" />
+              <input type="text" id="pers4" placeholder="키워드 4" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Occupation</legend>
+            <div class="form-row">
+              <input type="text" id="occupation" placeholder="예: 길드마스터, 방랑 요리사" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Speaking Style</legend>
+            <div class="form-row">
+              <input type="text" id="speak1" placeholder="말투/화법 1" />
+            </div>
+            <div class="form-row">
+              <input type="text" id="speak2" placeholder="말투/화법 2" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Equipment</legend>
+            <div class="form-row">
+              <textarea id="equipment" rows="2" placeholder="장비/무기"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Abilities</legend>
+            <div class="form-row">
+              <label for="sigSkill">Signature Skill</label>
+              <input type="text" id="sigSkill" placeholder="대표 스킬" />
+            </div>
+            <div class="form-row">
+              <label for="skills">Skills</label>
+              <textarea id="skills" rows="2" placeholder="주요 스킬들"></textarea>
+            </div>
+            <div class="form-row">
+              <label for="combatStyle">Combat Style</label>
+              <textarea id="combatStyle" rows="2" placeholder="전투 스타일"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Description</legend>
+            <div class="form-row"><input type="text" id="desc1" placeholder="소개 1" /></div>
+            <div class="form-row"><input type="text" id="desc2" placeholder="소개 2" /></div>
+            <div class="form-row"><input type="text" id="desc3" placeholder="소개 3" /></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Trivia</legend>
+            <div class="form-row"><input type="text" id="triv1" placeholder="트리비아 1" /></div>
+            <div class="form-row"><input type="text" id="triv2" placeholder="트리비아 2" /></div>
+            <div class="form-row"><input type="text" id="triv3" placeholder="트리비아 3" /></div>
+            <div class="form-row two-col">
+              <div>
+                <label for="level">Level</label>
+                <input type="text" id="level" placeholder="예: 120" />
+              </div>
+              <div>
+                <label for="className">Class</label>
+                <input type="text" id="className" placeholder="예: 아케인 블레이드" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Quotes</legend>
+            <div class="form-row"><input type="text" id="quote1" placeholder="대사 1" /></div>
+            <div class="form-row"><input type="text" id="quote2" placeholder="대사 2" /></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>이미지 URL (선택)</legend>
+            <div class="form-row two-col">
+              <div>
+                <label for="profileImage">프로필 이미지 URL</label>
+                <input type="url" id="profileImage" name="profileImage" placeholder="https://.../profile.webp" />
+              </div>
+              <div>
+                <label for="gameImage">게임 이미지 URL</label>
+                <input type="url" id="gameImage" name="gameImage" placeholder="https://.../avatar.webp" />
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="button" id="btn-generate" class="btn">미리보기 생성</button>
+            <button type="reset" class="btn secondary">초기화</button>
+          </div>
+        </form>
+
+        <div class="persona-preview" id="persona-preview">
+          <div class="preview-header">
+            <h2>미리보기</h2>
+            <div class="preview-actions">
+              <button type="button" id="btn-copy-md" class="btn small" title="마크다운 형식으로 전체 복사">전체 복사</button>
+            </div>
+          </div>
+          <div id="preview-card" class="player-card preview">
+            <div class="player-header">
+              <div class="player-profile">
+                <img id="preview-profile" src="" alt="프로필 이미지" />
+                <h3 id="preview-nickname">Erencha Nickname</h3>
+                <div class="player-meta" id="preview-meta">Sex ・ Age ・ Class</div>
+              </div>
+            </div>
+            <div class="player-images">
+              <img id="preview-game-image" src="" alt="게임 이미지" />
+            </div>
+            <div class="player-description">
+              <p class="player-quote" id="preview-quote">대표 문구(Quotes 1)가 여기에 표시됩니다.</p>
+              <p id="preview-bio">소개(Description) 중 첫 항목이 여기에 표시됩니다.</p>
+              <ul id="preview-traits" class="traits"></ul>
+            </div>
+          </div>
+
+          <div id="persona-structured" class="persona-structured"></div>
+        </div>
+      </div>
+    </main>
+    <footer class="main-footer"></footer>
+  </div>
+
+  <script src="../assets/js/layout.js"></script>
+  <script src="../assets/js/my/persona.js"></script>
+</body>
+</html>

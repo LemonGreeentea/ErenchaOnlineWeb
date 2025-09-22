@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const isSubPage = path.includes('/menu_news/') || 
                       path.includes('/menu_game-info/') || 
                       path.includes('/menu_community/') ||
-                      path.includes('/menu_dlc/');
+                      path.includes('/menu_dlc/') ||
+                      path.includes('/menu_my/');
     const prefix = isSubPage ? '../' : './';
 
     // 헤더 로드
